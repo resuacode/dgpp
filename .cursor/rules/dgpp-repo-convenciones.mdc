@@ -1,0 +1,12 @@
+---
+description: Convenciones de repositorio para cambios en DGPP
+alwaysApply: true
+---
+
+# Convenciones de repositorio
+
+- No borrar ni alterar `prev/` sin peticion explicita.
+- Usar nombres de archivo en minusculas y guiones, sin espacios ni acentos.
+- Preferir cambios minimos y trazables.
+- Mantener el proyecto compatible con GitHub Pages.
+- Evitar dependencias nuevas salvo necesidad justificada.
