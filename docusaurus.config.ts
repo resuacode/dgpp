@@ -66,14 +66,57 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'guiaSidebar',
           position: 'left',
-          label: 'Material',
+          label: 'Guia docente',
         },
         {
-          to: '/docs/guia-docente',
-          label: 'Guia docente',
+          type: 'docSidebar',
+          sidebarId: 'tema01Sidebar',
           position: 'left',
+          label: 'Tema 1',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tema02Sidebar',
+          position: 'left',
+          label: 'Tema 2',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tema03Sidebar',
+          position: 'left',
+          label: 'Tema 3',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tema04Sidebar',
+          position: 'left',
+          label: 'Tema 4',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tema05Sidebar',
+          position: 'left',
+          label: 'Tema 5',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tema06Sidebar',
+          position: 'left',
+          label: 'Tema 6',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tema07Sidebar',
+          position: 'left',
+          label: 'Tema 7',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'tema08Sidebar',
+          position: 'left',
+          label: 'Tema 8',
         },
         {
           href: 'https://github.com/resuacode/dgpp',
@@ -89,8 +132,8 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Introduccion',
-              to: '/docs/introduccion',
+              label: 'Guia docente',
+              to: '/docs/guia-docente',
             },
           ],
         },
@@ -98,12 +141,12 @@ const config: Config = {
           title: 'Modulo',
           items: [
             {
-              label: 'Tema 1: Diseno y preproduccion',
-              to: '/docs/tema-01-diseno-y-preproduccion',
+              label: 'Tema 1',
+              to: '/docs/tema-01-introducion-industria',
             },
             {
-              label: 'Tema 4: Produccion y pipeline',
-              to: '/docs/tema-04-produccion-y-pipeline',
+              label: 'Tema 8',
+              to: '/docs/tema-08-portfolio-lanzamento-multimedia',
             },
           ],
         },

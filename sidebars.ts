@@ -13,32 +13,52 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
  Create as many sidebars as you want.
  */
 const sidebars: SidebarsConfig = {
-  tutorialSidebar: [
+  guiaSidebar: [
     'introduccion',
     'guia-docente',
-    {
-      type: 'category',
-      label: 'Bloque 1 - Diseno y planificacion',
-      items: ['tema-01-diseno-y-preproduccion'],
-    },
-    {
-      type: 'category',
-      label: 'Bloque 2 - Gestion',
-      items: ['tema-02-gestion-de-proyecto'],
-    },
-    {
-      type: 'category',
-      label: 'Bloque 3 - Publicacion',
-      items: ['tema-03-publicacion-y-marketing'],
-    },
-    {
-      type: 'category',
-      label: 'Bloque 4 - Produccion',
-      items: ['tema-04-produccion-y-pipeline'],
-    },
+    'gdd-transversal',
     'recursos',
     'guia-estilo-contenido',
-    'plantilla-tema',
+  ],
+  tema01Sidebar: [
+    'tema-01-introduccion-industria',
+    'tema-01-fundamentos-industria',
+    'tema-01-aplicacion-proyecto-2d',
+  ],
+  tema02Sidebar: [
+    'tema-02-game-design-fundacional',
+    'tema-02-gdd-e-core-loop',
+    'tema-02-balanceo-y-economia',
+  ],
+  tema03Sidebar: [
+    'tema-03-metodologias-agiles-produccion',
+    'tema-03-rol-productor-y-planificacion',
+    'tema-03-vertical-slice-2d',
+  ],
+  tema04Sidebar: [
+    'tema-04-qa-ux-playtesting',
+    'tema-04-test-cases-e-feedback',
+    'tema-04-informe-iteracion-hito-1',
+  ],
+  tema05Sidebar: [
+    'tema-05-escalado-3d-y-vr',
+    'tema-05-level-design-e-editor-scripting',
+    'tema-05-aplicacion-proyecto-3d-y-vr',
+  ],
+  tema06Sidebar: [
+    'tema-06-modelos-negocio-monetizacion',
+    'tema-06-diseno-etico-y-patrones-oscuros',
+    'tema-06-plan-negocio-avanzado',
+  ],
+  tema07Sidebar: [
+    'tema-07-distribucion-marketing-marco-legal',
+    'tema-07-propiedad-intelectual-y-pegi',
+    'tema-07-press-kit-y-campana-lanzamiento',
+  ],
+  tema08Sidebar: [
+    'tema-08-portafolio-lanzamiento-multimedia',
+    'tema-08-captura-edicion-e-trailer',
+    'tema-08-pitching-playtesting-2-y-defensa',
   ],
 };
 
