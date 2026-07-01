@@ -11,6 +11,10 @@ applyTo: docs/**/*.mdx
 - Las actividades deben describir entregable o evidencia.
 - La evaluacion debe incluir criterios concretos y verificables.
 - Mantener foco en contexto profesional de videojuegos.
+- Incluir al final de cada documento la seccion `## Fuentes y referencias`.
+- Citar un minimo de 3 fuentes de calidad por documento cuando haya desarrollo teorico.
+- Priorizar documentacion oficial, libros tecnicos reconocidos, estandares, papers y reportes sectoriales con autoria verificable.
+- Cada referencia debe indicar: titulo, entidad/autoria, enlace y fecha de consulta.
 
 ## Formato
 

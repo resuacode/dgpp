@@ -11,4 +11,9 @@ alwaysApply: false
 - Definir actividades con evidencia esperada.
 - Definir evaluacion con criterios verificables.
 - Usar ejemplos relacionados con desarrollo de videojuegos.
-- Mantener consistencia con `docs/guia-docente.mdx` y `docs/guia-estilo-contenido.mdx`.
+- Mantener consistencia con `docs/guia/guia-docente.mdx` y `docs/guia/guia-estilo-contenido.mdx`.
+- Terminar cada documento con la seccion `## Fuentes y referencias`.
+- Priorizar fuentes primarias y verificables: documentacion oficial, libros tecnicos reconocidos, estandares y articulos academicos.
+- Evitar referencias sin autoria clara o de baja calidad.
+- En cada referencia, incluir nombre de la fuente, enlace y fecha de consulta.
+- En documentos teoricos extensos, incluir al menos 3 referencias de calidad.

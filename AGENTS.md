@@ -14,6 +14,11 @@ Estas instrucciones aplican para agentes usados desde Copilot, Cursor u otras he
 - Proponer actividades con entregables claros.
 - No modificar contenidos heredados en `prev/` salvo indicacion explicita.
 - Mantener convenciones de nombres de archivos (minusculas, guiones, sin acentos).
+- Incluir al final de cada documento una seccion `Fuentes y referencias`.
+- Citar fuentes de calidad (documentacion oficial, libros, papers, estandares e informes sectoriales reputados).
+- Incluir titulo de la fuente, URL y fecha de consulta en cada referencia.
+- En desarrollo teorico, incluir al menos 3 referencias verificables.
+- Evitar blogs sin autoria, contenido promocional o fuentes sin trazabilidad.
 
 ## Calidad minima
 

@@ -16,6 +16,12 @@ Este repositorio contiene material docente del modulo Diseno, Gestion, Publicaci
 - Mantener estructura por tema: Objetivos, Contenidos, Actividades, Evaluacion, Recursos.
 - Proponer ejemplos aplicados a desarrollo de videojuegos.
 - Incluir criterios evaluables y evidencias esperadas en actividades.
+- Incluir al final de cada documento una seccion `## Fuentes y referencias`.
+- Citar fuentes de calidad: documentacion oficial, libros de editoriales reconocidas, papers, estandares o informes sectoriales reputados.
+- Evitar fuentes de baja calidad o sin autoria verificable.
+- Cuando se incluyan URL, anadir titulo del recurso y fecha de consulta.
+- En contenidos teoricos amplios, incluir un minimo de 3 referencias.
+- Priorizar en este orden: documentacion oficial > estandares/papers > libros tecnicos > informes sectoriales.
 
 ## Reglas tecnicas
 

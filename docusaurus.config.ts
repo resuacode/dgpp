@@ -142,11 +142,11 @@ const config: Config = {
           items: [
             {
               label: 'Tema 1',
-              to: '/docs/tema-01-introduccion-industria',
+              to: '/docs/tema-01/tema-01-introduccion-industria',
             },
             {
               label: 'Tema 8',
-              to: '/docs/tema-08-portfolio-lanzamiento-multimedia',
+              to: '/docs/tema-08/tema-08-portfolio-lanzamiento-multimedia',
             },
           ],
         },
