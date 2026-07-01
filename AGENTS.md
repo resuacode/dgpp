@@ -9,7 +9,7 @@ Estas instrucciones aplican para agentes usados desde Copilot, Cursor u otras he
 
 ## Reglas de trabajo
 
-- Responder y redactar en espanol.
+- Responder y redactar en español.
 - Mantener estructura didactica por tema: Objetivos, Contenidos, Actividades, Evaluacion, Recursos.
 - Proponer actividades con entregables claros.
 - No modificar contenidos heredados en `prev/` salvo indicacion explicita.

@@ -8,9 +8,9 @@ const siteUrl = process.env.SITE_URL ?? 'https://resuacode.es';
 const siteBaseUrl = process.env.BASE_URL ?? '/dgpp/';
 
 const config: Config = {
-  title: 'DGPP | Material docente',
+  title: 'DGPP',
   tagline:
-    'Diseno, gestion, publicacion y produccion de videojuegos - Curso de Especializacion FP',
+    'Diseño, gestion, publicación y producción de videojuegos - Curso de Especialización FP',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future

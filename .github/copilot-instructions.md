@@ -6,7 +6,7 @@ Este repositorio contiene material docente del modulo Diseno, Gestion, Publicaci
 
 ## Idioma y tono
 
-- Responder y redactar en espanol.
+- Responder y redactar en español.
 - Mantener tono docente, claro y orientado a aprendizaje practico.
 - Evitar relleno y frases ambiguas.
 
