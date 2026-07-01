@@ -56,7 +56,7 @@ const sidebars: SidebarsConfig = {
     'tema-07-press-kit-y-campana-lanzamiento',
   ],
   tema08Sidebar: [
-    'tema-08-portafolio-lanzamiento-multimedia',
+    'tema-08-portfolio-lanzamiento-multimedia',
     'tema-08-captura-edicion-e-trailer',
     'tema-08-pitching-playtesting-2-y-defensa',
   ],
