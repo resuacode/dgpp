@@ -6,6 +6,7 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
+    "generate-pdfs": "node scripts/generate-pdfs.mjs",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -30,6 +31,8 @@
     "@docusaurus/tsconfig": "3.10.1",
     "@docusaurus/types": "3.10.1",
     "@types/react": "^19.0.0",
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^24.43.1",
     "typescript": "~6.0.2"
   },
   "browserslist": {

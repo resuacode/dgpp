@@ -37,6 +37,11 @@ jobs:
       - name: Build website
         run: npm run build
 
+      # Genera un PDF por tema (solo contenido visible) dentro de build/pdf/,
+      # imprimiendo el sitio ya construido con un navegador headless.
+      - name: Generate theme PDFs
+        run: npm run generate-pdfs
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
