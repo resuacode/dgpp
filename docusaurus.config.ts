@@ -61,7 +61,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/resuacode/dgpp/tree/master/',
         },
         blog: false,
         theme: {
