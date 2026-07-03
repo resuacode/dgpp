@@ -1,0 +1,124 @@
+---
+title: "[Profesorado] Guia del Tema 4"
+draft: true
+---
+
+# Guía del profesorado — Tema 4: QA, UX y playtesting
+
+> **Documento interno.** El prefijo `_` hace que Docusaurus excluya este archivo del sitio
+> publicado: no aparece en la web ni en el sidebar. Uso exclusivo del equipo docente.
+
+## 1. Propósito del tema
+
+Es el tema donde el proyecto **aprende de los jugadores**. El objetivo no es encontrar bugs
+(eso también), sino que el alumnado internalice el ciclo **probar → medir → priorizar →
+iterar**. El informe de iteración y la preparación para la Game Jam I son las entregas
+centrales.
+
+Riesgo principal: *playtests* que son demostraciones del equipo a compañeros que ya conocen
+el juego, o informes que listan quejas sin priorizar acciones. El equilibrio es **jugadores
+externos al equipo + datos + decisiones**.
+
+## 2. Encaje temporal (orientativo)
+
+Estimación para **4–5 sesiones de ~50 min** + una sesión dedicada de *playtesting*:
+
+| Sesión | Contenido | Documento |
+| --- | --- | --- |
+| 1 | QA vs UX vs playtesting + diseño de sesión | `tema-04-qa-ux-playtesting` |
+| 2 | Test cases + formularios de feedback | `tema-04-test-cases-e-feedback` |
+| 3 | **Sesión de playtesting en aula** (práctica) | `tema-04-test-cases-e-feedback` |
+| 4 | Informe de iteración + priorización | `tema-04-informe-iteracion-hito-1` |
+| 5 | Preparación Game Jam I + revisión de backlogs | `tema-04-informe-iteracion-hito-1` |
+
+> La sesión 3 es la más valiosa: reservar al menos 50 minutos y organizar rotación de
+> jugadores entre equipos.
+
+## 3. Secuencia didáctica sugerida
+
+1. **Gancho (10 min)**: reproducir un vídeo de *playtest* real (GDC, devlog) y preguntar qué
+   datos se recogieron y qué cambió el equipo después.
+2. **Diseño de test case en grupo (15 min)**: redactar juntos 3 test cases (uno QA, uno UX,
+   uno playtesting) para un juego de ejemplo.
+3. ***Playtesting* cruzado (40–50 min)**: cada equipo prueba el juego de otro equipo siguiendo
+   el protocolo; rotar para que cada juego tenga al menos 3 testers.
+4. **Taller de informe (25 min)**: con datos reales de la sesión anterior, redactar el
+   resumen ejecutivo y priorizar 3 acciones.
+
+## 4. Ideas para actividades de aula y entregas
+
+### Actividades en clase (formativas)
+
+- **"Pregunta trampa" (10 min)**: mostrar preguntas sesgadas vs. neutras en formularios;
+  el alumnado identifica cuáles invalidan los datos.
+- ***Playtesting* silencioso (20 min)**: un jugador juega mientras el resto solo observa y
+  anota; luego comparan observaciones. Enseña la diferencia entre percepción y dato.
+- **Matriz impacto/esfuerzo en vivo (15 min)**: con 8 hallazgos ficticios, priorizar en grupo
+  y debatir discrepancias.
+- **Game Jam I — ensayo de presentación (15 min)**: cada equipo presenta en 2 min qué cambió
+  tras el informe.
+
+### Entregas evaluables (propuestas y peso orientativo)
+
+| Entrega | Descripción | Peso sugerido | Formato |
+| --- | --- | --- | --- |
+| Banco de test cases | 10+ casos QA/UX/playtesting | 20 % | Documento o tabla |
+| Formulario de feedback | Instrumento de recogida | 10 % | Formulario |
+| Sesión de playtesting | 3–5 usuarios, datos documentados | 25 % | Test cases + notas |
+| **Informe de iteración** | Síntesis + plan de acción | 30 % | Sección del GDD |
+| Backlog de correcciones | Tareas priorizadas | 15 % | Tablero Kanban |
+
+> El **informe de iteración** es la entrega de mayor valor pedagógico: demuestra que el
+> equipo sabe convertir datos en decisiones.
+
+### Extensiones para alumnado avanzado
+
+- Grabar sesiones (con consentimiento) y analizar *heatmaps* de atención o puntos de muerte.
+- Comparar resultados de dos builds consecutivas (antes/después de una corrección).
+
+## 5. Errores frecuentes del alumnado (y cómo intervenir)
+
+- **Probar solo con el propio equipo.** → Exigir testers externos; organizar *playtesting*
+  cruzado en clase.
+- **Preguntas que sesgan** ("¿no es genial el salto?"). → Revisar formularios antes de la
+  sesión; usar plantilla del módulo.
+- **Informe = lista de quejas.** → Exigir matriz impacto/esfuerzo y máximo 5 acciones
+  prioritarias.
+- **Corregir todo sin priorizar.** → Recordar el alcance de la Game Jam I; menos es más.
+- **Confundir bug con diseño.** → Distinguir en el informe: QA (arreglar) vs. diseño (decidir).
+
+## 6. Materiales a preparar
+
+- Plantilla de test case y de formulario de *feedback*.
+- Plantilla de informe de iteración.
+- Organización de la sesión de *playtesting* cruzado (asignación de equipos, tiempos).
+- Rúbrica de la Game Jam I (criterios de evaluación del hito).
+- Consentimiento informado si se graban sesiones (adaptar al centro).
+
+## 7. Notas de evaluación
+
+- Evaluar la **calidad del proceso**, no solo si el juego "mejoró": un informe excelente con
+  un juego aún imperfecto es válido.
+- Los test cases deben ser **reproducibles** por otra persona.
+- Penalizar informes sin evidencias (citas, métricas, referencias a TC-XXX).
+- La Game Jam I evalúa mejora **respecto a la vertical slice**, no perfección absoluta.
+
+## 8. Atención a la diversidad e inclusión
+
+- Aceptar jugadores con distintos niveles de experiencia (refleja mejor el público real).
+- No forzar a jugar en público quien no quiera; ofrecer prueba individual con observador.
+- Formularios accesibles (tamaño de letra, lenguaje claro).
+
+## 9. Conexión con otros temas
+
+- **Tema 3**: la vertical slice es lo que se prueba; el backlog recibe las correcciones.
+- **Tema 2**: el balanceo se valida con datos de *playtesting*.
+- **Tema 5**: tras la Game Jam I, el proyecto escala a 3D/VR con lecciones aprendidas.
+
+## 10. Fuentes de apoyo para el docente
+
+- Fullerton, T. (2019). *Game Design Workshop* (4.ª ed.). CRC Press.
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Medler, B. (2011). *Generating Game-Tuning Reports for Game User Research*. DiGRA 2011.
+  https://www.digra.org/ (consultado el 3 de julio de 2026).
+- GDC Vault. Charlas sobre *playtesting* y *game user research* (búsqueda: "playtest").

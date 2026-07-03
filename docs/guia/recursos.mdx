@@ -6,27 +6,99 @@ slug: /recursos
 
 # Recursos
 
-## Plantillas del modulo
+Repositorio central de plantillas, referencias y materiales de apoyo para el módulo. Los
+recursos están organizados por función y enlazados con el tema donde se usan.
 
-- Plantilla de GDD.
-- Plantilla de backlog y roadmap.
-- Plantilla de press kit.
-- Checklist de publicacion.
+## Plantillas del módulo
 
-## Referencias tecnicas
+Estructuras reutilizables en Markdown o CSV. **Descarga el archivo**, cópialo al repositorio del
+proyecto y renómbralo si hace falta (por ejemplo, `licenses.md` → `LICENSES.md` en la raíz del
+repo).
 
-- Documentacion oficial de herramientas del itinerario.
-- Repositorios de ejemplo para estructura de proyectos.
-- Guias de CI/CD para proyectos de videojuegos.
+:::tip Descarga rapida
+Tambien puedes descargar el [indice de plantillas](pathname:///plantillas/readme.md) con la lista completa
+de archivos.
+:::
+
+| Descargar | Para qué sirve | Tema |
+| --- | --- | --- |
+| [analisis-mercado-player-persona.md](pathname:///plantillas/analisis-mercado-player-persona.md) | Definir público y plataforma | [Tema 1](../tema-01/tema-01-aplicacion-proyecto-2d.mdx) |
+| [plantilla-gdd.md](pathname:///plantillas/plantilla-gdd.md) | Documento central del proyecto | [GDD transversal](./gdd-transversal.mdx) |
+| [one-page-design.md](pathname:///plantillas/one-page-design.md) | Concepto en una página | [Tema 2.1](../tema-02/tema-02-gdd-e-core-loop.mdx) |
+| [hoja-de-balanceo.csv](pathname:///plantillas/hoja-de-balanceo.csv) | Variables y economía interna | [Tema 2.2](../tema-02/tema-02-balanceo-y-economia.mdx) |
+| [backlog-roadmap.md](pathname:///plantillas/backlog-roadmap.md) | Priorización y planificación | [Tema 3](../tema-03/tema-03-metodologias-agiles-produccion.mdx) |
+| [matriz-riesgos.md](pathname:///plantillas/matriz-riesgos.md) | Anticipar bloqueos | [Tema 3.1](../tema-03/tema-03-rol-productor-y-planificacion.mdx) |
+| [readme-proyecto.md](pathname:///plantillas/readme-proyecto.md) | Instrucciones de build y ejecución | [Tema 3.2](../tema-03/tema-03-vertical-slice-2d.mdx) |
+| [test-cases-feedback.md](pathname:///plantillas/test-cases-feedback.md) | Pruebas reproducibles | [Tema 4.1](../tema-04/tema-04-test-cases-e-feedback.mdx) |
+| [informe-iteracion.md](pathname:///plantillas/informe-iteracion.md) | Síntesis de playtesting | [Tema 4.2](../tema-04/tema-04-informe-iteracion-hito-1.mdx) |
+| [plan-negocio.md](pathname:///plantillas/plan-negocio.md) | Costes, ingresos y escenarios | [Tema 6.2](../tema-06/tema-06-plan-negocio-avanzado.mdx) |
+| [licenses.md](pathname:///plantillas/licenses.md) | Trazabilidad legal de assets | [Tema 7.1](../tema-07/tema-07-propiedad-intelectual-y-pegi.mdx) |
+| [press-kit.md](pathname:///plantillas/press-kit.md) | Materiales para prensa | [Tema 7.2](../tema-07/tema-07-press-kit-y-campana-lanzamiento.mdx) |
+| [guion-trailer.md](pathname:///plantillas/guion-trailer.md) | Planificar la pieza promocional | [Tema 8.1](../tema-08/tema-08-captura-edicion-e-trailer.mdx) |
+| [pitch-deck.md](pathname:///plantillas/pitch-deck.md) | Presentación de la defensa | [Tema 8.2](../tema-08/tema-08-pitching-playtesting-2-y-defensa.mdx) |
+| [checklist-publicacion.md](pathname:///plantillas/checklist-publicacion.md) | Verificar la entrega por plataforma | [Tema 7](../tema-07/tema-07-distribucion-marketing-marco-legal.mdx) |
+
+## Herramientas recomendadas
+
+Sugerencias por función. No son obligatorias: el equipo elige según el itinerario y su
+experiencia, pero debe justificar la elección.
+
+| Función | Opciones habituales |
+| --- | --- |
+| Motor de juego | Unity, Unreal Engine, Godot (según itinerario) |
+| Control de versiones | Git + GitHub / GitLab |
+| Gestión ágil | Trello, GitHub Projects, Jira, Notion |
+| Documentación | Markdown/MDX, Google Docs, Notion |
+| Diagramas | draw.io, Excalidraw, Figma |
+| Hojas de cálculo | Google Sheets, LibreOffice Calc, Excel |
+| Captura de gameplay | OBS Studio, captura del motor, ShadowPlay |
+| Edición de vídeo | DaVinci Resolve, Shotcut, CapCut |
+| Audio y música con licencia | Bibliotecas del motor, Freesound (CC), Artlist |
+
+:::tip Herramientas para diseñadores dentro del motor
+Más allá de las herramientas externas, el módulo trata la creación de **herramientas de
+producción propias** (editor scripting) para que diseñadores no programadores trabajen dentro
+del motor. Se desarrolla en el
+[Tema 5.1 — Level design y editor scripting](../tema-05/tema-05-level-design-e-editor-scripting.mdx).
+:::
+
+## Referencias técnicas
+
+- Documentación oficial del motor del itinerario (manual, API, scripting del editor).
+- Repositorios de ejemplo con estructura de proyectos de videojuego.
+- Guías de CI/CD para automatizar builds (GitHub Actions).
+- [Scrum Guide](https://scrumguides.org/) y [Manifiesto Ágil](https://agilemanifesto.org/).
 
 ## Referencias de industria
 
-- Postmortems de proyectos publicados.
-- Casos de estudio de marketing de videojuegos.
-- Lecturas sobre produccion y organizacion de equipos.
+- Informes de mercado: [AEVI](https://aevi.org.es/) y
+  [Video Games Europe](https://www.videogameseurope.eu/).
+- *Postmortems* de proyectos publicados (Game Developer, GDC Vault).
+- Casos de estudio de marketing y lanzamiento indie.
+- Recursos de clasificación: [PEGI](https://pegi.info/) y [ESRB](https://www.esrb.org/).
+
+## Bibliografía base del módulo
+
+Obras citadas de forma recurrente en los temas:
+
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Fullerton, T. (2019). *Game Design Workshop* (4.ª ed.). CRC Press.
+- Adams, E. (2014). *Fundamentals of Game Design* (3.ª ed.). New Riders.
+- Schreiber, I. & Romero, B. (2021). *Game Balance*. CRC Press.
+- Keith, M. (2010). *Agile Game Development with Scrum*. Addison-Wesley.
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
 
 ## Banco de actividades
 
-- Mini ejercicios por tema.
-- Retos de consolidacion.
-- Propuestas de ampliacion para alumnado avanzado.
+- **Mini ejercicios por tema**: actividades cortas de aula (ver guías internas de cada tema).
+- **Retos de consolidación**: tareas que integran varios temas.
+- **Propuestas de ampliación** para alumnado avanzado (CI/CD, VR, localización, analítica).
+
+## Fuentes y referencias
+
+- AEVI. *La industria del videojuego en España — Anuario 2024*. URL: https://aevi.org.es/
+  (consultado el 3 de julio de 2026).
+- Video Games Europe & EGDF. *2024 All About Video Games — European Key Facts*. URL:
+  https://www.videogameseurope.eu/ (consultado el 3 de julio de 2026).
+- Schwaber, K. & Sutherland, J. (2020). *The Scrum Guide*. URL: https://scrumguides.org/
+  (consultado el 3 de julio de 2026).

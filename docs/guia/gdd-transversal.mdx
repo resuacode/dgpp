@@ -1,31 +1,149 @@
 ---
 title: GDD transversal - estructura obligatoria
+sidebar_label: GDD transversal
 ---
+
+# GDD transversal — estructura obligatoria
+
+El **GDD (*Game Design Document*)** es el documento vivo que acompaña al proyecto durante todo
+el módulo. No se escribe de una vez: **crece tema a tema**. Esta guía define la estructura
+obligatoria común a todos los equipos, para que la evaluación sea homogénea y el documento
+sirva realmente como herramienta de producción.
+
+:::info Documento vivo, no memoria final
+El GDD se versiona (v0.1, v0.2…) y refleja las decisiones tomadas en cada fase. Se evalúa su
+**evolución**, no solo la versión entregada al final. Ver principios en el
+[Tema 2.1](../tema-02/tema-02-gdd-e-core-loop.mdx).
+:::
 
 ## Objetivos
 
-- Unificar la estructura del GDD para todo el modulo.
+- Unificar la estructura del GDD para todo el módulo.
+- Conectar cada sección con el tema y el entregable que la alimenta.
+- Facilitar la revisión cruzada entre equipos y la evaluación final.
+- Servir de checklist de cobertura para la defensa del [Tema 8](../tema-08/tema-08-pitching-playtesting-2-y-defensa.mdx).
 
-## Contenidos
+## Estructura obligatoria del GDD
 
-- Ficha tecnica y executive summary.
-- MDA framework y core loop.
-- Level and art design por fases 2D y 3D.
-- Arquitectura tecnica y herramientas.
-- Especificacion VR/AR en la fase 2.
-- Plan de produccion agil y historial de versiones.
-- Informe de playtesting.
-- Plan de negocio, PEGI y publicacion.
+Cada sección indica **en qué tema se desarrolla** para que el equipo sepa cuándo completarla.
+
+### 1. Ficha técnica y executive summary
+
+- Nombre del juego, género, plataforma, público objetivo, clasificación PEGI prevista.
+- *High concept* (1–3 frases) y *x-features* (3–5 diferenciadores).
+- Estado actual y versión del documento.
+- **Se alimenta de:** [Tema 1](../tema-01/tema-01-aplicacion-proyecto-2d.mdx) (público/plataforma)
+  y [Tema 2](../tema-02/tema-02-game-design-fundacional.mdx) (concepto).
+
+### 2. Diseño de juego: MDA y core loop
+
+- Estética objetivo (qué debe sentir el jugador) según el marco MDA.
+- Core loop principal y loops secundarios (diagrama).
+- Mecánicas primarias justificadas.
+- **Se alimenta de:** [Tema 2.1](../tema-02/tema-02-gdd-e-core-loop.mdx).
+
+### 3. Balanceo y economía interna
+
+- Curvas de dificultad y canal de *flow*.
+- Fuentes, sumideros y recursos.
+- Tabla de variables clave (enlace a hoja de balanceo).
+- **Se alimenta de:** [Tema 2.2](../tema-02/tema-02-balanceo-y-economia.mdx).
+
+### 4. Level design y art design (fases 2D y 3D)
+
+- Paper maps, blockouts y flujo de niveles.
+- Dirección artística y referencias.
+- **Se alimenta de:** [Tema 3.2](../tema-03/tema-03-vertical-slice-2d.mdx) (2D) y
+  [Tema 5](../tema-05/tema-05-escalado-3d-y-vr.mdx) (3D/VR).
+
+### 5. Arquitectura técnica y herramientas
+
+- Motor y versión, plugins, dependencias.
+- Convenciones de assets (escala, nomenclatura).
+- **Herramientas de producción propias** (editor scripting para el equipo de diseño).
+- **Se alimenta de:** [Tema 5.1](../tema-05/tema-05-level-design-e-editor-scripting.mdx).
+
+### 6. Especificación VR/AR (fase 2)
+
+- Modo de interacción, locomoción y confort.
+- Requisitos de hardware y ergonomía.
+- **Se alimenta de:** [Tema 5.2](../tema-05/tema-05-aplicacion-proyecto-3d-y-vr.mdx).
+
+### 7. Plan de producción ágil e historial de versiones
+
+- Backlog priorizado y tablero Kanban.
+- Matriz de riesgos y mitigaciones.
+- Historial de versiones del GDD y del build.
+- **Se alimenta de:** [Tema 3](../tema-03/tema-03-metodologias-agiles-produccion.mdx).
+
+### 8. Informe de playtesting
+
+- Resultados de las sesiones (QA, UX, diseño).
+- Plan de acción priorizado (matriz impacto/esfuerzo).
+- Cierre de iteraciones (Game Jam I y playtesting II).
+- **Se alimenta de:** [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx) y
+  [Tema 8.2](../tema-08/tema-08-pitching-playtesting-2-y-defensa.mdx).
+
+### 9. Plan de negocio, PEGI y publicación
+
+- Modelo de monetización y compromisos éticos.
+- Mini plan financiero y escenarios.
+- Registro de licencias y clasificación PEGI.
+- Plan de lanzamiento y *press kit*.
+- **Se alimenta de:** [Tema 6](../tema-06/tema-06-modelos-negocio-monetizacion.mdx) y
+  [Tema 7](../tema-07/tema-07-distribucion-marketing-marco-legal.mdx).
+
+## Mapa sección ↔ tema (resumen)
+
+| Sección del GDD | Tema que la desarrolla |
+| --- | --- |
+| Ficha técnica y concepto | Temas 1 y 2 |
+| MDA y core loop | Tema 2.1 |
+| Balanceo y economía | Tema 2.2 |
+| Level y art design 2D/3D | Temas 3.2 y 5 |
+| Arquitectura y herramientas | Tema 5.1 |
+| Especificación VR/AR | Tema 5.2 |
+| Producción ágil y versiones | Tema 3 |
+| Informe de playtesting | Temas 4 y 8.2 |
+| Negocio, PEGI y publicación | Temas 6 y 7 |
+
+## Convenciones del documento
+
+- **Versionado**: `v0.1`, `v0.2`… con fecha y resumen de cambios al inicio.
+- **Conciso y visual**: diagramas, tablas y *mockups* antes que muros de texto.
+- **Accionable**: cada sección debe permitir construir algo.
+- **Trazable**: enlazar tareas del backlog, commits e informes.
+- **Entrega final**: exportación en PDF, más el documento vivo en el repositorio.
 
 ## Actividades
 
-1. Checklist de cobertura del GDD final.
-2. Revision cruzada entre equipos.
+1. **Checklist de cobertura del GDD final**
+   - Verifica que las 9 secciones están presentes y actualizadas a la versión de entrega.
+   - *Evidencia*: checklist marcado en el propio GDD.
+2. **Revisión cruzada entre equipos**
+   - Cada equipo revisa el GDD de otro con el mapa sección ↔ tema y anota huecos.
+   - *Evidencia*: informe breve de revisión con 3 fortalezas y 3 mejoras.
 
-## Evaluacion
+## Evaluación
 
-- Presencia y calidad de todos los apartados obligatorios.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Cobertura de secciones | Faltan secciones obligatorias | Todas presentes | Completas y actualizadas |
+| Documento vivo | Sin versionado | Versionado básico | Historial claro de evolución |
+| Coherencia | Secciones desconectadas | Coherentes entre sí | Trazabilidad total (tareas, commits) |
+| Utilidad | Solo texto descriptivo | Accionable | Sirve como herramienta real de producción |
 
 ## Recursos
 
-- Modelo de entrega final en PDF.
+- [Plantilla de GDD descargable](pathname:///plantillas/plantilla-gdd.md) (también en [Recursos](./recursos.mdx)).
+- [One-page design](pathname:///plantillas/one-page-design.md) para la primera versión del concepto.
+- Modelo de entrega final en PDF (exportar el GDD completo al cerrar el módulo).
+- Ejemplos de GDD profesionales y de *one-page design*.
+
+## Fuentes y referencias
+
+- Hunicke, R., LeBlanc, M. & Zubek, R. (2004). *MDA: A Formal Approach to Game Design and Game
+  Research*. URL: https://users.cs.northwestern.edu/~hunicke/MDA.pdf (consultado el 3 de julio
+  de 2026).
+- Adams, E. (2014). *Fundamentals of Game Design* (3.ª ed.). New Riders.
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.

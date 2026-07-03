@@ -36,6 +36,25 @@ const config: Config = {
     locales: ['es'],
   },
 
+  themes: [
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['es'],
+        indexDocs: true,
+        indexBlog: false,
+        indexPages: false,
+        docsRouteBasePath: '/docs',
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        searchResultLimits: 8,
+        searchBarShortcut: true,
+        searchBarShortcutHint: true,
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -129,30 +148,54 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Temario · 1-4',
           items: [
             {
-              label: 'Guia docente',
-              to: '/docs/guia-docente',
+              label: 'Tema 1 · Industria e historia',
+              to: '/docs/tema-01/tema-01-introduccion-industria',
+            },
+            {
+              label: 'Tema 2 · Game Design (GDD)',
+              to: '/docs/tema-02/tema-02-game-design-fundacional',
+            },
+            {
+              label: 'Tema 3 · Produccion agil',
+              to: '/docs/tema-03/tema-03-metodologias-agiles-produccion',
+            },
+            {
+              label: 'Tema 4 · QA, UX y playtesting',
+              to: '/docs/tema-04/tema-04-qa-ux-playtesting',
             },
           ],
         },
         {
-          title: 'Modulo',
+          title: 'Temario · 5-8',
           items: [
             {
-              label: 'Tema 1',
-              to: '/docs/tema-01/tema-01-introduccion-industria',
+              label: 'Tema 5 · Diseno 3D y VR',
+              to: '/docs/tema-05/tema-05-escalado-3d-y-vr',
             },
             {
-              label: 'Tema 8',
+              label: 'Tema 6 · Negocio y monetizacion',
+              to: '/docs/tema-06/tema-06-modelos-negocio-monetizacion',
+            },
+            {
+              label: 'Tema 7 · Distribucion y marketing',
+              to: '/docs/tema-07/tema-07-distribucion-marketing-marco-legal',
+            },
+            {
+              label: 'Tema 8 · Portfolio y lanzamiento',
               to: '/docs/tema-08/tema-08-portfolio-lanzamiento-multimedia',
             },
           ],
         },
         {
-          title: 'Proyecto',
+          title: 'Recursos',
           items: [
+            {
+              label: 'Guia docente',
+              to: '/docs/guia-docente',
+            },
             {
               label: 'GitHub',
               href: 'https://github.com/resuacode/dgpp',

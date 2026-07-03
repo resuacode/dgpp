@@ -1,25 +1,123 @@
 ---
 title: Tema 6.2 - Plan de negocio avanzado
+sidebar_label: 6.2 Plan de negocio
 ---
+
+# Tema 6.2. Plan de negocio avanzado
+
+La propuesta de monetización del [Tema 6](./tema-06-modelos-negocio-monetizacion.mdx) necesita
+**números**: aunque sean estimaciones, un plan de negocio obliga a explicitar hipótesis,
+costes, ingresos y riesgos. Este documento guía la construcción de una previsión económica
+base para el proyecto del curso.
 
 ## Objetivos
 
-- Construir una previson economica base.
+- Construir una previsión económica a 12 meses con escenarios (optimista, base, pesimista).
+- Identificar costes, fuentes de ingreso y KPI de sostenibilidad.
+- Analizar riesgos de negocio y planes de contingencia.
+- Integrar el plan en el GDD como sección formal.
 
 ## Contenidos
 
-- Costes, ingresos y escenarios.
-- KPI de sustentabilidade.
+### 1. Estructura del mini plan financiero
+
+Para un proyecto académico o indie, un plan útil incluye:
+
+1. **Resumen ejecutivo** (5–10 líneas).
+2. **Descripción del producto** y modelo de negocio elegido.
+3. **Mercado objetivo** (enlace al análisis del Tema 1).
+4. **Estructura de costes** (desarrollo, herramientas, publicación, marketing).
+5. **Proyección de ingresos** (unidades, precio, comisiones).
+6. **Escenarios** y punto de equilibrio aproximado.
+7. **Riesgos de negocio** y mitigaciones.
+8. **KPI** a monitorizar tras el lanzamiento.
+
+### 2. Costes e ingresos (plantilla conceptual)
+
+**Costes fijos / únicos (ejemplo de categorías):**
+
+| Categoría | Ejemplo de partida |
+| --- | --- |
+| Desarrollo | Tiempo del equipo, assets externos |
+| Software | Licencias, servicios (hosting, analytics) |
+| Publicación | Tasa Steam/App Store, comisión por venta |
+| Marketing | Trailer, web, campaña mínima |
+
+**Ingresos (ejemplo premium PC):**
+
+```text
+Ingresos netos ≈ (Precio × Unidades vendidas) × (1 − comisión tienda)
+```
+
+En F2P, el modelo cambia: **ARPU** (*Average Revenue Per User*) × base de usuarios activos,
+más conversión a pagadores (*conversion rate*, típicamente baja en móvil).
+
+:::note Órdenes de magnitud
+Para el curso no se exigen predicciones exactas. Se exige **coherencia**: si prevés 100.000
+ventas a 20 € sin marketing, la hipótesis debe cuestionarse y documentarse.
+:::
+
+### 3. Escenarios
+
+| Escenario | Hipótesis | Uso |
+| --- | --- | --- |
+| **Pesimista** | Pocas ventas / baja retención | ¿Sobrevive el proyecto? |
+| **Base** | Estimación realista | Plan principal |
+| **Optimista** | Viralidad o featured en tienda | Techo de ingresos |
+
+### 4. KPI de sostenibilidad
+
+Indicadores que un estudio indie puede seguir:
+
+| KPI | Qué mide |
+| --- | --- |
+| **DAU/MAU** | Usuarios activos diarios/mensuales (F2P) |
+| **Retención D1/D7** | % que vuelve al día 1 y 7 |
+| **Conversión a pago** | % de usuarios que pagan (F2P) |
+| **ARPU / ARPPU** | Ingreso medio por usuario / por pagador |
+| **CAC** | Coste de adquirir un usuario (si hay marketing de pago) |
+| **Valoraciones en tienda** | Reputación y visibilidad |
+
+Para premium, priorizar **unidades vendidas**, **refund rate** y **valoraciones**.
+
+### 5. Riesgos de negocio
+
+Complementa la matriz de riesgos de producción del [Tema 3](../tema-03/tema-03-rol-productor-y-planificacion.mdx)
+con riesgos de mercado:
+
+- Saturación del género en la plataforma.
+- Cambio de políticas de la tienda (comisiones, reglas de monetización).
+- Temporada de lanzamiento (competir con AAA en fechas clave).
+- Dependencia de un solo mercado geográfico.
 
 ## Actividades
 
-1. Mini plan financeiro a 12 meses.
-2. Analisis de riscos de negocio.
+1. **Mini plan financiero a 12 meses**
+   - Completa costes, ingresos y tres escenarios para tu proyecto.
+   - *Evidencia*: hoja de cálculo o tabla en el GDD con hipótesis explicadas.
+2. **Análisis de riesgos de negocio**
+   - Al menos 4 riesgos específicos de mercado/monetización con mitigación.
+   - *Evidencia*: sección en el plan de negocio del GDD.
 
-## Evaluacion
+## Evaluación
 
-- Coherencia de las hipoteses y metricas.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Coherencia de hipótesis | Contradictorias o ausentes | Hipótesis razonables | Hipótesis justificadas con mercado |
+| Estructura del plan | Incompleta | Secciones clave presentes | Plan profesional y legible |
+| Escenarios | Un solo caso | Tres escenarios | Escenarios con drivers claros |
+| KPI y riesgos | Ausentes | KPI y riesgos básicos | KPI accionables y riesgos de negocio mitigados |
 
 ## Recursos
 
-- Plantilla de plan de negocio.
+- Plantilla de plan de negocio del módulo.
+- Informes de mercado (Video Games Europe, AEVI).
+- Calculadoras de comisiones de tiendas (documentación oficial).
+
+## Fuentes y referencias
+
+- AEVI. *La industria del videojuego en España — Anuario 2024*. URL: https://aevi.org.es/
+  (consultado el 3 de julio de 2026).
+- Lovell, N. (2013). *The Curve: From Freeloaders to Superfans*. Portfolio Penguin.
+- Valve Corporation. *Steam Revenue Share*. Documentación para desarrolladores. URL:
+  https://partner.steamgames.com/ (consultado el 3 de julio de 2026).

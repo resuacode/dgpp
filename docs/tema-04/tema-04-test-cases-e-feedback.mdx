@@ -1,25 +1,143 @@
 ---
 title: Tema 4.1 - Test cases y recogida de datos
+sidebar_label: 4.1 Test cases y feedback
 ---
+
+# Tema 4.1. Test cases y recogida de datos
+
+Un *playtest* sin método produce opiniones, no datos. Este documento introduce cómo redactar
+**casos de prueba reproducibles** y diseñar la **recogida de datos** cualitativos y
+cuantitativos.
 
 ## Objetivos
 
-- Redactar pruebas reproducibles.
+- Redactar casos de prueba funcionales y de experiencia reproducibles.
+- Definir métricas de fricción, abandono y completitud.
+- Diseñar formularios y protocolos de recogida de *feedback*.
+- Ejecutar pruebas con un número mínimo de usuarios y documentar resultados.
 
 ## Contenidos
 
-- Casos de prueba funcionales y de experiencia.
-- Metricas de friccion y abandono.
+### 1. Anatomía de un test case
+
+Un **caso de prueba** (*test case*) describe una verificación concreta. Estructura mínima:
+
+| Campo | Qué incluir |
+| --- | --- |
+| **ID** | Identificador único (TC-001, TC-002…) |
+| **Tipo** | QA / UX / Playtesting |
+| **Precondiciones** | Estado del juego antes de ejecutar la prueba |
+| **Pasos** | Secuencia de acciones del jugador o del tester |
+| **Resultado esperado** | Qué debería ocurrir si todo funciona |
+| **Resultado real** | Qué ocurrió (se rellena al ejecutar) |
+| **Estado** | Pass / Fail / Blocked |
+
+Ejemplo de test case de QA:
+
+```text
+ID: TC-001
+Tipo: QA
+Precondiciones: Build v0.2 instalado, primera ejecución
+Pasos: 1. Ejecutar el juego. 2. Pulsar "Jugar".
+Resultado esperado: El juego carga el primer nivel sin errores.
+Resultado real: [se rellena al probar]
+Estado: [Pass / Fail / Blocked]
+```
+
+Ejemplo de test case de UX:
+
+```text
+ID: TC-UX-003
+Tipo: UX
+Precondiciones: Jugador no ha visto el juego antes
+Pasos: 1. Mostrar la pantalla de inicio. 2. Pedir que empiece a jugar sin explicar.
+Resultado esperado: El jugador inicia la partida en menos de 30 segundos.
+Resultado real: [tiempo observado]
+Estado: [Pass / Fail]
+```
+
+### 2. Tipos de prueba y cobertura
+
+Un banco de pruebas equilibrado cubre tres capas:
+
+- **Funcionales (QA)**: inicio, carga, controles, guardado, fin de partida, ausencia de
+  *crashes*.
+- **De usabilidad (UX)**: comprensión de menús, tutorial, legibilidad del HUD, accesibilidad
+  básica.
+- **De diseño (playtesting)**: comprensión del core loop, dificultad percibida, momentos de
+  diversión o frustración.
+
+:::note Cobertura mínima para la vertical slice
+Para la fase actual del proyecto, un banco de **10–15 test cases** (mezcla de los tres tipos)
+es un objetivo realista. Priorizar lo que más riesgo tiene para la Game Jam I.
+:::
+
+### 3. Métricas de fricción y abandono
+
+Además de pass/fail, conviene registrar **métricas** que cuantifiquen la experiencia:
+
+| Métrica | Qué mide | Cómo se recoge |
+| --- | --- | --- |
+| **Tiempo hasta primera acción** | Fricción inicial | Cronómetro del observador |
+| **Punto de abandono** | Dónde deja de jugar | Observación + pregunta en *debriefing* |
+| **Tareas completadas** | Progresión | Checklist de objetivos del nivel |
+| **Errores / muertes** | Dificultad o confusión | Conteo durante la sesión |
+| **Expresión facial / verbal** | Frustración o disfrute | Notas cualitativas del observador |
+
+### 4. Formularios de feedback
+
+Un buen formulario combina:
+
+- **Preguntas cerradas** (escala 1–5, sí/no): fáciles de agregar y comparar entre sesiones.
+- **Preguntas abiertas** ("¿qué fue lo más confuso?"): aportan contexto que los números no dan.
+- **Preguntas conductuales** ("¿qué hiciste primero al entrar al nivel?"): menos sesgadas que
+  "¿te gustó?".
+
+Evitar:
+
+- Preguntas que sugieren la respuesta ("¿no te parece intuitivo el menú?").
+- Demasiadas preguntas (máximo 8–10 tras jugar; el cansancio sesga).
+- Mezclar evaluación del juego con evaluación del curso.
+
+### 5. Protocolo de sesión con usuarios
+
+Para una sesión con 3–5 jugadores en aula:
+
+1. **Preparación (5 min)**: explicar que se prueba el juego, no la persona; pedir permiso para
+   tomar notas.
+2. **Juego libre (5–10 min)**: el jugador juega sin intervención; el observador anota.
+3. ***Debriefing* (5 min)**: formulario + 2–3 preguntas abiertas.
+4. **Registro**: volcar resultados en el banco de test cases y en el informe.
 
 ## Actividades
 
-1. Banco de test cases.
-2. Execucion de prueba con 5 usuarios.
+1. **Banco de test cases**
+   - Redacta al menos 10 casos de prueba (mezcla QA, UX y playtesting) para tu vertical slice.
+   - *Evidencia*: tabla o documento con los casos, listos para ejecutar.
+2. **Ejecución de prueba con 5 usuarios**
+   - Ejecuta una sesión de *playtesting* con al menos 3–5 personas (compañeros de otro grupo
+     o externos al equipo).
+   - *Evidencia*: test cases cumplimentados + formularios + notas de observación.
 
-## Evaluacion
+## Evaluación
 
-- Reproducibilidade y cobertura de las pruebas.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Reproducibilidad | Casos vagos o incompletos | Casos ejecutables | Casos claros con precondiciones y pasos |
+| Cobertura | Solo QA o solo opinión | Mezcla de tipos | Cobertura equilibrada QA/UX/diseño |
+| Calidad del formulario | Preguntas sesgadas o vacías | Formulario usable | Formulario bien diseñado y aplicado |
+| Documentación de sesión | Sin datos o incompleta | Datos básicos registrados | Datos completos y trazables |
 
 ## Recursos
 
-- Checklist de testeo.
+- Checklist de testeo del módulo.
+- Plantilla de formulario de *feedback*.
+- Herramientas de grabación de pantalla (opcional, con consentimiento).
+
+## Fuentes y referencias
+
+- Fullerton, T. (2019). *Game Design Workshop* (4.ª ed.). CRC Press.
+- ISO/IEC/IEEE 29119 (serie). *Software and systems engineering — Software testing*. (Marco
+  general de casos de prueba; adaptar al contexto de videojuegos).
+- Brown, A. M. & Mark, B. (2018). *Playtest Protocol*. En *The Game Dev Business Handbook*.
+  (Referencia sobre protocolos de *playtest* en producción).

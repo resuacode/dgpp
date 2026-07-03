@@ -1,27 +1,104 @@
 ---
 title: Tema 6 - Modelos de negocio y monetizacion
+sidebar_label: 6. Modelos de negocio
 ---
+
+# Tema 6. Modelos de negocio y monetización
+
+Un videojuego es un producto cultural y técnico, pero también un **activo económico**. Este tema
+introduce cómo elegir un modelo de negocio coherente con el juego, el público definido en el
+[Tema 1](../tema-01/tema-01-aplicacion-proyecto-2d.mdx) y la plataforma de destino, sin
+sacrificar la experiencia del jugador.
+
+:::info Ubicación en el módulo
+Tema del **Bloque 3 (Publicación y marketing)**. Las decisiones de monetización deben
+documentarse en el GDD (plan de negocio) y conectarse con la clasificación PEGI del
+[Tema 7](../tema-07/tema-07-propiedad-intelectual-y-pegi.mdx).
+:::
 
 ## Objetivos
 
-- Seleccionar un modelo de negocio axeitado.
-- Definir monetizacion sostible y etica.
+- Seleccionar un modelo de negocio ajustado al producto, al público y a la plataforma.
+- Definir una estrategia de monetización sostenible y ética.
+- Comparar modelos con criterios objetivos (ingresos, retención, reputación).
+- Integrar la propuesta de monetización en el GDD del proyecto.
 
 ## Contenidos
 
-- Premium, F2P, subscricion y anuncios.
-- Costes de produccion y previsiones.
-- Principios de diseno etico.
+Este tema se desarrolla en tres documentos:
+
+1. **[Diseño ético y patrones oscuros](./tema-06-diseno-etico-y-patrones-oscuros.mdx)**:
+   prácticas a evitar y criterios de transparencia.
+2. **[Plan de negocio avanzado](./tema-06-plan-negocio-avanzado.mdx)**: previsión económica,
+   escenarios y KPI.
+
+### 1. Modelos de monetización principales
+
+| Modelo | Cómo gana dinero | Ejemplos típicos | A tener en cuenta |
+| --- | --- | --- | --- |
+| **Premium** (*pago único*) | Precio de compra | PC/consola indie, premium móvil | Ingreso upfront; menos dependencia de retención |
+| **Free-to-play (F2P)** | Microtransacciones in-app | Móvil, algunos PC | Requiere diseño de economía y retención |
+| **Suscripción** | Cuota periódica | MMO, servicios en la nube | Compromiso a largo plazo; contenido recurrente |
+| **Anuncios** | Publicidad in-game | Móvil casual, web | Impacto en UX; regulación de privacidad |
+| **Híbrido** | Combinación | Premium + DLC, F2P + pase de batalla | Claridad para el jugador |
+
+:::tip Coherencia modelo–público–plataforma
+Un juego narrativo premium para PC no suele monetizarse con anuncios intersticiales. Un puzzle
+casual móvil raramente cobra 40 € upfront. La elección debe **justificarse** con datos del
+público y la plataforma.
+:::
+
+### 2. Costes de producción y viabilidad
+
+Antes de fijar precios conviene estimar **costes**:
+
+- **Desarrollo**: horas del equipo × coste oportunidad (en curso, tiempo académico).
+- **Herramientas**: licencias de motor, assets, servicios en la nube.
+- **Publicación**: comisión de tienda (Steam ~30 %, móvil similar), tasas de desarrollador.
+- **Marketing**: trailer, *press kit*, campañas (aunque sea mínima).
+- **Post-lanzamiento**: parches, soporte, servidores si aplica.
+
+Un proyecto de curso puede usar **órdenes de magnitud** realistas en lugar de cifras exactas;
+lo importante es **razonar** las hipótesis.
+
+### 3. Principios de diseño ético (resumen)
+
+La monetización no debe explotar vulnerabilidades del jugador. Líneas rojas habituales del
+sector y de reguladores:
+
+- Transparencia de precios antes de la compra.
+- No dirigir mecánicas de pago a menores de forma agresiva.
+- Evitar *loot boxes* con valor monetario opaco donde la ley lo restrinja.
+- No bloquear progresión razonable detrás de pagos obligatorios (*pay-to-win* agresivo).
+
+El detalle se desarrolla en [Tema 6.1](./tema-06-diseno-etico-y-patrones-oscuros.mdx).
 
 ## Actividades
 
-1. Comparativa de modelos de negocio.
-2. Propuesta de monetizacion para el proyecto.
+1. **Comparativa de modelos de negocio**: analiza 2–3 juegos comparables con modelos distintos
+   (ingresos estimados, ventajas, riesgos). *Evidencia*: tabla comparativa con fuentes.
+2. **Propuesta de monetización para el proyecto**: modelo elegido, precios o productos in-app,
+   justificación ética y de mercado. *Evidencia*: sección del GDD (plan de negocio).
 
-## Evaluacion
+## Evaluación
 
-- Axuste entre modelo, publico y produto.
+- Ajuste entre modelo, público y producto (coherencia argumentada).
+- Uso de fuentes y casos reales, no solo opinión.
+- Consideración explícita de aspectos éticos y legales básicos.
+- Viabilidad de las hipótesis económicas (orden de magnitud razonable).
 
 ## Recursos
 
-- Casos de estudio de monetizacion.
+- Casos de estudio de monetización (informes, *postmortems*).
+- [GDD transversal](../guia/gdd-transversal.mdx) — plan de negocio.
+- Políticas de tiendas (Steam, Apple App Store, Google Play).
+
+## Fuentes y referencias
+
+- Video Games Europe & EGDF. *2024 All About Video Games – European Key Facts*. URL:
+  https://www.videogameseurope.eu/publication/annual-data-report-on-europes-video-games-sector-launched-at-gamescom/
+  (consultado el 3 de julio de 2026).
+- Lovell, N. (2013). *The Curve: From Freeloaders to Superfans—The Future of Business*. Portfolio
+  Penguin. (Modelos de valor y monetización en juegos digitales).
+- IGDA. *Code of Ethics for Game Developers*. URL: https://igda.org/ (consultado el 3 de julio
+  de 2026).

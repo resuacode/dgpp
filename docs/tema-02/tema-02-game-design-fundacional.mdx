@@ -1,29 +1,100 @@
 ---
 title: Tema 2 - Game Design fundacional (GDD)
+sidebar_label: 2. Game Design fundacional
 ---
+
+# Tema 2. Game Design fundacional (GDD)
+
+Con el mercado y el público ya analizados en el [Tema 1](../tema-01/tema-01-introduccion-industria.mdx),
+este tema entra en el **diseño**: convertir una idea en un documento vivo que guíe la
+producción. El foco es doble: **pensar el juego con método** (no por intuición aislada) y
+**documentarlo** de forma que el equipo pueda construirlo.
+
+:::info Ubicación en el módulo
+Tema del **Bloque 1 (Diseño y preproducción)**. Es el corazón conceptual del proyecto: aquí
+nace el GDD que se completará durante todo el curso siguiendo el
+[GDD transversal](../guia/gdd-transversal.mdx).
+:::
 
 ## Objetivos
 
-- Construir un GDD vivo y iterativo.
-- Definir high concept y x-features.
-- Disenar o core gameplay loop.
+- Construir un GDD **vivo e iterativo**, no un documento cerrado que nadie vuelve a abrir.
+- Definir el *high concept* y las *x-features* (características diferenciadoras) del proyecto.
+- Diseñar el *core gameplay loop* y sus loops secundarios.
+- Aplicar un marco de análisis de diseño (MDA) para razonar decisiones.
 
 ## Contenidos
 
-- Anatomia del GDD.
-- Concepto core y propuesta de valor.
-- Mecanicas primarias y balanceo inicial.
+Este tema se desarrolla en tres documentos:
+
+1. **[Estructura del GDD y core loop](./tema-02-gdd-e-core-loop.mdx)**: anatomía del documento
+   y diseño del bucle jugable.
+2. **[Balanceo y economía interna](./tema-02-balanceo-y-economia.mdx)**: curvas de dificultad,
+   variables y equilibrio.
+
+Ideas clave que se abordan:
+
+- Anatomía del GDD y por qué debe ser un documento vivo.
+- Concepto *core*, propuesta de valor y *x-features*.
+- El marco **MDA** (Mecánicas → Dinámicas → Estética) como lente de diseño.
+- Mecánicas primarias y su relación con la experiencia buscada.
+
+### El marco MDA como herramienta de razonamiento
+
+Un error común es diseñar pensando solo en mecánicas ("que el personaje salte") sin conectar
+con la **experiencia** que se busca provocar. El marco **MDA** (Hunicke, LeBlanc y Zubek,
+2004) ayuda a pensar en tres capas encadenadas:
+
+| Capa | Qué es | Perspectiva |
+| --- | --- | --- |
+| **Mecánicas** | Reglas y componentes del juego | La que diseña el equipo |
+| **Dinámicas** | Comportamiento que emerge al jugar | El puente entre ambas |
+| **Estética** | Respuesta emocional del jugador (diversión, tensión, logro) | La que percibe quien juega |
+
+La clave: **el jugador experimenta en orden inverso** (siente la estética, generada por las
+dinámicas, producidas por las mecánicas). Diseñar bien es partir de la estética deseada y
+elegir mecánicas que la produzcan.
+
+:::tip Aplicación directa
+Antes de listar mecánicas, el equipo debe escribir **qué debe sentir** quien juega. Cada
+mecánica del GDD debería poder justificarse contra esa estética objetivo.
+:::
+
+### El *high concept* y las *x-features*
+
+- **High concept**: descripción del juego en 1–3 frases que cualquiera entienda. Responde a
+  qué es, para quién y qué lo hace especial.
+- **X-features (características diferenciadoras)**: 3–5 elementos que distinguen el juego de
+  sus referentes. Son la respuesta a "¿por qué jugar a esto y no a lo ya existente?".
 
 ## Actividades
 
-1. Redaccion del GDD v0.1.
-2. Definicion del core loop y mecanicas.
-3. Esquema de variables para balanceo.
+1. **Redacción del GDD v0.1**: primera versión del documento con *high concept*, *x-features*
+   y estética objetivo (MDA). *Evidencia*: GDD v0.1 en el repositorio del proyecto.
+2. **Definición del core loop y mecánicas**: diagrama del bucle principal y lista de mecánicas
+   primarias justificadas. *Evidencia*: diagrama + tabla de mecánicas.
+3. **Esquema de variables para balanceo**: identificación de las variables que se ajustarán.
+   *Evidencia*: hoja de cálculo inicial (se desarrolla en 2.2).
 
-## Evaluacion
+Las actividades detalladas y sus rúbricas están en cada documento del tema.
 
-- Claridad del documento y viabilidad del diseno.
+## Evaluación
+
+- Claridad del documento y viabilidad del diseño para el alcance del curso.
+- Coherencia entre estética objetivo (MDA), mecánicas y core loop.
+- Justificación de las *x-features* frente a los referentes del mercado.
+- El GDD se evalúa como **documento vivo**: se valora su evolución, no solo la versión final.
 
 ## Recursos
 
-- Plantilla de GDD del modulo.
+- [Plantilla de GDD del módulo](../guia/gdd-transversal.mdx).
+- Ejemplos de GDD profesionales y de *one-page design*.
+- Bibliografía de diseño (ver `## Fuentes y referencias`).
+
+## Fuentes y referencias
+
+- Hunicke, R., LeBlanc, M. & Zubek, R. (2004). *MDA: A Formal Approach to Game Design and Game
+  Research*. Proceedings of the AAAI Workshop on Challenges in Game AI. URL:
+  https://users.cs.northwestern.edu/~hunicke/MDA.pdf (consultado el 3 de julio de 2026).
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Salen, K. & Zimmerman, E. (2003). *Rules of Play: Game Design Fundamentals*. MIT Press.

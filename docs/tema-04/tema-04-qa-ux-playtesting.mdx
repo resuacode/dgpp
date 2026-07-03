@@ -1,28 +1,112 @@
 ---
 title: Tema 4 - QA, UX y playtesting
+sidebar_label: 4. QA, UX y playtesting
 ---
+
+# Tema 4. QA, UX y playtesting
+
+Con la [vertical slice 2D](../tema-03/tema-03-vertical-slice-2d.mdx) entregada, el proyecto
+necesita **validación**: comprobar que funciona, que se entiende y que la experiencia es la
+buscada. Este tema introduce las tres disciplinas que convergen en las pruebas con jugadores:
+**QA** (calidad técnica), **UX** (experiencia de uso) y **playtesting** (validación del diseño).
+
+:::info Ubicación en el módulo
+Tema del **Bloque 2 (Gestión de proyecto)**, en la frontera con diseño. Es el puente entre
+la primera entrega y la **iteración hacia la Game Jam I**: lo que se aprende aquí se convierte
+en correcciones priorizadas.
+:::
 
 ## Objetivos
 
-- Disenar y executar plans de prueba.
-- Analizar feedback cualitativo y cuantitativo.
+- Diseñar y ejecutar planes de prueba reproducibles para un proyecto de videojuego.
+- Diferenciar pruebas técnicas (QA), de usabilidad (UX) y de diseño (playtesting).
+- Analizar *feedback* cualitativo y cuantitativo con criterio.
+- Elaborar un informe de iteración que alimente el backlog de correcciones.
 
 ## Contenidos
 
-- Test cases tecnicos y de jugabilidad.
-- Formularios y dinamicas de test con usuarios.
-- Informe de iteracion para mellora.
+Este tema se desarrolla en tres documentos:
+
+1. **[Test cases y recogida de datos](./tema-04-test-cases-e-feedback.mdx)**: casos de prueba,
+   métricas y formularios de *feedback*.
+2. **[Informe de iteración y hito 1](./tema-04-informe-iteracion-hito-1.mdx)**: síntesis de
+   resultados y plan de acción hacia la Game Jam I.
+
+Ideas clave que se abordan:
+
+- Test cases técnicos y de jugabilidad.
+- Formularios y dinámicas de prueba con usuarios.
+- Informe de iteración para mejora continua.
+
+### 1. Tres disciplinas, un objetivo
+
+| Disciplina | Pregunta que responde | Ejemplo de prueba |
+| --- | --- | --- |
+| **QA** (*Quality Assurance*) | ¿Funciona sin errores? | El juego no crashea al iniciar |
+| **UX** (*User Experience*) | ¿Se entiende y se usa bien? | El jugador encuentra el menú sin ayuda |
+| **Playtesting** | ¿Es divertido / cumple el diseño? | El core loop engancha en los primeros 2 minutos |
+
+En la práctica, una sesión de prueba con jugadores puede recoger datos de las tres a la vez,
+pero conviene **diseñar cada tipo de prueba por separado** para no mezclar preguntas.
+
+### 2. Cuándo probar
+
+Las pruebas no son solo al final. En un proyecto iterativo conviene probar en cada hito:
+
+| Momento | Qué se valida |
+| --- | --- |
+| Tras la vertical slice | Pipeline completo, core loop, primeras fricciones |
+| Antes de la Game Jam I | Estabilidad, UX de menús, balanceo inicial |
+| Tras cada iteración mayor | Regresiones y mejoras de la iteración anterior |
+
+:::tip Probar pronto, probar a menudo
+Un *playtest* con 3 personas a mitad de sprint puede ahorrar semanas de desarrollo en la
+dirección equivocada. No esperes a tener el juego "terminado".
+:::
+
+### 3. Diseño de una sesión de playtesting
+
+Una sesión bien diseñada incluye:
+
+1. **Objetivo claro**: qué hipótesis se quiere validar (p. ej. "el tutorial es comprensible").
+2. **Protocolo**: qué hace el jugador, cuánto tiempo, qué se observa.
+3. **Instrumentos**: formulario, grabación, notas del observador.
+4. **Perfil de jugadores**: idealmente cercano al público objetivo del [Tema 1](../tema-01/tema-01-aplicacion-proyecto-2d.mdx).
+5. **Debriefing**: preguntas tras jugar, sin influir las respuestas.
+
+Reglas de oro para no sesgar los resultados:
+
+- **No explicar el juego** antes de que jueguen (salvo lo estrictamente necesario).
+- **No defender el diseño** durante el *debriefing*; escuchar y anotar.
+- **No preguntar "¿te gusta?"**; preguntar comportamientos observables ("¿en qué momento
+  dejaste de jugar?", "¿qué hiciste primero?").
 
 ## Actividades
 
-1. Diseno del formulario de feedback.
-2. Sesion de playtesting en la aula.
-3. Informe de resultados y accions.
+1. **Diseño del formulario de *feedback***: crear el instrumento de recogida de datos para la
+   sesión de *playtesting*. *Evidencia*: formulario con preguntas abiertas y cerradas.
+2. **Sesión de *playtesting* en el aula**: ejecutar pruebas con al menos 3–5 jugadores.
+   *Evidencia*: notas de observación y formularios cumplimentados.
+3. **Informe de resultados y acciones**: sintetizar hallazgos y proponer mejoras priorizadas.
+   *Evidencia*: informe de iteración (ver [Tema 4.2](./tema-04-informe-iteracion-hito-1.mdx)).
 
-## Evaluacion
+## Evaluación
 
-- Calidade dos datos y pertinencia de las mejoras.
+- Calidad de los datos recogidos (reproducibles, sin sesgo evidente).
+- Pertinencia de las mejoras propuestas (conectadas con evidencias, no con opiniones).
+- Cobertura de pruebas (técnicas, UX y diseño).
+- Impacto esperado de las correcciones en la experiencia de juego.
 
 ## Recursos
 
-- Plantilla de informe QA.
+- Plantilla de informe QA/iteración (ver [Recursos](../guia/recursos.mdx)).
+- [GDD transversal](../guia/gdd-transversal.mdx) — sección de informe de *playtesting*.
+- Ejemplos de protocolos de *playtest* (GDC, devlogs).
+
+## Fuentes y referencias
+
+- Fullerton, T. (2019). *Game Design Workshop: A Playcentric Approach to Creating Innovative
+  Games* (4.ª ed.). CRC Press.
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Medler, B. (2011). *Generating Game-Tuning Reports for Game User Research*. Proceedings of
+  DiGRA 2011. URL: https://www.digra.org/ (consultado el 3 de julio de 2026).

@@ -1,0 +1,127 @@
+---
+title: "[Profesorado] Guia del Tema 3"
+draft: true
+---
+
+# Guía del profesorado — Tema 3: Metodologías ágiles de producción
+
+> **Documento interno.** El prefijo `_` hace que Docusaurus excluya este archivo del sitio
+> publicado: no aparece en la web ni en el sidebar. Uso exclusivo del equipo docente.
+
+## 1. Propósito del tema
+
+Es el tema donde el proyecto **deja de ser solo diseño y empieza a producirse**. El objetivo
+es que el alumnado aprenda a organizar el trabajo, gestionar riesgos y entregar la **primera
+vertical slice jugable** del curso. Es el hito de producción más importante de la fase 1.
+
+Riesgo principal: equipos que planifican en exceso sin producir, o que producen sin planificar
+y acaban con un prototipo incompleto a última hora. El equilibrio es **planificar lo justo y
+entregar pronto**.
+
+## 2. Encaje temporal (orientativo)
+
+Estimación para **5–6 sesiones de ~50 min**, pero este tema se extiende en el tiempo real del
+proyecto (las sesiones de taller y entrega pueden ocupar varias semanas):
+
+| Sesión | Contenido | Documento |
+| --- | --- | --- |
+| 1 | Introducción a ágil + Scrum/Kanban | `tema-03-metodologias-agiles-produccion` |
+| 2 | Backlog, estimación y tablero Kanban | `tema-03-metodologias-agiles-produccion` |
+| 3 | Rol del productor + matriz de riesgos | `tema-03-rol-productor-y-planificacion` |
+| 4 | Plan de sprint + control de alcance | `tema-03-rol-productor-y-planificacion` |
+| 5 | Qué es una vertical slice + criterios | `tema-03-vertical-slice-2d` |
+| 6+ | Taller de producción y entrega fase 1 | `tema-03-vertical-slice-2d` |
+
+> Las sesiones 6 en adelante son **taller de producción**: el docente supervisa, desbloquea y
+> revisa progreso. No son exposición teórica.
+
+## 3. Secuencia didáctica sugerida
+
+1. **Gancho (10 min)**: mostrar un tablero Kanban real (Trello/GitHub Projects) y preguntar
+   qué información da de un vistazo. Introduce la transparencia del flujo.
+2. **Simulación de sprint planning (25 min)**: con un backlog de ejemplo (10 tareas de un juego
+   ficticio), el alumnado estima, prioriza y asigna tareas a un sprint de 2 semanas.
+3. **Matriz de riesgos en grupo (20 min)**: cada equipo identifica 5 riesgos de su proyecto y
+   los comparte; el docente facilita el debate sobre mitigaciones.
+4. **Definición de vertical slice (20 min)**: cada equipo escribe en 5 minutos qué incluye su
+   vertical slice y qué queda fuera. Crítica cruzada entre equipos.
+
+## 4. Ideas para actividades de aula y entregas
+
+### Actividades en clase (formativas)
+
+- **"Scope creep en vivo" (15 min)**: el docente propone 5 "mejoras" al proyecto de un equipo;
+  deben decidir cuáles aceptar y cuáles rechazar, justificando.
+- **Planning poker exprés (20 min)**: estimar 8 tareas del backlog con cartas o números; debatir
+  las discrepancias.
+- **Auditoría de commits (15 min)**: revisar juntos un historial de Git de un proyecto de
+  ejemplo y evaluar la calidad de los mensajes y la trazabilidad.
+- **Demo day interno (30 min)**: cada equipo muestra su vertical slice en 3 minutos; feedback
+  constructivo del resto.
+
+### Entregas evaluables (propuestas y peso orientativo)
+
+| Entrega | Descripción | Peso sugerido | Formato |
+| --- | --- | --- | --- |
+| Tablero Kanban configurado | Backlog priorizado con WIP | 10 % | Enlace o captura |
+| Matriz de riesgos | 5+ riesgos con mitigación | 15 % | Documento en GDD |
+| Plan de sprint inicial | Objetivo, tareas, criterios | 15 % | Documento o tablero |
+| **Vertical slice 2D jugable** | Build de 2–3 min, todas las capas | 40 % | Build + repo |
+| Checklist de entrega fase 1 | Repo, README, GDD, trailer | 20 % | Checklist + enlaces |
+
+> La **vertical slice** es con diferencia la entrega más importante. Ponderarla en consecuencia.
+
+### Extensiones para alumnado avanzado
+
+- Configurar CI/CD básico (build automático en cada push).
+- Implementar retrospectiva de sprint con formato Start/Stop/Continue.
+- Documentar el proceso de producción como sección del GDD (plan de producción ágil).
+
+## 5. Errores frecuentes del alumnado (y cómo intervenir)
+
+- **Tablero Kanban decorativo** (post-its que nadie actualiza). → Revisar el tablero en cada
+  sesión; penalizar desactualización.
+- **Vertical slice horizontal** (mucho código, cero arte/audio). → Recordar que debe cruzar
+  todas las capas; mostrar ejemplos de vertical vs. horizontal.
+- **Scope creep no gestionado** ("añadimos un boss final"). → Exigir documento de alcance con
+  exclusiones explícitas.
+- **README inexistente o inútil** ("clona y ejecuta"). → Proporcionar plantilla de README y
+  exigir que alguien ajeno al equipo pueda ejecutar el juego.
+- **Commits sin mensaje o masivos** ("wip", "cambios varios"). → Revisar historial de Git como
+  parte de la evaluación.
+
+## 6. Materiales a preparar
+
+- Plantilla de tablero Kanban (Trello/GitHub Projects) compartida con el alumnado.
+- Plantilla de README para proyectos de videojuego.
+- Plantilla de matriz de riesgos.
+- Rúbrica de evaluación de la vertical slice (impresa o compartida).
+- Ejemplo de vertical slice de un juego indie (vídeo corto de referencia).
+
+## 7. Notas de evaluación
+
+- Evaluar la vertical slice **jugándola**, no solo leyendo documentación.
+- El README debe permitir ejecutar el juego a alguien que no conoce el proyecto.
+- Los commits y la trazabilidad son parte de la evaluación de producción.
+- Aceptar builds en itch.io, web o ejecutable según la plataforma elegida en el Tema 1.
+
+## 8. Atención a la diversidad e inclusión
+
+- Permitir que equipos con menos experiencia técnica compensen con mejor documentación y
+  organización (el productor no tiene que ser el mejor programador).
+- Rotar el rol de productor entre sesiones para que todos practiquen la gestión.
+- La demo day interna debe ser un espacio seguro: feedback constructivo, no competitivo.
+
+## 9. Conexión con otros temas
+
+- **Tema 2**: el GDD y el core loop definen qué debe incluir la vertical slice.
+- **Tema 4**: la vertical slice es la base del primer *playtesting* formal.
+- **Tema 8**: el trailer de la fase 1 se reutiliza y amplía para el portfolio final.
+
+## 10. Fuentes de apoyo para el docente
+
+- Schwaber, K. & Sutherland, J. (2020). *The Scrum Guide*. https://scrumguides.org/
+  (consultado el 3 de julio de 2026).
+- Keith, M. (2010). *Agile Game Development with Scrum*. Addison-Wesley.
+- Fullerton, T. (2019). *Game Design Workshop* (4.ª ed.). CRC Press.
+- IGDA. *Production SIG Resources*. https://igda.org/ (consultado el 3 de julio de 2026).

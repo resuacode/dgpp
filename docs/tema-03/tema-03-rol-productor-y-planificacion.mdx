@@ -1,25 +1,110 @@
 ---
 title: Tema 3.1 - Rol del productor y planificacion
+sidebar_label: 3.1 Productor y planificacion
 ---
+
+# Tema 3.1. Rol del productor y planificación
+
+El **productor** (*producer*) es quien convierte la visión creativa en un plan ejecutable: coordina
+al equipo, gestiona riesgos, controla el alcance y asegura que las entregas lleguen a tiempo.
+En un proyecto de curso, este rol puede rotar o compartirse, pero alguien debe asumirlo.
 
 ## Objetivos
 
-- Definir responsabilidades y riesgo de produccion.
+- Definir las responsabilidades del productor en un equipo de desarrollo de videojuegos.
+- Identificar y mitigar riesgos de producción.
+- Controlar el alcance (*scope*) y priorizar con criterio.
+- Elaborar un plan de sprint inicial realista.
 
 ## Contenidos
 
-- Plan de riscos.
-- Control de alcance y prioridades.
+### 1. Responsabilidades del productor
+
+En la industria, el productor varía según el tamaño del estudio, pero sus funciones centrales son:
+
+| Área | Responsabilidad |
+| --- | --- |
+| Planificación | Roadmap, sprints, hitos y dependencias |
+| Alcance | Definir qué entra y qué no; combatir *scope creep* |
+| Riesgos | Identificar, evaluar y mitigar amenazas al proyecto |
+| Comunicación | Sincronizar al equipo y reportar progreso |
+| Calidad | Asegurar que las entregas cumplen criterios de aceptación |
+
+:::warning Scope creep
+El ***scope creep*** (expansión descontrolada del alcance) es la causa más frecuente de proyectos
+que no terminan. Cada "pequeña mejora" suma. El productor debe decir **no** con criterio y
+documentar lo que queda fuera.
+:::
+
+### 2. Gestión de riesgos
+
+Un **riesgo** es algo que *podría* salir mal y afectar al proyecto. La gestión no es paranoia:
+es anticipación. Proceso básico:
+
+1. **Identificar** riesgos (técnicos, de equipo, de alcance, externos).
+2. **Evaluar** probabilidad (baja/media/alta) e impacto (bajo/medio/alto).
+3. **Mitigar** con acciones concretas.
+4. **Monitorizar** durante el proyecto.
+
+Ejemplos de riesgos típicos en un proyecto de curso:
+
+| Riesgo | Prob. | Impacto | Mitigación |
+| --- | --- | --- | --- |
+| Miembro del equipo deja de participar | Media | Alto | Documentar todo; repartir conocimiento |
+| Mecánica central no funciona | Alta | Alto | Prototipar pronto; tener plan B |
+| Falta de tiempo para la entrega | Alta | Alto | Reducir alcance; priorizar vertical slice |
+| Conflictos en el equipo | Media | Medio | Roles claros; reuniones cortas de sincronización |
+
+### 3. Control de alcance y priorización
+
+Priorizar no es hacer "lo más fácil primero". Criterios útiles:
+
+- **Valor para el jugador**: ¿esto hace el juego más jugable?
+- **Dependencias**: ¿otras tareas lo necesitan?
+- **Riesgo**: ¿esto valida algo incierto?
+- **Esfuerzo**: ¿cuánto cuesta frente al beneficio?
+
+Una herramienta práctica es la **matriz valor/esfuerzo**: tareas de alto valor y bajo esfuerzo
+van primero; las de bajo valor y alto esfuerzo se descartan o posponen.
+
+### 4. Plan de sprint inicial
+
+Un **sprint** es un periodo fijo (1–2 semanas en curso) con un objetivo concreto. El plan de
+sprint inicial debe incluir:
+
+- **Objetivo del sprint**: qué se quiere lograr (p. ej. "vertical slice jugable").
+- **Tareas seleccionadas** del backlog con estimación.
+- **Criterios de aceptación**: cómo sabremos que está hecho.
+- **Riesgos del sprint**: qué puede bloquear y cómo se actuará.
 
 ## Actividades
 
-1. Matriz de riscos y mitigacions.
-2. Plan de sprint inicial.
+1. **Matriz de riesgos y mitigaciones**
+   - Identifica al menos 5 riesgos del proyecto, evalúalos y propón mitigaciones.
+   - *Evidencia*: matriz de riesgos en el GDD o documento de producción.
+2. **Plan de sprint inicial**
+   - Define el primer sprint con objetivo, tareas, estimaciones y criterios de aceptación.
+   - *Evidencia*: plan de sprint (documento o tablero) con al menos 8 tareas.
 
-## Evaluacion
+## Evaluación
 
-- Capacidad de anticipacion de bloqueos.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Matriz de riesgos | Ausente o genérica | 5 riesgos con mitigación | Riesgos realistas y mitigaciones accionables |
+| Plan de sprint | Irreal o vacío | Objetivo claro y tareas | Plan ejecutable con criterios de aceptación |
+| Control de alcance | Sin priorización | Priorización básica | Priorización justificada con criterios |
+| Anticipación de bloqueos | No identifica riesgos | Identifica algunos | Plan de contingencia para riesgos altos |
 
 ## Recursos
 
-- Plantilla de rexistro de riscos.
+- Plantilla de registro de riesgos (ver [Recursos](../guia/recursos.mdx)).
+- [GDD transversal](../guia/gdd-transversal.mdx) — sección de plan de producción ágil.
+- Ejemplos de planes de sprint de proyectos indie.
+
+## Fuentes y referencias
+
+- Keith, M. (2010). *Agile Game Development with Scrum*. Addison-Wesley.
+- Chapman, C. & Ward, S. (2011). *Project Risk Management: Processes, Techniques and Insights*
+  (3.ª ed.). Wiley. (Referencia general de gestión de riesgos en proyectos).
+- IGDA (International Game Developers Association). *Production SIG Resources*. URL:
+  https://igda.org/ (consultado el 3 de julio de 2026).

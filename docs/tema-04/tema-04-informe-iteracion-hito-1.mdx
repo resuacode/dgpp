@@ -1,25 +1,112 @@
 ---
 title: Tema 4.2 - Informe de iteracion y hito 1
+sidebar_label: 4.2 Informe e hito 1
 ---
+
+# Tema 4.2. Informe de iteración y hito 1
+
+Los datos de las pruebas no sirven si no se convierten en **acciones**. Este documento guía la
+elaboración del **informe de iteración**: la síntesis de hallazgos del *playtesting* y el plan
+de correcciones priorizadas hacia la **Game Jam I** (hito 1 del proyecto).
+
+:::info Entregable del hito 1
+El informe de iteración se anexa al GDD y alimenta el backlog. Es la evidencia de que el
+equipo **aprende de las pruebas** y mejora el producto, no solo lo construye.
+:::
 
 ## Objetivos
 
-- Priorizar correccions para a Game Jam I.
+- Sintetizar resultados de *playtesting* en un informe claro y accionable.
+- Priorizar correcciones según impacto y esfuerzo.
+- Actualizar el backlog con tareas de iteración hacia la Game Jam I.
+- Documentar el proceso en el GDD como sección de informe de *playtesting*.
 
 ## Contenidos
 
-- Sintese de resultados de playtesting.
-- Plan de accion de iteracion.
+### 1. Estructura del informe de iteración
+
+Un informe útil sigue esta estructura:
+
+1. **Contexto**: qué se probó, cuándo, con cuántos jugadores y qué build.
+2. **Resumen ejecutivo**: 3–5 hallazgos principales en lenguaje claro.
+3. **Resultados por categoría**: QA (bugs), UX (fricciones), diseño (diversión, dificultad).
+4. **Evidencias**: citas de jugadores, métricas, capturas o timestamps.
+5. **Plan de acción**: correcciones priorizadas con responsable y plazo.
+6. **Riesgos de la iteración**: qué podría no llegar a tiempo.
+
+### 2. De hallazgos a acciones
+
+No todo *feedback* debe implementarse. Priorizar con una matriz **impacto / esfuerzo**:
+
+| | Bajo esfuerzo | Alto esfuerzo |
+| --- | --- | --- |
+| **Alto impacto** | Hacer ya | Planificar para siguiente sprint |
+| **Bajo impacto** | Si sobra tiempo | Descartar o posponer |
+
+Ejemplo de traducción hallazgo → acción:
+
+| Hallazgo | Evidencia | Acción priorizada |
+| --- | --- | --- |
+| 4/5 jugadores no encontraron el botón de salto | TC-UX-003 Fail | Añadir hint visual en tutorial |
+| Crashea al morir en el nivel 2 | TC-001 Fail | Bug crítico: corregir antes de Game Jam |
+| "Me aburrí tras 1 minuto" | *Debriefing* abierto | Revisar pacing del nivel 1 (diseño) |
+
+:::warning No confundir síntoma con causa
+"El juego es difícil" puede significar controles confusos, falta de *feedback* o curva de
+dificultad mal calibrada. El informe debe **profundizar en la causa**, no solo anotar el
+síntoma.
+:::
+
+### 3. Backlog de correcciones priorizado
+
+Las acciones del informe se traducen en **tareas del backlog** con:
+
+- Descripción clara y vinculada al hallazgo.
+- Prioridad (crítica / alta / media / baja).
+- Estimación de esfuerzo.
+- Criterio de aceptación ("se considera corregido cuando…").
+
+Integrar en el tablero Kanban del [Tema 3](../tema-03/tema-03-metodologias-agiles-produccion.mdx)
+como sprint de iteración hacia la Game Jam I.
+
+### 4. Game Jam I como hito
+
+La **Game Jam I** es el evento interno del curso donde cada equipo presenta la versión
+iterada del juego tras aplicar las correcciones del informe. Criterios típicos de evaluación
+en la jam:
+
+- Build estable y jugable.
+- Evidencia de que se aplicaron correcciones del informe.
+- Mejora perceptible respecto a la vertical slice.
+- Presentación breve (2–3 min) de qué cambió y por qué.
 
 ## Actividades
 
-1. Informe de iteracion anexado al GDD.
-2. Backlog de correccions priorizado.
+1. **Informe de iteración anexado al GDD**
+   - Redacta el informe siguiendo la estructura de este documento.
+   - *Evidencia*: sección "Informe de *playtesting*" en el GDD con datos y plan de acción.
+2. **Backlog de correcciones priorizado**
+   - Traduce las acciones del informe en tareas del backlog con prioridad y criterios.
+   - *Evidencia*: backlog actualizado en el tablero del equipo.
 
-## Evaluacion
+## Evaluación
 
-- Impacto esperado de las mejoras propuestas.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Síntesis de resultados | Sin datos o solo opiniones | Hallazgos con evidencia | Síntesis clara con métricas y citas |
+| Priorización | Lista sin orden | Priorización básica | Matriz impacto/esfuerzo aplicada |
+| Plan de acción | Vago o irreal | Acciones concretas | Acciones con responsable, plazo y criterio |
+| Impacto esperado | No justifica mejoras | Mejoras razonables | Mejoras conectadas con hipótesis de diseño |
 
 ## Recursos
 
-- Exemplo de informe de iteracion.
+- Ejemplo de informe de iteración (ver guía de profesorado).
+- [GDD transversal](../guia/gdd-transversal.mdx) — sección de informe de *playtesting*.
+- Plantilla de backlog de correcciones.
+
+## Fuentes y referencias
+
+- Fullerton, T. (2019). *Game Design Workshop* (4.ª ed.). CRC Press.
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Medler, B. (2011). *Generating Game-Tuning Reports for Game User Research*. DiGRA 2011.
+  URL: https://www.digra.org/ (consultado el 3 de julio de 2026).

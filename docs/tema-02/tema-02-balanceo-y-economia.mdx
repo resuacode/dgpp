@@ -1,25 +1,102 @@
 ---
 title: Tema 2.2 - Balanceo y economia interna
+sidebar_label: 2.2 Balanceo y economia
 ---
+
+# Tema 2.2. Balanceo y economía interna
+
+Un buen core loop puede arruinarse con un mal balanceo: demasiado fácil aburre, demasiado
+difícil frustra. Este documento introduce cómo **ajustar dificultad, progresión y economía
+interna** con criterio y con datos, no por sensaciones.
 
 ## Objetivos
 
-- Axustar dificultade y progresion.
+- Ajustar dificultad y progresión mediante curvas conscientes.
+- Modelar la economía interna del juego (fuentes, sumideros y recursos).
+- Documentar y justificar los parámetros elegidos.
+- Validar el equilibrio con perfiles de jugador distintos.
 
 ## Contenidos
 
-- Curvas de dificultade.
-- Economia interna y variables de juego.
+### 1. Curvas de dificultad
+
+La dificultad no debería ser plana ni crecer de forma aleatoria. Se diseña como una **curva**
+que combina reto y descanso. Conceptos clave:
+
+- **Curva de dificultad**: cómo aumenta el reto a lo largo del juego.
+- **Canal de flujo (*flow*)**: zona de equilibrio entre reto y habilidad donde el jugador ni se
+  aburre (reto bajo) ni se frustra (reto alto). El concepto de *flow* procede de
+  Csíkszentmihályi y es central en el diseño de dificultad.
+- **Picos y valles**: alternar momentos de tensión con momentos de calma para no agotar.
+
+:::tip Dificultad y accesibilidad
+Ofrecer varias curvas (modos de dificultad, ayudas opcionales) amplía el público sin
+traicionar el diseño. La dificultad es también una decisión de **accesibilidad**.
+:::
+
+### 2. Economía interna
+
+La economía interna es el sistema de **recursos** que el jugador gana y gasta. Se modela con
+tres piezas:
+
+| Elemento | Qué es | Ejemplo |
+| --- | --- | --- |
+| **Fuentes (*sources*)** | Dónde entran recursos | Enemigos que sueltan oro, recompensas de nivel |
+| **Sumideros (*sinks*)** | Dónde salen recursos | Tienda, mejoras, reparaciones |
+| **Recursos** | Lo que circula | Oro, vida, munición, tiempo, experiencia |
+
+El objetivo es que fuentes y sumideros estén **equilibrados**: si entra mucho más de lo que
+sale, el recurso pierde valor (inflación); si sale más de lo que entra, el jugador se atasca.
+
+### 3. Variables de juego y *tuning*
+
+El balanceo se concreta en **variables numéricas** ajustables (daño, vida, coste, cadencia,
+velocidad). Buenas prácticas:
+
+- Centralizar las variables en una **hoja de cálculo** o tabla de datos, no dispersas en el
+  código.
+- Cambiar **una variable cada vez** al probar, para aislar su efecto.
+- Documentar el **porqué** de cada valor, no solo el valor.
+
+### 4. Métodos de balanceo
+
+- **Analítico**: cálculos y modelos (p. ej. cuántos golpes hasta derrotar a un enemigo).
+- **Empírico**: *playtesting* y observación de datos reales de juego.
+- **Iterativo**: ajustar, probar, medir y repetir. El balanceo nunca es "definitivo".
 
 ## Actividades
 
-1. Hoja de calculo de balanceo inicial.
-2. Prueba de equilibrio con dos perfiles de jugador.
+### Actividad principal: Hoja de cálculo de balanceo inicial
 
-## Evaluacion
+Crea una hoja de cálculo que recoja las variables clave del proyecto (vida, daño, costes,
+recompensas) y modele la economía (fuentes vs. sumideros). *Evidencia*: hoja de cálculo con
+las variables documentadas y un breve texto justificando los valores iniciales.
 
-- Justificacion dos parametros elegidos.
+### Actividad de apoyo: Prueba de equilibrio con dos perfiles
+
+Simula o prueba el juego con dos perfiles de jugador distintos (por ejemplo, uno experto y
+uno novel) y anota dónde se rompe el equilibrio. *Evidencia*: tabla de observaciones y
+propuestas de ajuste.
+
+## Evaluación
+
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Curva de dificultad | Ausente o arbitraria | Curva consciente | Curva con flow y picos/valles justificados |
+| Modelo de economía | Sin fuentes/sumideros | Modelo básico equilibrado | Economía equilibrada y documentada |
+| Justificación de parámetros | Valores sin explicar | Valores justificados | Justificación + validación empírica |
+| Validación con perfiles | No se prueba | Se prueba con un perfil | Se prueba con perfiles distintos y se itera |
 
 ## Recursos
 
-- Plantillas de balancing.
+- Plantillas de *balancing* (hoja de cálculo) del módulo.
+- Datos de *playtesting* propios para ajustar (se amplía en el [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx)).
+- Bibliografía de balanceo (ver `## Fuentes y referencias`).
+
+## Fuentes y referencias
+
+- Schreiber, I. & Romero, B. (2021). *Game Balance*. CRC Press. (Referencia específica sobre
+  balanceo y economía de juego).
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Csíkszentmihályi, M. (1990). *Flow: The Psychology of Optimal Experience*. Harper & Row.
+  (Origen del concepto de *flow* aplicado al equilibrio reto-habilidad).

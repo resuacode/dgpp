@@ -1,25 +1,103 @@
 ---
 title: Tema 6.1 - Diseno etico y patrones oscuros
+sidebar_label: 6.1 Etica y dark patterns
 ---
+
+# Tema 6.1. Diseño ético y patrones oscuros
+
+Monetizar no es incompatible con respetar al jugador, pero la industria ha normalizado prácticas
+que **manipulan** la decisión de compra. Este documento entrena la mirada crítica y define
+criterios de transparencia aplicables al proyecto del curso.
 
 ## Objetivos
 
-- Evitar practicas de monetizacion abusivas.
+- Identificar *dark patterns* (*patrones oscuros*) en monetización y UX de juegos.
+- Evaluar riesgos éticos y legales de las mecánicas de pago.
+- Definir una lista de buenas prácticas para el proyecto propio.
+- Realizar una auditoría ética de un caso real del mercado.
 
 ## Contenidos
 
-- Riscos de dark patterns.
-- Criterios de transparencia para o usuario.
+### 1. Qué es un dark pattern
+
+Un ***dark pattern*** es un diseño de interfaz o de sistema que induce al usuario a hacer algo
+que no haría con información clara (concepto acuñado en UX por Harry Brignull y aplicado al
+sector del juego). En videojuegos suelen aparecer en:
+
+- Tiendas in-game confusas.
+- Temporizadores de presión artificial ("¡oferta termina en 2 h!").
+- *Loot boxes* sin probabilidades visibles.
+- Monetización de frustración (pagar para evitar esperas diseñadas).
+
+### 2. Patrones frecuentes en juegos
+
+| Patrón | Qué hace | Riesgo |
+| --- | --- | --- |
+| **Pay-to-win** | Ventaja competitiva por dinero real | Frustración, abandono, reputación |
+| **Grind vs. pay** | Progresión lenta salvo pago | Presión económica opaca |
+| **Loot boxes / gacha** | Recompensa aleatoria de pago | Regulación, menores, adicción |
+| **Ofertas falsas** | "Descuento" sobre precio inflado | Engaño al consumidor |
+| **Confirmación engañosa** | Botón de compra prominente; cancelar oculto | Compras accidentales |
+| **Social pressure** | Pagar para no quedar mal en el clan | Presión psicológica |
+
+:::warning Regulación en Europa
+Varios países de la UE han reforzado normas sobre *loot boxes*, publicidad dirigida a menores
+y transparencia de compras in-app. Consultar siempre la normativa vigente y las políticas de
+la plataforma de publicación.
+:::
+
+### 3. Criterios de transparencia para el usuario
+
+Buenas prácticas que el proyecto puede adoptar y documentar:
+
+1. **Precio visible** antes de confirmar cualquier compra.
+2. **Probabilidades publicadas** si hay mecánicas aleatorias de pago.
+3. **Límites de gasto** opcionales o recordatorios de sesión.
+4. **Progresión viable sin pagar** en F2P (no *paywall* duro en contenido base).
+5. **Clasificación por edades** coherente con el contenido y la monetización (PEGI).
+6. **Privacidad**: consentimiento claro para datos y anuncios (RGPD en UE).
+
+### 4. Marco ético profesional
+
+La IGDA y otras asociaciones promueven códigos de ética que incluyen:
+
+- No explotar vulnerabilidades conocidas (menores, ludopatía).
+- Comunicación honesta con la comunidad.
+- Créditos y condiciones laborales (relevante en producción, no solo monetización).
 
 ## Actividades
 
-1. Auditoria etica dun caso real.
-2. Lista de boas practicas para el proyecto.
+1. **Auditoría ética de un caso real**
+   - Elige un juego F2P o con microtransacciones y analiza al menos 5 decisiones de diseño
+     desde la ética (tienda, recompensas, presión temporal).
+   - *Evidencia*: informe de 1–2 páginas con capturas y referencias.
+2. **Lista de buenas prácticas para el proyecto**
+   - Redacta 8–10 compromisos éticos de monetización/UX para tu juego.
+   - *Evidencia*: sección en el GDD o documento anexo firmado por el equipo.
 
-## Evaluacion
+## Evaluación
 
-- Capacidad critica y propuestas de mejora.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Identificación de patrones | Superficial o incorrecta | Identifica patrones con ejemplos | Análisis crítico con impacto en jugador |
+| Capacidad crítica | Opinión sin argumentos | Argumenta con criterios | Conecta ética, ley y diseño |
+| Propuesta del proyecto | Ausente o genérica | Buenas prácticas concretas | Compromisos medibles y realistas |
+| Fuentes | Sin respaldo | Fuentes adecuadas | Normativa, políticas de plataforma y bibliografía |
 
 ## Recursos
 
-- Guias de diseno etico.
+- Guías de diseño ético (IGDA, políticas de Apple/Google).
+- Base de datos de *dark patterns* en UX (referencia general).
+- [Tema 7 — PEGI](../tema-07/tema-07-propiedad-intelectual-y-pegi.mdx) para coherencia de edad.
+
+## Fuentes y referencias
+
+- Brignull, H. *Dark Patterns*. URL: https://www.deceptive.design/ (consultado el 3 de julio
+  de 2026).
+- Comisión Europea. *Regulación de videojuegos y protección de menores* (marco general UE).
+  URL: https://digital-strategy.ec.europa.eu/ (consultado el 3 de julio de 2026).
+- King, D. L. & Delfabbro, P. H. (2019). *Video game monetization and gaming disorder*.
+  *International Journal of Mental Health and Addiction*. (Literatura académica sobre monetización
+  y comportamiento de juego).
+- IGDA. *Code of Ethics for Game Developers*. URL: https://igda.org/ (consultado el 3 de julio
+  de 2026).

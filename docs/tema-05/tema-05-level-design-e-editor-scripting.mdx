@@ -1,25 +1,409 @@
 ---
 title: Tema 5.1 - Level design y editor scripting
+sidebar_label: 5.1 Level design y scripting
 ---
+
+# Tema 5.1. Level design y editor scripting
+
+Un buen nivel 3D no se improvisa en el motor: se **diseña** antes y se **construye** con
+herramientas que aceleran la producción. Este documento cubre el diseño de niveles y la
+creación de **scripts de editor** para automatizar tareas repetitivas del equipo.
 
 ## Objetivos
 
-- Disenar herramientas de produccion dentro del motor.
+- Diseñar niveles 3D con criterios de legibilidad, ritmo y progresión.
+- Crear herramientas de producción dentro del motor (*editor scripting*).
+- Documentar las herramientas para que el equipo las use de forma consistente.
+- Reducir fricción en el flujo de trabajo de *level design*.
 
 ## Contenidos
 
-- Interfaces de diseno para equipo.
-- Automatizacion de tarefas repetitivas.
+### 1. Proceso de level design
+
+Flujo recomendado para un nivel del proyecto:
+
+```text
+Concepto → Paper map / boceto → Blockout (gris) → Playtest → Arte y pulido
+```
+
+| Fase | Qué se hace | Objetivo |
+| --- | --- | --- |
+| **Concepto** | Idea del nivel, objetivos de jugador, duración | Alinear con el GDD |
+| **Paper map** | Plano 2D del recorrido, landmarks, gating | Comunicar sin abrir el motor |
+| **Blockout** | Geometría simple (cajas, primitivas) jugable | Validar escala y ritmo |
+| **Playtest** | Probar con jugadores (ver [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx)) | Detectar perdidos y aburrimiento |
+| **Arte y pulido** | Assets finales, iluminación, audio | Solo cuando el blockout funciona |
+
+:::tip Blockout antes de arte
+Invertir en arte antes de validar el blockout es el error más caro en *level design*. Un
+nivel gris que funciona vale más que uno bonito e ilegible.
+:::
+
+### 2. Herramientas de lectura del espacio
+
+- **Línea de vista**: qué ve el jugador desde puntos clave.
+- **Silueta y landmarks**: torres, puertas grandes, luces que orientan.
+- **Color y luz**: caminos claros vs. zonas secundarias oscuras.
+- **Audio**: sonidos que atraen o advierten (puerta, enemigo, recompensa).
+
+### 3. Editor scripting: automatizar producción
+
+El ***editor scripting*** son scripts que se ejecutan en el editor del motor (no en el juego
+en ejecución) para:
+
+- Colocar en lote objetos repetitivos (árboles, luces, puntos de spawn).
+- Validar reglas del nivel (¿hay spawn? ¿límite de polígonos?).
+- Exportar datos (lista de enemigos, rutas) a CSV o JSON.
+- Crear interfaces personalizadas para diseñadores no programadores.
+
+Ejemplos de utilidad real en un proyecto de curso:
+
+| Herramienta | Problema que resuelve |
+| --- | --- |
+| Generador de grid de spawn | Colocar enemigos en patrón sin hacerlo a mano |
+| Validador de colliders | Detectar huecos por los que el jugador se cae |
+| Exportador de checklist de nivel | Lista de objetos obligatorios por escena |
+
+### 4. Crear herramientas de editor en Unity 6
+
+Unity 6 es el motor principal del itinerario, por lo que esta sección detalla, paso a paso y con
+código, cómo construir herramientas de producción reales. Todos los ejemplos son válidos para
+**Unity 6 (6000.x)** con C#.
+
+#### 4.1. La carpeta `Editor` y las assemblies
+
+El código de editor **no debe incluirse en la build del juego**: solo se ejecuta dentro del
+editor de Unity. Para que Unity lo trate como código de editor:
+
+- Coloca los scripts en una carpeta llamada **`Editor`** (Unity la reconoce por convención en
+  cualquier nivel del proyecto, p. ej. `Assets/Scripts/Editor/`).
+- Usa el *namespace* `UnityEditor`.
+
+:::warning No uses UnityEditor fuera de la carpeta Editor
+Si llamas a `UnityEditor` desde un script normal del juego, la compilación **fallará al generar
+la build**. Separa siempre la lógica de editor (herramientas) de la lógica de juego (runtime).
+:::
+
+Estructura recomendada:
+
+```text
+Assets/
+├── Scripts/
+│   ├── Runtime/        # Lógica del juego (se incluye en la build)
+│   └── Editor/         # Herramientas de producción (solo en el editor)
+│       ├── SpawnGridTool.cs
+│       └── LevelValidator.cs
+```
+
+#### 4.2. Herramienta mínima: un comando de menú con `MenuItem`
+
+La forma más simple de una herramienta es un **comando de menú**. El atributo `[MenuItem]`
+añade una entrada a la barra de menús de Unity que ejecuta un método estático.
+
+```csharp
+using UnityEditor;
+using UnityEngine;
+
+public static class QuickTools
+{
+    // Añade "Herramientas DGPP > Contar seleccionados" a la barra de menús.
+    [MenuItem("Herramientas DGPP/Contar seleccionados")]
+    private static void ContarSeleccionados()
+    {
+        int total = Selection.gameObjects.Length;
+        Debug.Log($"Objetos seleccionados en la escena: {total}");
+    }
+}
+```
+
+Al guardar el script, Unity recompila y aparece el menú **Herramientas DGPP**. Es la base de
+cualquier utilidad: un punto de entrada accesible para todo el equipo.
+
+#### 4.3. Colocación con Undo y marcado de escena
+
+Una herramienta útil de verdad **modifica la escena**. Dos reglas de oro en Unity:
+
+1. Registrar los cambios con la clase `Undo` para que se puedan **deshacer con Ctrl+Z**.
+2. Marcar la escena como *dirty* para que Unity sepa que hay cambios sin guardar.
+
+Ejemplo: un generador de rejilla (*grid*) de puntos de *spawn*, muy típico en *level design*.
+
+```csharp
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+public static class SpawnGridGenerator
+{
+    [MenuItem("Herramientas DGPP/Generar grid de spawn 5x5")]
+    private static void GenerarGrid()
+    {
+        // Contenedor padre para mantener la jerarquía ordenada.
+        var contenedor = new GameObject("SpawnGrid");
+        Undo.RegisterCreatedObjectUndo(contenedor, "Crear SpawnGrid");
+
+        const int filas = 5;
+        const int columnas = 5;
+        const float separacion = 2f;
+
+        for (int x = 0; x < columnas; x++)
+        {
+            for (int z = 0; z < filas; z++)
+            {
+                var punto = new GameObject($"Spawn_{x}_{z}");
+                punto.transform.SetParent(contenedor.transform);
+                punto.transform.position = new Vector3(x * separacion, 0f, z * separacion);
+
+                // Permite deshacer también la creación de cada hijo.
+                Undo.RegisterCreatedObjectUndo(punto, "Crear punto de spawn");
+            }
+        }
+
+        // Marca la escena activa como modificada.
+        EditorSceneManager.MarkSceneDirty(contenedor.scene);
+        Debug.Log($"Grid generado: {filas * columnas} puntos de spawn.");
+    }
+}
+```
+
+:::tip Siempre soporta Undo
+Una herramienta que no se puede deshacer es peligrosa: un error puede arruinar horas de trabajo.
+`Undo.RegisterCreatedObjectUndo` y `Undo.RecordObject` deben ser un hábito, no una opción.
+:::
+
+#### 4.4. Una ventana propia con `EditorWindow`
+
+Cuando la herramienta necesita **parámetros configurables**, se crea una ventana. En Unity 6
+hay dos enfoques:
+
+- **IMGUI** (`OnGUI`): rápido de escribir, ideal para herramientas internas sencillas.
+- **UI Toolkit** (`CreateGUI` con UXML/USS): el enfoque moderno recomendado por Unity para
+  interfaces complejas y mantenibles.
+
+Empezamos con **IMGUI**, más directo para el nivel del curso:
+
+```csharp
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+public class SpawnGridWindow : EditorWindow
+{
+    private int filas = 5;
+    private int columnas = 5;
+    private float separacion = 2f;
+    private GameObject prefab;
+
+    // Abre la ventana desde el menú.
+    [MenuItem("Herramientas DGPP/Generador de spawns (ventana)")]
+    private static void Abrir()
+    {
+        // GetWindow crea o enfoca la ventana; el título aparece en la pestaña.
+        var ventana = GetWindow<SpawnGridWindow>();
+        ventana.titleContent = new GUIContent("Spawn Grid");
+        ventana.minSize = new Vector2(300, 180);
+    }
+
+    // OnGUI se redibuja continuamente mientras la ventana está abierta.
+    private void OnGUI()
+    {
+        GUILayout.Label("Parámetros del grid", EditorStyles.boldLabel);
+
+        filas = EditorGUILayout.IntSlider("Filas", filas, 1, 20);
+        columnas = EditorGUILayout.IntSlider("Columnas", columnas, 1, 20);
+        separacion = EditorGUILayout.FloatField("Separación", separacion);
+        prefab = (GameObject)EditorGUILayout.ObjectField(
+            "Prefab (opcional)", prefab, typeof(GameObject), false);
+
+        EditorGUILayout.Space();
+
+        if (GUILayout.Button("Generar"))
+        {
+            Generar();
+        }
+    }
+
+    private void Generar()
+    {
+        var contenedor = new GameObject("SpawnGrid");
+        Undo.RegisterCreatedObjectUndo(contenedor, "Crear SpawnGrid");
+
+        for (int x = 0; x < columnas; x++)
+        {
+            for (int z = 0; z < filas; z++)
+            {
+                GameObject punto;
+
+                if (prefab != null)
+                {
+                    // Instancia manteniendo el vínculo con el prefab.
+                    punto = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+                }
+                else
+                {
+                    punto = new GameObject($"Spawn_{x}_{z}");
+                }
+
+                punto.transform.SetParent(contenedor.transform);
+                punto.transform.position = new Vector3(x * separacion, 0f, z * separacion);
+                Undo.RegisterCreatedObjectUndo(punto, "Crear punto de spawn");
+            }
+        }
+
+        EditorSceneManager.MarkSceneDirty(contenedor.scene);
+    }
+}
+```
+
+Con esta ventana, un **diseñador no programador** puede generar decenas de puntos con distintos
+parámetros sin tocar código: exactamente el objetivo de una herramienta de producción.
+
+#### 4.5. Validar el nivel: una herramienta de control de calidad
+
+El *editor scripting* también sirve para **detectar errores antes del playtest**. Este validador
+recorre la escena y avisa de problemas comunes de *level design*.
+
+```csharp
+using UnityEditor;
+using UnityEngine;
+
+public static class LevelValidator
+{
+    [MenuItem("Herramientas DGPP/Validar nivel")]
+    private static void Validar()
+    {
+        int avisos = 0;
+
+        // 1. ¿Hay al menos un punto de spawn en la escena?
+        var spawns = GameObject.FindObjectsByType<Transform>(FindObjectsSortMode.None);
+        bool haySpawn = false;
+        foreach (var t in spawns)
+        {
+            if (t.name.StartsWith("Spawn"))
+            {
+                haySpawn = true;
+                break;
+            }
+        }
+
+        if (!haySpawn)
+        {
+            Debug.LogWarning("[Validador] No se encontró ningún punto de spawn.");
+            avisos++;
+        }
+
+        // 2. ¿Hay objetos sin collider que deberían tenerlo (nombre "Muro")?
+        foreach (var t in spawns)
+        {
+            if (t.name.Contains("Muro") && t.GetComponent<Collider>() == null)
+            {
+                Debug.LogWarning($"[Validador] '{t.name}' no tiene Collider.", t);
+                avisos++;
+            }
+        }
+
+        if (avisos == 0)
+        {
+            Debug.Log("[Validador] Nivel correcto: sin avisos.");
+        }
+        else
+        {
+            Debug.LogWarning($"[Validador] Revisión terminada con {avisos} aviso(s).");
+        }
+    }
+}
+```
+
+:::note API de búsqueda en Unity 6
+En Unity 6 se usa `FindObjectsByType` (con `FindObjectsSortMode`) en lugar del antiguo
+`FindObjectsOfType`, que está obsoleto. Pasar `FindObjectsSortMode.None` es más rápido cuando no
+necesitas ordenar los resultados.
+:::
+
+:::tip Conexión con el Tema 4 (QA)
+Este validador es **QA automatizado dentro del editor**: aplica los mismos principios de
+verificación reproducible que viste en el [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx). En
+lugar de comprobar el nivel a mano antes de cada *playtest*, la herramienta ejecuta esas
+comprobaciones de forma consistente. Un buen ejercicio es convertir tus **test cases de QA**
+(del [Tema 4.1](../tema-04/tema-04-test-cases-e-feedback.mdx)) en reglas de este validador: cada
+test case manual que se pueda automatizar ahorra tiempo en cada iteración.
+:::
+
+#### 4.6. Ayudas visuales en la escena con Gizmos
+
+Para *level design* es muy útil **ver información en la vista de escena**. Los *Gizmos* dibujan
+formas de ayuda que no aparecen en el juego. Este ejemplo (script de *runtime*, no de editor)
+muestra el radio de acción de un punto de spawn.
+
+```csharp
+using UnityEngine;
+
+public class SpawnPoint : MonoBehaviour
+{
+    [SerializeField] private float radio = 1.5f;
+
+    // OnDrawGizmos se dibuja siempre en la vista de escena.
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, radio);
+    }
+}
+```
+
+#### 4.7. Buenas prácticas para herramientas en Unity 6
+
+- **Agrupa** tus comandos bajo un menú propio (`Herramientas DGPP/…`) para no ensuciar los menús.
+- **Soporta Undo** en toda operación que modifique la escena o los assets.
+- **Marca la escena** como *dirty* (`MarkSceneDirty`) o usa `AssetDatabase.SaveAssets()` para
+  cambios en assets.
+- **No metas lógica de editor en runtime**: mantén la separación de carpetas/assemblies.
+- **Da feedback** con `Debug.Log`/`LogWarning` para que el equipo sepa qué pasó.
+- **Considera UI Toolkit** si la herramienta crece: interfaces más mantenibles con UXML y USS.
+
+### 5. Documentar la herramienta
+
+Un script de editor que solo entiende quien lo escribió no escala. El manual mínimo incluye:
+
+- **Qué hace** (una frase).
+- **Cómo abrirlo** (menú, atajo).
+- **Parámetros** (qué puede configurar el usuario).
+- **Limitaciones** (qué no hace, errores frecuentes).
 
 ## Actividades
 
-1. Prototipo de editor script.
-2. Manual curto de la ferramenta creada.
+1. **Prototipo de editor script**
+   - Implementa una herramienta de editor que ahorre tiempo al equipo (colocación, validación
+     o exportación).
+   - *Evidencia*: script en el repositorio + captura o vídeo corto de uso.
+2. **Manual corto de la herramienta creada**
+   - Redacta la documentación para que otro miembro del equipo la use sin ayuda.
+   - *Evidencia*: sección en el README del repo o en el GDD (herramientas de producción).
 
-## Evaluacion
+## Evaluación
 
-- Utilidade real para o fluxo de traballo.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Diseño de nivel (blockout) | Ilegible o no jugable | Navegable con landmarks | Ritmo claro y playtest documentado |
+| Utilidad del editor script | No aporta o no funciona | Ahorra tiempo en tarea concreta | Herramienta estable y reutilizable |
+| Documentación de la herramienta | Ausente | Manual básico | Manual claro con ejemplos |
+| Integración en el flujo | Aislado del equipo | El equipo la usa | Mejora medible del pipeline |
 
 ## Recursos
 
-- Documentacion de scripting del motor.
+- Documentación de *scripting* del editor de **Unity 6** (motor principal del itinerario).
+- [GDD transversal](../guia/gdd-transversal.mdx) — level design por fases.
+- Referencias de *blockout* y *greyboxing* (ver fuentes).
+
+## Fuentes y referencias
+
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
+- Unity Technologies. *Extending the Editor*. Manual de Unity 6. URL:
+  https://docs.unity3d.com/6000.0/Documentation/Manual/ExtendingTheEditor.html (consultado el 3
+  de julio de 2026).
+- Unity Technologies. *EditorWindow* y *MenuItem*. Scripting API de Unity 6. URL:
+  https://docs.unity3d.com/6000.0/Documentation/ScriptReference/EditorWindow.html (consultado el
+  3 de julio de 2026).
+- Unity Technologies. *UI Toolkit for the Editor*. Manual de Unity 6. URL:
+  https://docs.unity3d.com/6000.0/Documentation/Manual/UIElements.html (consultado el 3 de julio
+  de 2026).

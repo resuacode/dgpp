@@ -1,28 +1,119 @@
 ---
 title: Tema 5 - Escalado al diseno 3D y VR
+sidebar_label: 5. Escalado 3D y VR
 ---
+
+# Tema 5. Escalado al diseño 3D y VR
+
+Tras la fase 2D y la Game Jam I, el proyecto **escala** a espacios tridimensionales y, según el
+itinerario, a experiencias **VR/AR**. No se trata de "añadir una dimensión": implica repensar
+controles, cámara, ritmo, narrativa y ergonomía. Este tema introduce los fundamentos de diseño
+3D/VR y prepara la segunda fase de producción del GDD.
+
+:::info Ubicación en el módulo
+Tema del **Bloque 4 (Producción y pipeline)**. Marca el inicio de la **fase 2 del proyecto**:
+el mismo concepto del juego se reinterpreta en 3D/VR con nuevas restricciones y oportunidades.
+:::
 
 ## Objetivos
 
-- Adaptar el proyecto a espacios 3D/VR.
-- Integrar level design y narrativa inmersiva.
+- Adaptar el proyecto a espacios 3D y VR con criterio de diseño y viabilidad técnica.
+- Integrar *level design* y narrativa inmersiva en la planificación de la fase 2.
+- Comprender las diferencias entre diseño 2D, 3D y VR en controles, cámara y ritmo.
+- Actualizar el GDD con las especificaciones de la fase 2.
 
 ## Contenidos
 
-- Arquitectura de niveles 3D.
-- Iluminacion y ritmo de exploracion.
-- Narrativa y interaccion inmersiva.
+Este tema se desarrolla en tres documentos:
+
+1. **[Level design y editor scripting](./tema-05-level-design-e-editor-scripting.mdx)**: diseño
+   de niveles 3D y herramientas de producción en el motor.
+2. **[Aplicación al proyecto 3D/VR](./tema-05-aplicacion-proyecto-3d-y-vr.mdx)**: traslado
+   práctico al proyecto y demo funcional.
+
+Ideas clave que se abordan:
+
+- Arquitectura de niveles 3D y ritmo de exploración.
+- Iluminación, guía visual y lectura del espacio.
+- Narrativa e interacción inmersiva.
+- Ergonomía y confort en VR.
+
+### 1. De 2D a 3D: qué cambia
+
+| Aspecto | 2D | 3D / VR |
+| --- | --- | --- |
+| Cámara | Fija o con scroll | Perspectiva, órbita, primera persona |
+| Espacio | Plano, lectura inmediata | Profundidad, oclusión, verticalidad |
+| Controles | Teclado/mando simple | Movimiento en 3 ejes, apuntado, gestos (VR) |
+| Ritmo | Rápido, pantalla completa | Exploración, pausas, orientación |
+| Narrativa | Secuencial, UI | Ambiental, diegética, presencia (VR) |
+
+:::warning No es un "port" automático
+Trasladar mecánicas 2D a 3D sin repensar suele producir juegos incómodos o confusos. El
+[Tema 2](../tema-02/tema-02-gdd-e-core-loop.mdx) debe revisarse: el core loop puede mantenerse,
+pero su **implementación** cambia.
+:::
+
+### 2. Principios de level design 3D
+
+El *level design* en 3D organiza el espacio para guiar al jugador sin perderlo:
+
+- **Landmarks** (*puntos de referencia*): elementos visibles que orientan.
+- **Guía visual**: luz, color y geometría que dirigen la mirada.
+- **Ritmo**: alternar espacios abiertos y cerrados, tensión y calma.
+- **Gating** (*bloqueos de progreso*): llaves, habilidades o puzzles que controlan el flujo.
+- **Legibilidad**: el jugador debe entender "dónde puedo ir" sin mapa obligatorio.
+
+### 3. VR: confort y diseño
+
+En VR, el cuerpo del jugador es parte del diseño. Consideraciones esenciales:
+
+| Factor | Recomendación |
+| --- | --- |
+| **Movimiento** | Teletransporte o movimiento suave según sensibilidad; evitar aceleraciones bruscas |
+| **Escala** | Objetos y personajes a escala creíble (1 unidad ≈ 1 metro en muchos motores) |
+| **Interacción** | Agarre, apuntado o gestos; evitar menús complejos en pantalla |
+| **Confort** | FOV estable, evitar *camera shake* agresivo, descansos cada 15–20 min |
+| **Accesibilidad** | Opciones de altura, volumen, subtítulos en mundo |
+
+Las [Directrices de confort de Valve para VR](https://steamcommunity.com/sharedfiles/filedetails/?id=497812639)
+son referencia estándar del sector.
+
+### 4. Narrativa inmersiva
+
+En 3D/VR la narrativa suele ser **ambiental** (*environmental storytelling*): el espacio, los
+objetos y el sonido cuentan la historia sin cinemáticas largas. Herramientas:
+
+- Objetos con historia (notas, restos, disposición de escena).
+- Audio posicional y diálogos diegéticos.
+- Progresión espacial (el nivel revela la trama al avanzar).
 
 ## Actividades
 
-1. Documento de level design 3D.
-2. Blueprint de flujo de nivel.
-3. Actualizacion del GDD fase 2.
+1. **Documento de *level design* 3D**: diseño de al menos un nivel con mapa, landmarks y ritmo.
+   *Evidencia*: documento con boceto o *blockout* y descripción.
+2. **Blueprint de flujo de nivel**: diagrama de progresión (inicio → gating → clímax → cierre).
+   *Evidencia*: diagrama integrado en el GDD fase 2.
+3. **Actualización del GDD fase 2**: secciones de level design, arte 3D, especificación VR/AR.
+   *Evidencia*: GDD actualizado según [GDD transversal](../guia/gdd-transversal.mdx).
 
-## Evaluacion
+## Evaluación
 
-- Coherencia espacial y inmersion.
+- Coherencia espacial: el nivel es navegable y legible.
+- Inmersión: la experiencia 3D/VR aporta valor respecto a la versión 2D.
+- Viabilidad técnica para el alcance del curso.
+- Calidad de la documentación de la fase 2.
 
 ## Recursos
 
-- Guías de level design 3D.
+- Guías de *level design* 3D y de confort VR (ver `## Fuentes y referencias`).
+- [GDD transversal](../guia/gdd-transversal.mdx) — secciones de fase 2.
+- Documentación del motor del itinerario (editor, scripting).
+
+## Fuentes y referencias
+
+- Valve Corporation. *Virtual Reality Comfort Guidelines*. URL:
+  https://steamcommunity.com/sharedfiles/filedetails/?id=497812639 (consultado el 3 de julio de
+  2026).
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.

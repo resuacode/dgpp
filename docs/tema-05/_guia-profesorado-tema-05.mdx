@@ -1,0 +1,146 @@
+---
+title: "[Profesorado] Guia del Tema 5"
+draft: true
+---
+
+# Guía del profesorado — Tema 5: Escalado al diseño 3D y VR
+
+> **Documento interno.** El prefijo `_` hace que Docusaurus excluya este archivo del sitio
+> publicado: no aparece en la web ni en el sidebar. Uso exclusivo del equipo docente.
+
+## 1. Propósito del tema
+
+Marca el **cambio de fase** del proyecto: de 2D a 3D/VR. El objetivo no es un juego 3D
+completo, sino demostrar que el equipo sabe **repensar** diseño, pipeline y ergonomía en un
+nuevo medio. La demo 3D/VR y el editor script son entregas que validan producción avanzada.
+
+Riesgo principal: equipos que "portan" el 2D sin rediseñar (controles incómodos, niveles
+ilegibles) o que invierten en arte antes del blockout. También VR sin probar confort hasta
+el último día.
+
+## 2. Encaje temporal (orientativo)
+
+Estimación para **5–7 sesiones de ~50 min** + talleres de producción extendidos:
+
+| Sesión | Contenido | Documento |
+| --- | --- | --- |
+| 1 | De 2D a 3D/VR: qué cambia | `tema-05-escalado-3d-y-vr` |
+| 2 | Level design: paper map y blockout | `tema-05-escalado-3d-y-vr` |
+| 3 | VR: confort y ergonomía | `tema-05-escalado-3d-y-vr` |
+| 4 | Editor scripting: concepto + herramientas en **Unity 6** | `tema-05-level-design-e-editor-scripting` |
+| 5 | Taller de código: MenuItem, EditorWindow, validador | `tema-05-level-design-e-editor-scripting` |
+| 6+ | Producción demo 3D/VR | `tema-05-aplicacion-proyecto-3d-y-vr` |
+
+> Las sesiones 6+ son supervisión de producción, como en el Tema 3.
+
+:::note Sobre la sesión 5 (Unity 6)
+El documento 5.1 incluye una **sección práctica con código C# para Unity 6** (carpeta `Editor`,
+`[MenuItem]`, `EditorWindow`, `Undo`, validador de nivel y Gizmos). Recomendado hacerla como
+**taller en vivo**: el docente crea una herramienta mínima paso a paso y el alumnado la replica.
+Requiere Unity 6 instalado en las máquinas. Si el grupo tiene poca base de C#, empezar solo por
+4.2 (`MenuItem`) y 4.3 (colocación con `Undo`) antes de la ventana (4.4).
+:::
+
+## 3. Secuencia didáctica sugerida
+
+1. **Gancho (10 min)**: comparar vídeo de un mismo juego en 2D vs. 3D vs. VR; preguntar qué
+   cambió en controles y sensación.
+2. **Paper map en grupo (20 min)**: cada equipo dibuja en papel el flujo de un nivel 3D antes
+   de abrir el motor.
+3. **Blockout exprés (30 min)**: geometría gris jugable mínima; *playtest* de 2 minutos entre
+   compañeros buscando "momentos de estar perdido".
+4. **VR confort (15 min)**: revisar checklist Valve con ejemplos de qué evitar (movimiento
+   brusco, UI ilegible).
+
+## 4. Ideas para actividades de aula y entregas
+
+### Actividades en clase (formativas)
+
+- **"¿Dónde estoy?" (15 min)**: capturas de niveles 3D sin minimapa; el alumnado marca dónde
+  cree que está el jugador y qué camino tomaría.
+- **Blockout crítico (20 min)**: un equipo muestra su blockout; el resto anota puntos de
+  confusión sin sugerir soluciones artísticas.
+- **Taller de MenuItem en vivo (20 min)**: el docente crea un comando de menú en Unity 6 desde
+  cero (sección 4.2) y el alumnado lo replica; primer contacto con la carpeta `Editor`.
+- **Reto del validador (25 min)**: partiendo de la sección 4.5, cada equipo añade **una regla
+  nueva** al validador basada en un test case de QA del Tema 4 (ver conexión explícita en 5.1).
+- **Editor script show-and-tell (15 min)**: cada equipo muestra su herramienta en 2 minutos.
+- **Sesión VR corta rotativa** (si hay hardware): 5 min por persona con checklist de confort.
+
+### Entregas evaluables (propuestas y peso orientativo)
+
+| Entrega | Descripción | Peso sugerido | Formato |
+| --- | --- | --- | --- |
+| Documento de level design 3D | Mapa, landmarks, ritmo | 15 % | GDD / documento |
+| Blueprint de flujo de nivel | Diagrama de progresión | 10 % | Diagrama |
+| Prototipo editor script + manual | Herramienta de producción | 20 % | Repo + doc |
+| **Demo funcional 3D/VR** | Nivel jugable fase 2 | 40 % | Build |
+| GDD fase 2 actualizado | Specs técnicas y VR | 15 % | GDD |
+
+> La **demo 3D/VR** es la entrega principal. El editor script demuestra madurez de pipeline.
+
+### Extensiones para alumnado avanzado
+
+- Implementar teletransporte con validación de destino (VR).
+- Métricas de tiempo en zonas del nivel (*heatmaps* simples).
+- Integración OpenXR o plugin VR del motor con build documentado.
+
+## 5. Errores frecuentes del alumnado (y cómo intervenir)
+
+- **Port directo del 2D** sin revisar cámara y escala. → Exigir revisión explícita del core loop.
+- **Arte antes del blockout.** → No evaluar assets finales si el recorrido no funciona en gris.
+- **VR que maree a todos.** → Obligar opciones de movimiento y sesiones cortas de prueba.
+- **Editor script inútil** (botón que hace una cosa manual). → Pedir que otro miembro del equipo
+  lo use sin explicación oral.
+- **Código de editor en runtime** (usar `UnityEditor` en scripts del juego). → Recordar la regla
+  de la carpeta `Editor`: la build fallará. Es el error técnico más común de este tema.
+- **Herramienta sin `Undo`.** → Exigir que toda operación que modifique la escena se pueda
+  deshacer con Ctrl+Z (sección 4.3/4.7).
+- **API obsoleta** (`FindObjectsOfType`). → En Unity 6 usar `FindObjectsByType` con
+  `FindObjectsSortMode` (ver nota en 5.1).
+- **GDD fase 2 copiado del 2D** sin sección VR/3D. → Checklist de secciones obligatorias del
+  GDD transversal.
+
+## 6. Materiales a preparar
+
+- Ejemplos de paper maps y blockouts (imágenes o vídeos).
+- Checklist de ergonomía VR impreso o en pantalla.
+- Acceso a hardware VR del centro (reservas, higiene, cables).
+- **Unity 6 instalado** en las máquinas del aula para el taller de editor scripting.
+- Proyecto Unity de ejemplo con la carpeta `Editor` ya creada (arranque rápido del taller).
+- Plantilla de especificaciones técnicas para el GDD fase 2.
+- Rúbrica de demo 3D/VR.
+
+## 7. Notas de evaluación
+
+- Evaluar la demo **jugando** en 3D; en VR, al menos un evaluador debe probar con checklist.
+- No exigir VR si el itinerario permite solo 3D: adaptar criterios al programa real.
+- El editor script se evalúa por **utilidad demostrada**, no por complejidad del código.
+- Coherencia con el concepto 2D: mismo tono/universo, no mismo nivel pixel a voxel.
+
+## 8. Atención a la diversidad e inclusión
+
+- VR puede causar malestar: ofrecer alternativa 3D en pantalla sin penalizar.
+- Tiempos de sesión VR cortos; nadie obligado a más de X minutos según normativa del centro.
+- Blockout y paper maps favorecen a quien diseña mejor en espacio que en código.
+
+## 9. Conexión con otros temas
+
+- **Tema 4**: playtesting del blockout 3D antes del arte final. Además, el **validador de nivel**
+  (sección 4.5 de 5.1) es QA automatizado que reutiliza los test cases del Tema 4.1.
+- **Tema 6**: monetización y ética pueden incluir DLC de niveles 3D.
+- **Tema 8**: demo 3D/VR en portfolio y trailer de fase 2.
+- **Módulos del ciclo**: Unity 6 es el motor común del itinerario; las herramientas de editor
+  aprendidas aquí son transferibles a otros módulos de programación y producción.
+
+## 10. Fuentes de apoyo para el docente
+
+- Valve Corporation. *Virtual Reality Comfort Guidelines*.
+  https://steamcommunity.com/sharedfiles/filedetails/?id=497812639 (consultado el 3 de julio de
+  2026).
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
+- Unity Technologies. *Extending the Editor* (Unity 6).
+  https://docs.unity3d.com/6000.0/Documentation/Manual/ExtendingTheEditor.html (consultado el 3
+  de julio de 2026).
+- Khronos Group. *OpenXR*. https://www.khronos.org/openxr/ (consultado el 3 de julio de 2026).
+- GDC Vault. Charlas sobre *level design* y VR (búsqueda: "level design", "VR comfort").

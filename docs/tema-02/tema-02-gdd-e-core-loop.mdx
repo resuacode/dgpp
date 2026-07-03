@@ -1,26 +1,113 @@
 ---
 title: Tema 2.1 - Estructura del GDD y core gameplay loop
+sidebar_label: 2.1 GDD y core loop
 ---
+
+# Tema 2.1. Estructura del GDD y core gameplay loop
+
+Este documento tiene dos objetivos prácticos: **saber qué secciones debe tener un GDD** y
+**diseñar el bucle jugable principal**, que es el latido del juego. Ambos son el primer
+trabajo real de diseño del proyecto.
 
 ## Objetivos
 
-- Estructurar el GDD por bloques funcionales.
-- Prototipar o loop principal.
+- Estructurar el GDD por bloques funcionales, alineado con el GDD transversal del módulo.
+- Diseñar el *core gameplay loop* y sus loops secundarios.
+- Distinguir loop de acción (segundos), loop de sesión (minutos) y loop de progresión (horas).
+- Documentar el bucle de forma que sea prototipable.
 
 ## Contenidos
 
-- Seccions obligatorias del GDD.
-- Loop principal, loops secundarios y feedback.
+### 1. Anatomía del GDD
+
+El GDD (*Game Design Document*) es el documento que traduce la visión en especificaciones. No
+es un contrato inamovible: es un **documento vivo** que se actualiza con cada iteración. Un
+GDD útil suele incluir, como mínimo:
+
+- **Ficha técnica y *executive summary***: qué es el juego, género, plataforma, público.
+- **Concepto y *x-features***: *high concept* y elementos diferenciadores.
+- **Mecánicas y core loop**: reglas, controles y bucle principal.
+- **Progresión y economía**: cómo avanza el jugador y qué recursos gestiona.
+- **Contenido**: niveles, enemigos, objetos.
+- **Arte y audio**: dirección estética y referencias.
+- **Interfaz y UX**: HUD, menús, *feedback*.
+- **Alcance y plan**: qué entra en cada iteración.
+
+:::note Alinéate con el GDD transversal
+La estructura obligatoria del módulo está en el [GDD transversal](../guia/gdd-transversal.mdx).
+Este apartado desarrolla las secciones de mecánicas y core loop; el resto se completa en temas
+posteriores.
+:::
+
+### 2. Principios de un buen GDD
+
+- **Vivo**: se versiona (v0.1, v0.2…) y refleja las decisiones tomadas.
+- **Conciso**: mejor claro y breve que exhaustivo e inútil. El *one-page design* es un buen
+  punto de partida.
+- **Visual**: diagramas del loop, *mockups* de UI y tablas ahorran páginas de texto.
+- **Accionable**: cada sección debe permitir que alguien construya algo.
+
+### 3. El core gameplay loop
+
+El **core loop** es la secuencia de acciones que el jugador repite constantemente y que
+constituye la esencia del juego. Ejemplo genérico:
+
+```text
+Observar situación → Decidir acción → Ejecutar → Recibir feedback → Recompensa/consecuencia → (repetir)
+```
+
+Un core loop bien diseñado es **claro, satisfactorio y sostenible** en el tiempo. Conviene
+distinguir tres escalas de bucle que conviven:
+
+| Escala | Duración típica | Ejemplo |
+| --- | --- | --- |
+| Loop de acción | Segundos | Saltar, disparar, esquivar |
+| Loop de sesión | Minutos | Completar un nivel, una oleada |
+| Loop de progresión | Horas/días | Desbloquear mejoras, avanzar la historia |
+
+:::tip El *feedback* no es opcional
+Cada acción del loop necesita **retroalimentación perceptible** (visual, sonora, háptica). Sin
+*feedback* claro, el jugador no aprende el sistema y el loop no engancha.
+:::
+
+### 4. Loops secundarios
+
+Alrededor del core loop se construyen loops secundarios (colección, mejora, exploración,
+social) que dan profundidad y motivan la rejugabilidad. Deben **reforzar** el core loop, no
+competir con él por la atención del jugador.
 
 ## Actividades
 
-1. Mapa del loop jugable.
-2. Checklist de secciones del GDD.
+1. **Mapa del loop jugable**
+   - Diagrama del core loop con sus acciones, *feedback* y recompensas, e identificación de al
+     menos un loop secundario.
+   - *Evidencia*: diagrama (imagen o esquema en texto) + breve explicación de cada paso.
+2. **Checklist de secciones del GDD**
+   - Verifica que el GDD v0.1 cubre las secciones mínimas y márcalas como "hecho / pendiente".
+   - *Evidencia*: checklist completado en el GDD.
+3. **Prueba del loop en papel** (refuerzo)
+   - Simula el core loop con papel o piezas para validar que funciona antes de programarlo.
+   - *Evidencia*: fotos o notas de la prueba y conclusiones.
 
-## Evaluacion
+## Evaluación
 
-- Coherencia entre documento y loop propuesto.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Claridad del core loop | Confuso o incompleto | Loop identificable | Loop claro, con feedback y recompensa |
+| Estructura del GDD | Faltan secciones clave | Secciones mínimas presentes | Documento vivo, visual y accionable |
+| Loops secundarios | Ausentes o contradictorios | Presentes | Refuerzan el core loop con intención |
+| Coherencia doc–loop | Incoherente | Coherente | El documento permitiría prototipar |
 
 ## Recursos
 
-- Ejemplos de GDD profesionales.
+- [GDD transversal](../guia/gdd-transversal.mdx) con la estructura obligatoria.
+- Ejemplos de GDD profesionales y plantillas de *one-page design*.
+- Herramientas de diagramado para el mapa del loop.
+
+## Fuentes y referencias
+
+- Hunicke, R., LeBlanc, M. & Zubek, R. (2004). *MDA: A Formal Approach to Game Design and Game
+  Research*. URL: https://users.cs.northwestern.edu/~hunicke/MDA.pdf (consultado el 3 de julio
+  de 2026).
+- Adams, E. (2014). *Fundamentals of Game Design* (3.ª ed.). New Riders.
+- Sylvester, T. (2013). *Designing Games: A Guide to Engineering Experiences*. O'Reilly Media.

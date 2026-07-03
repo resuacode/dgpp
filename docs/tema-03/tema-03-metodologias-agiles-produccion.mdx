@@ -1,28 +1,140 @@
 ---
 title: Tema 3 - Metodologias agiles de produccion
+sidebar_label: 3. Metodologias agiles
 ---
+
+# Tema 3. Metodologías ágiles de producción
+
+Con el diseño definido en el [Tema 2](../tema-02/tema-02-game-design-fundacional.mdx), el proyecto
+necesita **organización**: convertir el GDD en tareas ejecutables, priorizarlas y entregar valor
+de forma iterativa. Este tema introduce las metodologías ágiles adaptadas a la producción de
+videojuegos y prepara la primera entrega jugable del curso: la **vertical slice 2D**.
+
+:::info Ubicación en el módulo
+Tema del **Bloque 2 (Gestión de proyecto)**. Es el puente entre diseño y ejecución: aquí el
+GDD deja de ser solo documento y se convierte en **backlog, sprints y entregas**.
+:::
 
 ## Objetivos
 
-- Organizar el proyecto con Scrum/Kanban.
-- Definir backlog, fitos y control de alcance.
+- Organizar el proyecto con marcos ágiles (Scrum y Kanban) adaptados a equipos de desarrollo
+  de videojuegos.
+- Definir backlog, hitos y mecanismos de control de alcance.
+- Aplicar políticas de control de versiones y trazabilidad del trabajo.
+- Preparar la planificación de la vertical slice 2D como primer hito de producción.
 
 ## Contenidos
 
-- Rol del productor y scope creep.
-- Backlog, estimacion y planificacion iterativa.
-- Politicas de commits y control de version.
+Este tema se desarrolla en tres documentos:
+
+1. **[Rol del productor y planificación](./tema-03-rol-productor-y-planificacion.mdx)**: responsabilidades,
+   gestión de riesgos y control de alcance.
+2. **[Vertical slice y entrega de la fase 1](./tema-03-vertical-slice-2d.mdx)**: definición del MVP
+   jugable y criterios de entrega.
+
+Ideas clave que se abordan:
+
+- Rol del productor (*producer*) y el riesgo de *scope creep*.
+- Backlog, estimación y planificación iterativa.
+- Scrum frente a Kanban: cuándo usar cada uno.
+- Políticas de commits y control de versiones.
+
+### 1. Por qué ágil en videojuegos
+
+La producción de videojuegos combina **incertidumbre creativa** (¿funcionará esta mecánica?) con
+**complejidad técnica** (arte, código, audio, diseño de niveles). Los enfoques en cascada
+(planificar todo al inicio y ejecutar) fallan cuando el diseño cambia — y siempre cambia. Las
+metodologías ágiles priorizan:
+
+- **Entregas frecuentes** de valor jugable.
+- **Adaptación** al aprendizaje del equipo.
+- **Transparencia** del progreso y los bloqueos.
+
+El [Manifiesto Ágil](https://agilemanifesto.org/) (2001) resume cuatro valores que aplican
+directamente: individuos e interacciones, software funcionando, colaboración con el cliente y
+respuesta al cambio.
+
+### 2. Scrum y Kanban en producción de juegos
+
+| Marco | Idea central | Cuándo encaja |
+| --- | --- | --- |
+| **Scrum** | Iteraciones fijas (*sprints*) con entregable al final | Equipos con ritmo predecible y entregas periódicas |
+| **Kanban** | Flujo continuo con límite de trabajo en curso (*WIP*) | Equipos pequeños, tareas heterogéneas, flujo variable |
+
+En la práctica, muchos estudios de videojuegos **combinan ambos**: sprints para hitos mayores y
+tablero Kanban para el día a día. Para un proyecto de curso, un tablero Kanban con columnas
+claras suele ser suficiente.
+
+Columnas típicas de un tablero:
+
+```text
+Backlog → Por hacer → En progreso → En revisión → Hecho
+```
+
+:::tip Límite de WIP
+Limitar cuántas tareas pueden estar "En progreso" a la vez (por ejemplo, 2 por persona) evita
+el multitasking y hace visibles los bloqueos.
+:::
+
+### 3. Backlog y estimación
+
+El **backlog** es la lista priorizada de todo lo que el proyecto necesita. Cada ítem debe ser:
+
+- **Accionable**: alguien puede empezar a trabajar en ello.
+- **Estimable**: el equipo puede dar una aproximación de esfuerzo.
+- **Pequeño**: si una tarea dura más de un sprint, hay que dividirla.
+
+Técnicas de estimación habituales:
+
+- **Story points**: escala relativa (1, 2, 3, 5, 8…) que mide complejidad, no horas.
+- **T-shirt sizing** (S, M, L, XL): estimación rápida para priorizar.
+- **Planning poker**: consenso del equipo para evitar sesgos individuales.
+
+### 4. Control de versiones y trazabilidad
+
+Un repositorio Git bien usado es la base de la trazabilidad:
+
+- **Commits atómicos**: un cambio lógico por commit, con mensaje descriptivo.
+- **Ramas por feature**: `feature/nombre-tarea` o `fix/descripcion-bug`.
+- **Pull requests / merge requests**: revisión antes de integrar.
+- **Tags de versión**: marcar hitos (`v0.1-vertical-slice`).
+
+Ejemplo de mensaje de commit útil:
+
+```text
+feat: añadir salto del personaje con coyote time
+
+Implementa el salto básico y una ventana de 0.1s tras salir de plataforma.
+Relacionado con tarea #12 del backlog.
+```
 
 ## Actividades
 
-1. Configuracion del taboleiro Kanban.
-2. Priorizacion del backlog.
-3. Definicion de la vertical slice 2D.
+1. **Configuración del tablero Kanban**: crear el tablero del equipo con columnas, políticas
+   de WIP y primeras tareas del backlog. *Evidencia*: enlace al tablero o captura con al menos
+   10 tareas priorizadas.
+2. **Priorización del backlog**: ordenar las tareas del GDD por valor y dependencias.
+   *Evidencia*: backlog priorizado con justificación de las 5 tareas superiores.
+3. **Definición de la vertical slice 2D**: delimitar el alcance del primer entregable jugable.
+   *Evidencia*: documento de alcance (ver [Tema 3.2](./tema-03-vertical-slice-2d.mdx)).
 
-## Evaluacion
+## Evaluación
 
-- Realismo de la planificacion y trazabilidade.
+- Realismo de la planificación: el backlog es ejecutable en el tiempo disponible.
+- Trazabilidad: commits, tareas y documentos conectados entre sí.
+- Uso coherente de metodología ágil (no solo "poner post-its").
+- Preparación adecuada de la vertical slice como hito de la fase 1.
 
 ## Recursos
 
-- Guia de Scrum/Kanban para videojuegos.
+- [Guía de Scrum](https://scrumguides.org/) (Schwaber & Sutherland).
+- Herramientas de tablero: Trello, GitHub Projects, Jira, Notion.
+- Documentación de Git del itinerario.
+
+## Fuentes y referencias
+
+- Schwaber, K. & Sutherland, J. (2020). *The Scrum Guide*. URL: https://scrumguides.org/
+  (consultado el 3 de julio de 2026).
+- Beck, K. et al. (2001). *Manifesto for Agile Software Development*. URL:
+  https://agilemanifesto.org/ (consultado el 3 de julio de 2026).
+- Keith, M. (2010). *Agile Game Development with Scrum*. Addison-Wesley.

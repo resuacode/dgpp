@@ -1,25 +1,111 @@
 ---
 title: Tema 8.1 - Captura, edicion y trailer
+sidebar_label: 8.1 Captura y trailer
 ---
+
+# Tema 8.1. Captura, edición y trailer
+
+El trailer es la **primera impresión** del juego en tienda y redes. Este documento cubre captura
+de gameplay, parámetros técnicos, montaje y el guion de una pieza promocional de 30–60 segundos.
 
 ## Objetivos
 
-- Producir pezas audiovisuais promocionais.
+- Producir piezas audiovisuales promocionales con calidad técnica adecuada.
+- Aplicar criterios de framerate, resolución, códecs y ritmo de montaje.
+- Redactar un guion técnico del trailer antes de editar.
+- Integrar música y gancho comercial sin infringir derechos de autor.
 
 ## Contenidos
 
-- Framerate, resolucion, codecs y ritmo de montaxe.
-- Uso de musica y gancho comercial.
+### 1. Captura de gameplay
+
+Buenas prácticas de captura:
+
+| Parámetro | Recomendación | Motivo |
+| --- | --- | --- |
+| **Resolución** | Nativa del juego o 1080p mínimo | Nitidez en tienda y YouTube |
+| **Framerate** | Constante (30 o 60 fps) | Evitar tirones en el montaje |
+| **Códec** | H.264 o H.265 en contenedor MP4 | Compatibilidad universal |
+| **Audio** | Pista de juego limpia o silencio si se monta música después | Control en postproducción |
+
+Herramientas habituales (sin imponer una): OBS Studio, captura integrada del motor, ShadowPlay,
+QuickTime (macOS). Usar la que permita **captura estable** sin caídas de FPS.
+
+:::tip Captura en el motor
+Muchos motores permiten secuencias con cámara cinematográfica y *timeline*. Planificar tomas
+antes de grabar a mano reduce regrabaciones.
+:::
+
+### 2. Estructura de un trailer de 30–60 s
+
+Estructura clásica (adaptable):
+
+```text
+0–5 s   Gancho visual o sonoro (lo más impactante del juego)
+5–20 s  Gameplay representativo (core loop, no menús)
+20–45 s Variedad: niveles, mecánicas, atmósfera
+45–55 s Clímax: momento épico o emocional
+55–60 s Título + fecha/plataforma + CTA ("Wishlist", "Play now")
+```
+
+Evitar:
+
+- Arrancar con logo largo (perder atención).
+- Solo cinemáticas sin gameplay (engaña expectativas).
+- Texto ilegible en móvil.
+- Música sin licencia.
+
+### 3. Ritmo de montaje
+
+- **Cortes** al ritmo de la música o en beats de acción.
+- **Duración de plano**: 2–4 s en acción; más largo solo en momentos contemplativos.
+- **Subtítulos** opcionales para frases clave (*tagline* del Tema 1).
+- **Exportación**: MP4, H.264, 1080p, bitrate alto para YouTube/Steam.
+
+### 4. Música y derechos
+
+- Usar música **libre de derechos** (licencia explícita para uso comercial) o composición propia.
+- Bancos con licencia clara: bibliotecas del motor, Artlist, Epidemic (de pago), CC con filtro
+  comercial.
+- **Atribución** en créditos del vídeo si la licencia lo exige.
+
+### 5. Gameplay comentado (5–7 min)
+
+Complemento al trailer para evaluación y portfolio:
+
+- Recorrido guiado del juego (no solo partida libre).
+- Voz en off o subtítulos explicando decisiones de diseño.
+- Mostrar core loop, progresión y al menos un momento de polish.
+- Incluir créditos breves al final.
 
 ## Actividades
 
-1. Guion tecnico del trailer.
-2. Montaxe final de la peza promocional.
+1. **Guion técnico del trailer**
+   - Lista de planos con duración, contenido y audio (tabla o storyboard simple).
+   - *Evidencia*: documento de 1 página antes del montaje.
+2. **Montaje final de la pieza promocional**
+   - Trailer de 30–60 s listo para press kit y tienda.
+   - *Evidencia*: archivo de vídeo + guion cumplido.
 
-## Evaluacion
+## Evaluación
 
-- Lexibilidade visual y impacto comunicativo.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Calidad técnica | Resolución baja, inestable | 1080p estable | Pulido profesional |
+| Legibilidad visual | Confuso o ilegible | Gameplay claro | Mensaje y ritmo convincentes |
+| Guion / estructura | Sin plano o caótico | Estructura reconocible | Gancho y CTA efectivos |
+| Música y derechos | Riesgo de copyright | Licencia documentada | Integración sonora coherente |
 
 ## Recursos
 
-- Guías de edicion para redes.
+- Guías de edición para redes (YouTube, TikTok — formatos y ratios).
+- [Press kit](../tema-07/tema-07-press-kit-y-campana-lanzamiento.mdx) — el trailer se integra aquí.
+- Software libre: DaVinci Resolve, Shotcut, OBS.
+
+## Fuentes y referencias
+
+- YouTube. *Recommended upload encoding settings*. URL:
+  https://support.google.com/youtube/answer/1722171 (consultado el 3 de julio de 2026).
+- Valve Corporation. *Trailer Best Practices* (Steamworks store assets). URL:
+  https://partner.steamgames.com/doc/store/trailer (consultado el 3 de julio de 2026).
+- Schell, J. (2019). *The Art of Game Design* (3.ª ed.). CRC Press.

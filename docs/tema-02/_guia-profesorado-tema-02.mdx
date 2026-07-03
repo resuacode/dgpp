@@ -1,0 +1,110 @@
+---
+title: "[Profesorado] Guia del Tema 2"
+draft: true
+---
+
+# Guía del profesorado — Tema 2: Game Design fundacional (GDD)
+
+> **Documento interno.** El prefijo `_` hace que Docusaurus excluya este archivo del sitio
+> publicado: no aparece en la web ni en el sidebar. Uso exclusivo del equipo docente.
+
+## 1. Propósito del tema
+
+Es el tema donde el proyecto **empieza a existir como diseño**. El objetivo no es un GDD
+perfecto, sino que el alumnado aprenda a **razonar el diseño con método** (MDA), documentarlo
+de forma útil y validar el core loop antes de invertir horas de programación.
+
+Riesgo principal: GDDs enormes e inútiles ("novela de diseño") o, al contrario, ideas sin
+documentar. El equilibrio buscado es **documento vivo, conciso y accionable**.
+
+## 2. Encaje temporal (orientativo)
+
+Estimación para **5–6 sesiones de ~50 min**:
+
+| Sesión | Contenido | Documento |
+| --- | --- | --- |
+| 1 | Qué es un GDD + MDA como lente | `tema-02-game-design-fundacional` |
+| 2 | High concept y x-features del proyecto | `tema-02-game-design-fundacional` |
+| 3 | Core loop y loops secundarios | `tema-02-gdd-e-core-loop` |
+| 4 | Taller: mapa del loop + GDD v0.1 | `tema-02-gdd-e-core-loop` |
+| 5 | Balanceo, economía y curvas de dificultad | `tema-02-balanceo-y-economia` |
+| 6 | Taller: hoja de balanceo + prueba en papel | `tema-02-balanceo-y-economia` |
+
+## 3. Secuencia didáctica sugerida
+
+1. **Gancho (10 min)**: proyectar el core loop de un juego conocido (p. ej. un *roguelike*) y
+   pedir que lo describan en una frase. Sirve para introducir el concepto de bucle.
+2. **MDA en la práctica (20 min)**: elegir un juego y descomponerlo en mecánicas → dinámicas →
+   estética. Muy efectivo hacerlo al revés (partir de "qué sientes al jugar").
+3. **Taller guiado**: cada equipo redacta su *high concept* y dibuja su core loop en pizarra.
+4. **Prueba en papel**: validar el loop con piezas/papel antes de programar (ahorra semanas).
+
+## 4. Ideas para actividades de aula y entregas
+
+### Actividades en clase (formativas)
+
+- **"MDA inverso" (20 min)**: dado un juego, el alumnado deduce mecánicas a partir de la
+  estética que produce. Fomenta el pensamiento de diseño.
+- **Diseña un core loop en 1 minuto (15 min)**: reto exprés por parejas, luego crítica cruzada.
+- **Caza de sumideros y fuentes (15 min)**: sobre un juego conocido, listar todas las fuentes
+  y sumideros de recursos. Introduce la economía interna.
+- **Ajuste de una variable (20 min)**: con una hoja de cálculo proyectada, cambiar un valor
+  (p. ej. daño) y predecir el efecto en el número de golpes para derrotar a un enemigo.
+
+### Entregas evaluables (propuestas y peso orientativo)
+
+| Entrega | Descripción | Peso sugerido | Formato |
+| --- | --- | --- | --- |
+| GDD v0.1 | High concept, x-features, estética MDA | 30 % | Documento (GDD) |
+| Mapa del core loop | Diagrama con feedback y loops secundarios | 25 % | Diagrama + texto |
+| Hoja de balanceo | Variables + modelo de economía | 25 % | Hoja de cálculo |
+| Prueba del loop en papel | Validación previa a programar | 20 % | Notas/fotos + conclusiones |
+
+> El **mapa del core loop** y la **prueba en papel** son las entregas de mayor valor
+> pedagógico: obligan a pensar el juego antes de programarlo.
+
+### Extensiones para alumnado avanzado
+
+- Modelar la economía en una hoja de cálculo con fórmulas (progresión de costes exponencial).
+- Diseñar dos curvas de dificultad (normal y accesible) y justificar las diferencias.
+
+## 5. Errores frecuentes del alumnado (y cómo intervenir)
+
+- **GDD como muro de texto.** → Exigir diagramas y limitar extensión; introducir *one-page design*.
+- **Mecánicas sin estética objetivo.** → Pedir siempre "¿qué debe sentir el jugador?" primero.
+- **Core loop confundido con la lista de niveles.** → Reforzar que el loop es lo que se repite.
+- **Balanceo "a ojo" sin documentar.** → Exigir la hoja de cálculo con justificación de valores.
+- **Ignorar el feedback en el loop.** → Recordar que sin retroalimentación el loop no engancha.
+
+## 6. Materiales a preparar
+
+- Ejemplos de core loops de 2–3 juegos conocidos (diagramas).
+- Una hoja de cálculo de balanceo de muestra, editable en clase.
+- Material para la prueba en papel (fichas, dados, cartulinas).
+- Plantilla de GDD y de *one-page design* accesibles al alumnado.
+
+## 7. Notas de evaluación
+
+- Evaluar el GDD como **documento vivo**: valorar el paso de v0.1 a versiones posteriores.
+- Priorizar coherencia (estética → mecánicas → loop) sobre extensión.
+- La hoja de balanceo se evalúa por **justificación**, no por complejidad numérica.
+
+## 8. Atención a la diversidad e inclusión
+
+- Aceptar diagramas hechos a mano fotografiados (no exigir herramientas concretas).
+- La prueba en papel iguala oportunidades: no depende de saber programar aún.
+- Fomentar roles rotativos en el equipo (diseño, documentación, pruebas).
+
+## 9. Conexión con otros temas
+
+- **Tema 1**: el público y la plataforma definidos condicionan mecánicas y alcance.
+- **Tema 3**: el GDD alimenta el backlog y la planificación del *vertical slice*.
+- **Tema 4**: el balanceo se valida con datos de *playtesting*.
+
+## 10. Fuentes de apoyo para el docente
+
+- Hunicke, R., LeBlanc, M. & Zubek, R. (2004). *MDA: A Formal Approach to Game Design and Game
+  Research*. https://users.cs.northwestern.edu/~hunicke/MDA.pdf (consultado el 3 de julio de 2026).
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Schreiber, I. & Romero, B. (2021). *Game Balance*. CRC Press.
+- Salen, K. & Zimmerman, E. (2003). *Rules of Play: Game Design Fundamentals*. MIT Press.

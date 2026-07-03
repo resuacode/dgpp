@@ -1,25 +1,119 @@
 ---
 title: Tema 7.1 - Propiedad intelectual, licencias y PEGI
+sidebar_label: 7.1 IP, licencias y PEGI
 ---
+
+# Tema 7.1. Propiedad intelectual, licencias y PEGI
+
+Publicar un juego implica **demostrar que tienes derecho** a usar todo lo que contiene y
+**clasificarlo** para que padres, tiendas y jugadores sepan qué esperar. Este documento cubre IP,
+licencias de activos y el sistema PEGI en Europa.
 
 ## Objetivos
 
-- Aplicar uso correcto de activos y licencias.
+- Aplicar uso correcto de activos propios y de terceros con licencias documentadas.
+- Comprender los derechos de autor en código, arte, audio y *middleware*.
+- Realizar una autoevaluación PEGI y documentar la clasificación propuesta.
+- Mantener un registro de licencias del proyecto sin riesgos legales evidentes.
 
 ## Contenidos
 
-- Derechos de autor en codigo, arte y sonido.
-- Clasificacion por edades y documentacion.
+### 1. Propiedad intelectual en videojuegos
+
+Un videojuego combina varias obras protegidas:
+
+| Componente | Titular típico | Notas |
+| --- | --- | --- |
+| Código fuente | Desarrolladores / estudio | Licencia del repo (MIT, GPL, propietaria) |
+| Arte y modelos | Artista / estudio | Assets propios o licenciados |
+| Música y SFX | Compositor / banco de sonidos | Muy sensible: música suele tener derechos estrictos |
+| Motor y plugins | Terceros | EULA del motor (Unity, Unreal, Godot…) |
+| Fuentes tipográficas | Foundry / OFL | Verificar licencia de la fuente |
+| Marcas y nombres | Estudio | No infringir marcas registradas |
+
+:::warning Assets "gratis" de internet
+"Gratis para descargar" no significa "libre para usar en un juego comercial". Verificar siempre
+**licencia**, **atribución** y **uso comercial** permitido.
+:::
+
+### 2. Tipos de licencias habituales
+
+| Licencia | Uso típico | Obligación principal |
+| --- | --- | --- |
+| **Propietaria / All rights reserved** | Código y arte del equipo | No reutilizar sin permiso |
+| **MIT / BSD** | Código open source permisivo | Incluir aviso de copyright |
+| **GPL** | Código open source copyleft | Publicar modificaciones si se distribuye |
+| **Creative Commons** | Arte, documentación | Respetar tipo (BY, NC, SA, ND) |
+| **Asset Store / Fab** | Assets de pago | Seguir EULA del marketplace |
+
+El **registro de licencias** del proyecto debe listar cada asset de terceros: nombre, autor,
+licencia, enlace y si requiere atribución en los créditos.
+
+### 3. PEGI: clasificación por edades en Europa
+
+**PEGI** (*Pan European Game Information*) es el sistema de clasificación usado en la mayoría
+de países europeos. Asigna **edad mínima** (3, 7, 12, 16, 18) y **descriptores de contenido**
+(violencia, lenguaje, miedo, compras in-app, etc.).
+
+Proceso para el proyecto del curso:
+
+1. Completar el **cuestionario de autoevaluación** en [pegi.info](https://pegi.info/).
+2. Anotar la clasificación resultante y los descriptores.
+3. Verificar **coherencia** con la monetización del [Tema 6](../tema-06/tema-06-modelos-negocio-monetizacion.mdx)
+   (p. ej. compras in-app activan descriptor correspondiente).
+4. Documentar en el GDD y en la página de tienda.
+
+| Edad PEGI | Indicación general |
+| --- | --- |
+| PEGI 3 | Contenido apto para todas las edades |
+| PEGI 7 | Puede asustar a niños pequeños |
+| PEGI 12 | Violencia moderada, temas más maduros |
+| PEGI 16 | Violencia más realista |
+| PEGI 18 | Contenido para adultos |
+
+:::note ESRB
+En mercados norteamericanos se usa **ESRB** con criterios distintos. Si el plan de lanzamiento
+incluye EE. UU., consultar [esrb.org](https://www.esrb.org/).
+:::
+
+### 4. Checklist de cumplimiento
+
+Antes de publicar, verificar:
+
+- [ ] Registro de licencias completo y actualizado.
+- [ ] Créditos en el juego con atribuciones requeridas.
+- [ ] Clasificación PEGI documentada y mostrada donde exija la plataforma.
+- [ ] Política de privacidad si hay recogida de datos.
+- [ ] Sin assets con licencia incompatible con el modelo de negocio (p. ej. NC con juego de pago).
 
 ## Actividades
 
-1. Registro de licencias del proyecto.
-2. Checklist de cumplimiento PEGI/ESRB.
+1. **Registro de licencias del proyecto**
+   - Tabla con todos los assets de terceros, código con licencia y plugins del motor.
+   - *Evidencia*: documento en el repositorio (p. ej. `LICENSES.md` o sección del GDD).
+2. **Checklist de cumplimiento PEGI**
+   - Autoevaluación PEGI + checklist de este documento completado.
+   - *Evidencia*: captura o PDF del resultado PEGI + checklist firmado por el equipo.
 
-## Evaluacion
+## Evaluación
 
-- Ausencia de riesgos legales evidentes.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Registro de licencias | Incompleto o ausente | Activos principales registrados | Registro exhaustivo y mantenido |
+| Riesgos legales | Uso evidente sin licencia | Sin riesgos graves | Buenas prácticas y atribuciones |
+| PEGI | No realizado o incoherente | Autoevaluación documentada | Coherente con contenido y monetización |
+| Documentación | Dispersa | En GDD o repo | Profesional y lista para publicación |
 
 ## Recursos
 
-- Fuentes oficiales PEGI y ESRB.
+- [PEGI — What is PEGI?](https://pegi.info/)
+- [Creative Commons — License Chooser](https://creativecommons.org/choose/)
+- Plantilla de registro de licencias del módulo.
+
+## Fuentes y referencias
+
+- PEGI S.A. *What is PEGI?* URL: https://pegi.info/ (consultado el 3 de julio de 2026).
+- Entertainment Software Rating Board (ESRB). *Rating Categories*. URL: https://www.esrb.org/
+  (consultado el 3 de julio de 2026).
+- World Intellectual Property Organization (WIPO). *Copyright*. URL:
+  https://www.wipo.int/copyright/en/ (consultado el 3 de julio de 2026).

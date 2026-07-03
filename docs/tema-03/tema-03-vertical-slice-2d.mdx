@@ -1,25 +1,114 @@
 ---
 title: Tema 3.2 - Vertical slice y entrega de la fase 1
+sidebar_label: 3.2 Vertical slice 2D
 ---
+
+# Tema 3.2. Vertical slice y entrega de la fase 1
+
+La **vertical slice** es el primer hito de producción del curso: un trozo del juego que cruza
+**todas las capas** (diseño, arte, código, audio, UI) y es **jugable de principio a fin** en
+2–3 minutos. No es un prototipo a medias: es la prueba de que el proyecto puede existir.
+
+:::info Entregable de la fase 1
+La vertical slice 2D es el **primer entregable evaluable de producción** del módulo. Demuestra
+que el equipo puede planificar, ejecutar y entregar un producto jugable, no solo documentarlo.
+:::
 
 ## Objetivos
 
-- Delimitar un MVP jugable de 2-3 minutos.
+- Delimitar un MVP jugable de 2–3 minutos que represente la experiencia del juego completo.
+- Definir criterios de aceptación claros y verificables.
+- Preparar la entrega completa de la fase 1 (repo, build, documentación, trailer).
 
 ## Contenidos
 
-- Alcance minimo de la demo.
-- Criterios de aceptacion de la entrega.
+### 1. Qué es una vertical slice
+
+Una vertical slice corta **en vertical** todas las disciplinas del proyecto:
+
+```text
+Diseño → Arte → Código → Audio → UI → Build jugable
+```
+
+A diferencia de un prototipo horizontal (mucho contenido en una sola capa, p. ej. 10 niveles sin
+arte), la vertical slice demuestra que **el pipeline completo funciona** con calidad mínima
+aceptable.
+
+| Concepto | Vertical slice | Prototipo horizontal |
+| --- | --- | --- |
+| Cobertura | Todas las capas, poco contenido | Una capa, mucho contenido |
+| Objetivo | Validar el pipeline y la experiencia | Validar una mecánica o sistema |
+| Para el curso | **Entregable de la fase 1** | Herramienta interna de diseño |
+
+### 2. Alcance mínimo de la demo
+
+Para un proyecto 2D de curso, la vertical slice debería incluir:
+
+- **Core loop funcional**: el bucle principal del [Tema 2](../tema-02/tema-02-gdd-e-core-loop.mdx)
+  implementado y jugable.
+- **Al menos un nivel o escena completa**: con inicio, desarrollo y cierre.
+- **Arte mínimo viable**: sprites o gráficos placeholder coherentes con la dirección artística.
+- **Audio básico**: al menos efectos de sonido o música de fondo.
+- **UI funcional**: menú de inicio, HUD durante el juego, pantalla de fin.
+- **Build ejecutable**: el juego se descarga y se juega sin configuración compleja.
+
+:::tip Menos es más
+Una vertical slice de 2 minutos pulida vale más que 10 minutos a medias. Si hay que recortar,
+recortar **contenido**, no **capas**.
+:::
+
+### 3. Criterios de aceptación
+
+Los criterios de aceptación definen cuándo la entrega está "hecha". Deben ser **verificables**
+(sí/no, no "se ve bien"). Ejemplo:
+
+| Criterio | Verificación |
+| --- | --- |
+| El juego inicia sin errores | Ejecutar el build en máquina limpia |
+| El core loop es jugable de inicio a fin | Jugar 2–3 minutos sin bloqueos |
+| Hay al menos un nivel completo | Nivel con inicio, juego y cierre |
+| El repositorio tiene README con instrucciones | Clonar, instalar y ejecutar siguiendo el README |
+| El GDD está actualizado a la versión de la entrega | GDD refleja lo que hay en el build |
+| Existe un trailer o vídeo de 30–60 s | Vídeo muestra la vertical slice en acción |
+
+### 4. Checklist de entrega de la fase 1
+
+La entrega completa de la fase 1 incluye:
+
+1. **Repositorio** con historial de commits trazable.
+2. **README** con: descripción, requisitos, instrucciones de instalación y ejecución.
+3. **GDD actualizado** (mínimo v0.2) con las secciones desarrolladas hasta este punto.
+4. **Build jugable** (ejecutable o enlace a itch.io/web).
+5. **Trailer o vídeo** de 30–60 segundos mostrando la vertical slice.
+6. **Documento de alcance** de la vertical slice (qué incluye y qué queda fuera).
 
 ## Actividades
 
-1. Documento de alcance de la vertical slice.
-2. Checklist de entrega: repo, README, GDD, trailer, build.
+1. **Documento de alcance de la vertical slice**
+   - Define qué incluye la demo, qué queda fuera y los criterios de aceptación.
+   - *Evidencia*: documento de 1 página integrado en el GDD.
+2. **Checklist de entrega**
+   - Completa el checklist de la fase 1 y verifica cada ítem antes de entregar.
+   - *Evidencia*: checklist marcado + enlaces a repo, build y vídeo.
 
-## Evaluacion
+## Evaluación
 
-- Cumplimiento de criterios de entrega.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Vertical slice jugable | No funciona o incompleta | Jugable 2–3 min con core loop | Pulida, con todas las capas |
+| Cumplimiento del checklist | Faltan ítems clave | Todos los ítems presentes | Entrega profesional y documentada |
+| Documento de alcance | Ausente o vago | Alcance definido con exclusiones | Alcance realista y bien justificado |
+| Calidad del README y repo | Sin instrucciones o repo desordenado | README funcional | Repo profesional con buenos commits |
 
 ## Recursos
 
-- Rúbrica de la fase 1.
+- Rúbrica de la fase 1 (ver guía de profesorado).
+- [GDD transversal](../guia/gdd-transversal.mdx) — secciones a actualizar.
+- Ejemplos de vertical slices de proyectos indie (GDC talks, devlogs).
+
+## Fuentes y referencias
+
+- Keith, M. (2010). *Agile Game Development with Scrum*. Addison-Wesley.
+- Fullerton, T. (2019). *Game Design Workshop: A Playcentric Approach to Creating Innovative
+  Games* (4.ª ed.). CRC Press. (Referencia sobre prototipado y validación de experiencia).
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.

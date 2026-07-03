@@ -1,0 +1,8 @@
+variable,tipo,valor_inicial,unidad,fuente_o_sumidero,justificacion,resultado_playtest,valor_ajustado
+vida_jugador,recurso,100,puntos,sumidero (danio),,
+danio_ataque_basico,combate,10,puntos por golpe,fuente (dano salida),,
+vida_enemigo_tipo_a,combate,30,puntos,fuente (objetivo),,
+coste_mejora_1,economia,50,oro,sumidero (tienda),,
+recompensa_nivel_1,economia,25,oro,fuente (completar nivel),,
+tiempo_hasta_primera_muerte,metrica,,segundos,playtest,,
+puntos_abandono_nivel,metrica,,descripcion,playtest,,

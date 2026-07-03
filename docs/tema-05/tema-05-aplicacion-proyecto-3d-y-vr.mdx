@@ -1,25 +1,103 @@
 ---
 title: Tema 5.2 - Aplicacion al proyecto 3D/VR
+sidebar_label: 5.2 Proyecto 3D/VR
 ---
+
+# Tema 5.2. Aplicación al proyecto 3D/VR
+
+Este documento cierra la fase 2 en términos de **entrega jugable**: una demo funcional en
+3D o VR que demuestre que el equipo ha escalado el proyecto con coherencia técnica y de
+experiencia.
+
+:::info Entregable de la fase 2
+La demo 3D/VR es el hito de producción de la segunda mitad del módulo. No debe ser el juego
+completo: debe probar que el **salto dimensional** funciona y que las decisiones del GDD fase
+2 son viables.
+:::
 
 ## Objetivos
 
-- Traducir el diseno 2D a produccion 3D/VR.
+- Traducir el diseño 2D a una producción 3D/VR coherente con el concepto original.
+- Ajustar controles, cámara y ergonomía para la plataforma elegida.
+- Integrar narrativa y progresión en el espacio 3D.
+- Entregar una demo funcional y actualizar las especificaciones técnicas del GDD.
 
 ## Contenidos
 
-- Ajustes de control, camara y ergonomia.
-- Integracion de narrativa y progresion.
+### 1. Traslado 2D → 3D/VR
+
+Pasos recomendados:
+
+1. **Revisar el core loop** del [Tema 2](../tema-02/tema-02-gdd-e-core-loop.mdx): ¿sigue siendo
+   válido en 3D?
+2. **Definir la cámara y el control**: primera persona, tercera persona, vista isométrica 3D,
+   o VR con manos/controllers.
+3. **Prototipar el movimiento** antes del arte: blockout jugable.
+4. **Validar ergonomía VR** (si aplica): teletransporte, altura, interacción sin fatiga.
+
+### 2. Controles, cámara y ergonomía
+
+| Modo | Consideraciones |
+| --- | --- |
+| **3D tercera persona** | Cámara que no oscurece al personaje; colisiones de cámara |
+| **3D primera persona** | Sensibilidad, FOV, *head bob* opcional |
+| **VR** | Escala 1:1, agarre, zonas de confort, evitar movimiento artificial sin opción |
+
+Checklist mínimo de ergonomía VR (adaptar al hardware del centro):
+
+- [ ] Opción de teletransporte o movimiento continuo configurable.
+- [ ] Interacciones alcanzables sin estiramiento extremo.
+- [ ] Sin parpadeos o flashes intensos.
+- [ ] Menús legibles en el mundo o en panel accesible.
+- [ ] Sesiones de prueba de 10–15 min sin malestar reportado.
+
+### 3. Integración de narrativa y progresión
+
+En la demo 3D/VR conviene mostrar:
+
+- **Un arco completo en miniatura**: inicio → conflicto → resolución en un solo nivel o hub.
+- **Progresión visible**: algo que cambie (habilidad, espacio desbloqueado, historia).
+- **Coherencia con la fase 2D**: el jugador reconoce el mismo universo y tono.
+
+### 4. Especificaciones técnicas en el GDD
+
+Actualizar en el GDD fase 2:
+
+- Motor y versión, plugins VR si aplica.
+- Requisitos mínimos de hardware.
+- Convenciones de assets (escala, nomenclatura de escenas).
+- Pipeline de build para la demo (PC, VR, web 3D según plataforma).
 
 ## Actividades
 
-1. Demo funcional de un nivel 3D/VR.
-2. Actualizacion de especificaciones tecnicas.
+1. **Demo funcional de un nivel 3D/VR**
+   - Build jugable con al menos un nivel o escena representativa de la fase 2.
+   - *Evidencia*: enlace o ejecutable + instrucciones en README.
+2. **Actualización de especificaciones técnicas**
+   - Sección del GDD con arquitectura, herramientas y requisitos de la fase 2.
+   - *Evidencia*: GDD actualizado (versión acordada con el docente).
 
-## Evaluacion
+## Evaluación
 
-- Viabilidad tecnica y calidad de la experiencia.
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Demo jugable | No funciona o vacía | Nivel 3D/VR recorrible | Experiencia coherente de inicio a fin |
+| Controles y cámara | Incómodos o rotos | Funcionales | Afinados y documentados |
+| Ergonomía VR (si aplica) | Ignorada | Básica aplicada | Checklist completo y playtest VR |
+| Coherencia con concepto 2D | Desconectado | Reconocible | Refuerza el mismo core loop |
+| Especificaciones técnicas | Ausentes o vagas | Completas | Profesionales y actualizadas |
 
 ## Recursos
 
-- Checklist de ergonomia VR.
+- Checklist de ergonomía VR (Valve, Meta).
+- [GDD transversal](../guia/gdd-transversal.mdx).
+- Documentación del SDK VR del itinerario (OpenXR, etc.).
+
+## Fuentes y referencias
+
+- Valve Corporation. *Virtual Reality Comfort Guidelines*. URL:
+  https://steamcommunity.com/sharedfiles/filedetails/?id=497812639 (consultado el 3 de julio de
+  2026).
+- Khronos Group. *OpenXR Specification*. URL: https://www.khronos.org/openxr/ (consultado el 3
+  de julio de 2026).
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
