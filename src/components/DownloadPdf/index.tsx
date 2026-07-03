@@ -33,7 +33,7 @@ export default function DownloadPdf({tema, label}: Props): ReactNode {
         {label ?? `Descargar el Tema ${tema} en PDF`}
       </a>
       <span className={styles.hint}>
-        Incluye solo el contenido visible del tema y se actualiza en cada publicacion.
+        Incluye solo el contenido visible del tema y se actualiza en cada publicación.
       </span>
     </div>
   );

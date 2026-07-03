@@ -19,7 +19,7 @@ documentar. El equilibrio buscado es **documento vivo, conciso y accionable**.
 
 ## 2. Encaje temporal (orientativo)
 
-Estimación para **5–6 sesiones de ~50 min**:
+Estimación para **8–9 sesiones de ~50 min**:
 
 | Sesión | Contenido | Documento |
 | --- | --- | --- |
@@ -29,6 +29,16 @@ Estimación para **5–6 sesiones de ~50 min**:
 | 4 | Taller: mapa del loop + GDD v0.1 | `tema-02-gdd-e-core-loop` |
 | 5 | Balanceo, economía y curvas de dificultad | `tema-02-balanceo-y-economia` |
 | 6 | Taller: hoja de balanceo + prueba en papel | `tema-02-balanceo-y-economia` |
+| 7 | Análisis de niveles y medición de dificultad | `tema-02-diseno-de-niveles` |
+| 8 | Taller Unity: Tilemap + editor script (2D) | `tema-02-herramientas-nivel-2d-unity` |
+
+:::note[Sobre las sesiones 7–8 (diseño de niveles)]
+La sesión 7 es **teórica y aplicada al papel**: analizar un nivel de referencia y diseñar el
+nivel 1 del proyecto (enseñar sin texto + curva de intensidad). La sesión 8 es un **taller en
+Unity 6**: blockout con Tilemap y una primera herramienta de *editor scripting*. Requiere Unity 6
+instalado. Si el grupo no tiene aún base de C#, limitar el taller a Tilemap y al comando de menú
+(`MenuItem`), dejando el validador y el exportador de métricas como ampliación.
+:::
 
 ## 3. Secuencia didáctica sugerida
 
@@ -50,15 +60,23 @@ Estimación para **5–6 sesiones de ~50 min**:
   y sumideros de recursos. Introduce la economía interna.
 - **Ajuste de una variable (20 min)**: con una hoja de cálculo proyectada, cambiar un valor
   (p. ej. daño) y predecir el efecto en el número de golpes para derrotar a un enemigo.
+- **Desmontar un nivel 1 (20 min)**: analizar el nivel introductorio de un juego 2D conocido
+  (p. ej. *Super Mario Bros.* 1-1) marcando dónde *enseña / prueba / retuerce* la mecánica.
+- **Curva de intensidad en pizarra (15 min)**: cada equipo dibuja la curva de picos y valles de
+  su nivel 1 antes de construirlo.
+- **Taller de MenuItem 2D en vivo (20 min)**: el docente crea un comando de menú en Unity 6 que
+  coloca una fila de coleccionables; el alumnado lo replica (primer contacto con la carpeta `Editor`).
 
 ### Entregas evaluables (propuestas y peso orientativo)
 
 | Entrega | Descripción | Peso sugerido | Formato |
 | --- | --- | --- | --- |
-| GDD v0.1 | High concept, x-features, estética MDA | 30 % | Documento (GDD) |
-| Mapa del core loop | Diagrama con feedback y loops secundarios | 25 % | Diagrama + texto |
-| Hoja de balanceo | Variables + modelo de economía | 25 % | Hoja de cálculo |
-| Prueba del loop en papel | Validación previa a programar | 20 % | Notas/fotos + conclusiones |
+| GDD v0.1 | High concept, x-features, estética MDA | 20 % | Documento (GDD) |
+| Mapa del core loop | Diagrama con feedback y loops secundarios | 20 % | Diagrama + texto |
+| Hoja de balanceo | Variables + modelo de economía | 15 % | Hoja de cálculo |
+| Prueba del loop en papel | Validación previa a programar | 15 % | Notas/fotos + conclusiones |
+| Diseño del nivel 1 | Análisis + mapa + curva de intensidad + plan de métricas | 15 % | Documento (GDD) |
+| Blockout 2D + herramienta | Nivel en Tilemap + editor script propio | 15 % | Escena Unity + repo |
 
 > El **mapa del core loop** y la **prueba en papel** son las entregas de mayor valor
 > pedagógico: obligan a pensar el juego antes de programarlo.
@@ -82,6 +100,10 @@ Estimación para **5–6 sesiones de ~50 min**:
 - Una hoja de cálculo de balanceo de muestra, editable en clase.
 - Material para la prueba en papel (fichas, dados, cartulinas).
 - Plantilla de GDD y de *one-page design* accesibles al alumnado.
+- Plantillas `analisis-nivel.md` y `plan-metricas-dificultad.md` (ver [Recursos](../guia/recursos.mdx)).
+- Capturas/vídeo de un nivel 1 conocido para el análisis (p. ej. *Super Mario Bros.* 1-1).
+- **Unity 6 instalado** y un proyecto 2D de ejemplo con un `Grid`/`Tilemap` y la carpeta `Editor`
+  ya creados (arranque rápido del taller de la sesión 8).
 
 ## 7. Notas de evaluación
 
@@ -98,8 +120,12 @@ Estimación para **5–6 sesiones de ~50 min**:
 ## 9. Conexión con otros temas
 
 - **Tema 1**: el público y la plataforma definidos condicionan mecánicas y alcance.
-- **Tema 3**: el GDD alimenta el backlog y la planificación del *vertical slice*.
-- **Tema 4**: el balanceo se valida con datos de *playtesting*.
+- **Tema 3**: el GDD alimenta el backlog y la planificación del *vertical slice*; el nivel 1
+  diseñado aquí es material directo para la vertical slice 2D.
+- **Tema 4**: el balanceo y la **dificultad del nivel** se validan con datos de *playtesting*
+  (las métricas planificadas en 2.3 se miden allí).
+- **Tema 5**: la teoría de diseño de niveles (2.3) y el *editor scripting* (2.4) se retoman y
+  amplían para 3D (herramientas 3D en el nuevo `tema-05-herramientas-3d-unity`).
 
 ## 10. Fuentes de apoyo para el docente
 
@@ -108,3 +134,9 @@ Estimación para **5–6 sesiones de ~50 min**:
 - Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
 - Schreiber, I. & Romero, B. (2021). *Game Balance*. CRC Press.
 - Salen, K. & Zimmerman, E. (2003). *Rules of Play: Game Design Fundamentals*. MIT Press.
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
+- Aponte, M.-V., Levieux, G. & Natkin, S. (2018). *Approaches to Measuring the Difficulty of
+  Games in Dynamic Difficulty Adjustment Systems*. https://doi.org/10.1080/10447318.2018.1461764
+  (consultado el 4 de julio de 2026).
+- Hunicke, R. & Chapman, V. (2004). *AI for Dynamic Difficulty Adjustment in Games*.
+  https://users.cs.northwestern.edu/~hunicke/pubs/Hamlet.pdf (consultado el 4 de julio de 2026).

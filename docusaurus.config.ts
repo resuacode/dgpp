@@ -10,7 +10,7 @@ const siteBaseUrl = process.env.BASE_URL ?? '/dgpp/';
 const config: Config = {
   title: 'DGPP',
   tagline:
-    'Diseño, gestion, publicación y producción de videojuegos - Curso de Especialización FP',
+    'Diseño, gestión, publicación y producción de videojuegos - Curso de Especialización FP',
   favicon: 'img/gamepad.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -86,7 +86,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'guiaSidebar',
           position: 'left',
-          label: 'Guia docente',
+          label: 'Guía docente',
         },
         {
           type: 'docSidebar',
@@ -158,7 +158,7 @@ const config: Config = {
               to: '/docs/tema-02/tema-02-game-design-fundacional',
             },
             {
-              label: 'Tema 3 · Produccion agil',
+              label: 'Tema 3 · Producción ágil',
               to: '/docs/tema-03/tema-03-metodologias-agiles-produccion',
             },
             {
@@ -171,15 +171,15 @@ const config: Config = {
           title: 'Temario · 5-8',
           items: [
             {
-              label: 'Tema 5 · Diseno 3D y VR',
+              label: 'Tema 5 · Diseño 3D y VR',
               to: '/docs/tema-05/tema-05-escalado-3d-y-vr',
             },
             {
-              label: 'Tema 6 · Negocio y monetizacion',
+              label: 'Tema 6 · Negocio y monetización',
               to: '/docs/tema-06/tema-06-modelos-negocio-monetizacion',
             },
             {
-              label: 'Tema 7 · Distribucion y marketing',
+              label: 'Tema 7 · Distribución y marketing',
               to: '/docs/tema-07/tema-07-distribucion-marketing-marco-legal',
             },
             {
@@ -192,7 +192,7 @@ const config: Config = {
           title: 'Recursos',
           items: [
             {
-              label: 'Guia docente',
+              label: 'Guía docente',
               to: '/docs/guia-docente',
             },
             {

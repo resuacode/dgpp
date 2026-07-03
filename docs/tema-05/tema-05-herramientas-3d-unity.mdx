@@ -1,0 +1,213 @@
+---
+title: Tema 5.3 - Herramientas de Unity para niveles 3D
+sidebar_label: 5.3 Herramientas 3D en Unity
+---
+
+# Tema 5.3. Herramientas de Unity para niveles 3D
+
+El diseño de niveles 3D del [Tema 5.1](./tema-05-level-design-e-editor-scripting.mdx) necesita un
+**arsenal de herramientas** distinto al del 2D. Este documento detalla las herramientas del
+ecosistema de **Unity 6** para construir niveles 3D y amplía el *editor scripting* —introducido
+para 2D en el [Tema 2.4](../tema-02/tema-02-herramientas-nivel-2d-unity.mdx)— hacia el espacio
+tridimensional. La teoría de diseño y de dificultad está en el
+[Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx); aquí nos centramos en **producir**.
+
+:::info[Ubicación en el módulo]
+Tema del **Bloque 4 (Producción y pipeline)**. Es la parte práctica de herramientas 3D de la
+fase 2 del proyecto: da soporte técnico al *blockout* y al pulido de la demo 3D/VR.
+:::
+
+## Objetivos
+
+- Hacer *blockout* de niveles 3D con **ProBuilder** sin depender de software externo.
+- Usar herramientas del ecosistema Unity 6: **Terrain**, **Splines** y **Polybrush**.
+- Aplicar el **snapping** y la rejilla integrada para construir con precisión.
+- Ampliar el *editor scripting* a 3D: dispersión de objetos y visualización de métricas.
+
+## Contenidos
+
+### 1. Blockout 3D con ProBuilder
+
+Igual que en 2D se hace greybox con *tiles* neutros, en 3D el **blockout** (o *greyboxing*) se
+construye con geometría gris antes del arte. **ProBuilder** (paquete `com.unity.probuilder`)
+permite **modelar dentro de Unity**: crear y editar mallas, extruir caras, biselar y aplicar
+materiales de prueba sin salir del editor.
+
+| Acción en ProBuilder | Uso en *level design* |
+| --- | --- |
+| *New Shape* (cubo, rampa, escalera, arco) | Bloques base del recorrido |
+| *Extrude Faces* | Levantar muros, crear salientes |
+| *Bevel* / *Bridge* | Suavizar o conectar geometría |
+| *Material* de prototipo | Diferenciar suelo, muro y peligro por color |
+
+:::tip[ProBuilder es para prototipar, no para el arte final]
+El blockout con ProBuilder valida escala, recorrido y ritmo. El arte definitivo suele sustituirse
+por *assets* modelados fuera o por *modular kits*. No inviertas en detalle hasta que el
+recorrido funcione (mismo principio del [Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx)).
+:::
+
+### 2. Precisión: rejilla y snapping
+
+Construir "a ojo" en 3D produce huecos y solapamientos. Unity 6 integra:
+
+- **Grid Snapping**: mover, rotar y escalar en incrementos fijos (activable en la barra de la
+  vista de escena). Sustituye al antiguo paquete ProGrids.
+- **Vertex / Surface Snapping** (tecla `V`): encajar un vértice de un objeto sobre otro, ideal
+  para alinear módulos sin huecos.
+
+### 3. Terreno y espacios abiertos
+
+Para exteriores, el sistema de **Terrain** modela relieve con pinceles (elevar, rebajar, alisar),
+pinta texturas por capas y distribuye vegetación. El paquete **Terrain Tools**
+(`com.unity.terrain-tools`) añade pinceles avanzados y utilidades de erosión y estampado.
+
+:::warning[El terreno guía, pero también desorienta]
+Un espacio abierto sin *landmarks* rompe la legibilidad vista en el
+[Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx). Usa relieve, siluetas y luz para orientar,
+no solo para decorar.
+:::
+
+### 4. Rutas y flujo con Splines
+
+El paquete **Splines** (`com.unity.splines`) define curvas para **caminos, ríos, raíles de
+cámara o rutas de patrulla**. Combinado con instanciación, permite distribuir objetos a lo largo
+de una ruta (vallas, farolas) y guiar el recorrido del jugador de forma controlada.
+
+### 5. Detalle de superficies con Polybrush
+
+**Polybrush** (`com.unity.polybrush`) pinta directamente sobre las mallas: esculpe vértices,
+mezcla texturas y distribuye *props* (rocas, hierba) con un pincel. Útil para dar vida al
+blockout una vez validado, sin colocar cada objeto a mano.
+
+### 6. Editor scripting para 3D: dispersión con Undo
+
+El *editor scripting* del [Tema 2.4](../tema-02/tema-02-herramientas-nivel-2d-unity.mdx) escala a
+3D. Aquí, en lugar de una fila 2D, dispersamos objetos en un área tridimensional (útil para
+poblar un nivel de coleccionables, enemigos o vegetación) con soporte de **Undo**:
+
+```csharp
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+public class DispersorWindow : EditorWindow
+{
+    private GameObject prefab;
+    private int cantidad = 20;
+    private float radio = 10f;
+
+    [MenuItem("Herramientas DGPP/Dispersor 3D")]
+    private static void Abrir()
+    {
+        var ventana = GetWindow<DispersorWindow>();
+        ventana.titleContent = new GUIContent("Dispersor 3D");
+        ventana.minSize = new Vector2(300, 160);
+    }
+
+    private void OnGUI()
+    {
+        GUILayout.Label("Dispersión en área", EditorStyles.boldLabel);
+        prefab = (GameObject)EditorGUILayout.ObjectField(
+            "Prefab", prefab, typeof(GameObject), false);
+        cantidad = EditorGUILayout.IntSlider("Cantidad", cantidad, 1, 200);
+        radio = EditorGUILayout.FloatField("Radio", radio);
+
+        EditorGUILayout.Space();
+        using (new EditorGUI.DisabledScope(prefab == null))
+        {
+            if (GUILayout.Button("Dispersar"))
+            {
+                Dispersar();
+            }
+        }
+    }
+
+    private void Dispersar()
+    {
+        var contenedor = new GameObject($"Dispersion_{prefab.name}");
+        Undo.RegisterCreatedObjectUndo(contenedor, "Crear dispersión");
+
+        for (int i = 0; i < cantidad; i++)
+        {
+            var pos = Random.insideUnitCircle * radio;
+            var instancia = (GameObject)PrefabUtility.InstantiatePrefab(prefab);
+            instancia.transform.SetParent(contenedor.transform);
+            // Random.insideUnitCircle da un Vector2: se reparte en el plano X-Z.
+            instancia.transform.position = new Vector3(pos.x, 0f, pos.y);
+            Undo.RegisterCreatedObjectUndo(instancia, "Instanciar objeto");
+        }
+
+        EditorSceneManager.MarkSceneDirty(contenedor.scene);
+        Debug.Log($"Dispersados {cantidad} objetos en radio {radio}.");
+    }
+}
+```
+
+### 7. Visualizar métricas del nivel con Gizmos
+
+La medición de dificultad del [Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx) también se
+apoya en lo visual. Este componente de *runtime* dibuja, con **Gizmos**, un mapa de calor simple:
+zonas del nivel coloreadas según su intensidad prevista, para revisar la curva de un vistazo.
+
+```csharp
+using UnityEngine;
+
+public class ZonaIntensidad : MonoBehaviour
+{
+    [SerializeField, Range(0f, 1f)] private float intensidad = 0.5f;
+    [SerializeField] private Vector3 tamano = new Vector3(10f, 4f, 10f);
+
+    private void OnDrawGizmos()
+    {
+        // Verde (calma) → rojo (pico) según la intensidad.
+        Gizmos.color = new Color(intensidad, 1f - intensidad, 0f, 0.35f);
+        Gizmos.DrawCube(transform.position, tamano);
+    }
+}
+```
+
+:::note[Conexión con el playtesting]
+Estas zonas son una **hipótesis** de dificultad. Los datos reales (muertes por tramo, tiempo por
+zona) llegan del *playtesting* del [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx): coloca las
+zonas según lo esperado y contrástalas con lo observado.
+:::
+
+## Actividades
+
+1. **Blockout 3D con ProBuilder**
+   - Construye en gris un nivel 3D corto aplicando el diseño de la fase 2.
+   - *Evidencia*: escena de Unity + captura del blockout.
+2. **Herramienta 3D propia**
+   - Adapta el dispersor (u otra utilidad: validador 3D, colocador sobre spline) a una necesidad
+     real de tu nivel.
+   - *Evidencia*: script en el repositorio + vídeo corto de uso.
+3. **(Apoyo) Zonas de intensidad**
+   - Coloca zonas de intensidad en el nivel y compáralas con el diseño de curva del [Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx).
+   - *Evidencia*: captura de la vista de escena con las zonas.
+
+## Evaluación
+
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Blockout con ProBuilder | No usa la herramienta | Nivel gris navegable | Recorrido con ritmo y landmarks |
+| Uso del ecosistema 3D | Coloca todo a mano | Usa una herramienta (Terrain/Splines/Polybrush) | Combina varias con criterio |
+| Editor script 3D | No funciona o no aporta | Ahorra una tarea concreta | Herramienta con Undo y feedback, reutilizable |
+| Conexión con la dificultad | No se representa | Zonas colocadas | Zonas justificadas y contrastadas con playtest |
+
+## Recursos
+
+- [Tema 5.1](./tema-05-level-design-e-editor-scripting.mdx) — diseño de niveles 3D y *editor scripting* base.
+- [Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx) y [Tema 2.4](../tema-02/tema-02-herramientas-nivel-2d-unity.mdx) — teoría y herramientas 2D previas.
+- [GDD transversal](../guia/gdd-transversal.mdx) — secciones de fase 2.
+
+## Fuentes y referencias
+
+- Unity Technologies. *ProBuilder* (Unity 6). Manual del paquete. URL:
+  https://docs.unity3d.com/Packages/com.unity.probuilder@latest (consultado el 4 de julio de 2026).
+- Unity Technologies. *Splines*. Manual del paquete. URL:
+  https://docs.unity3d.com/Packages/com.unity.splines@latest (consultado el 4 de julio de 2026).
+- Unity Technologies. *Terrain Tools*. Manual del paquete. URL:
+  https://docs.unity3d.com/Packages/com.unity.terrain-tools@latest (consultado el 4 de julio de 2026).
+- Unity Technologies. *Polybrush*. Manual del paquete. URL:
+  https://docs.unity3d.com/Packages/com.unity.polybrush@latest (consultado el 4 de julio de 2026).
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.

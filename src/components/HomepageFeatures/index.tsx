@@ -37,17 +37,17 @@ const FeatureList: FeatureItem[] = [
     icon: IconLayers,
     description: (
       <>
-        Cada unidad incluye objetivos, contenidos, actividades, evaluacion y
-        recursos para seguir el modulo con una estructura clara.
+        Cada unidad incluye objetivos, contenidos, actividades, evaluación y
+        recursos para seguir el módulo con una estructura clara.
       </>
     ),
   },
   {
-    title: 'Enfoque practico y profesional',
+    title: 'Enfoque práctico y profesional',
     icon: IconGamepad,
     description: (
       <>
-        El contenido conecta diseno, gestion, publicacion y produccion con flujos
+        El contenido conecta diseño, gestión, publicación y producción con flujos
         reales de desarrollo de videojuegos.
       </>
     ),

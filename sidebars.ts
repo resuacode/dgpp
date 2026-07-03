@@ -29,6 +29,8 @@ const sidebars: SidebarsConfig = {
     'tema-02/tema-02-game-design-fundacional',
     'tema-02/tema-02-gdd-e-core-loop',
     'tema-02/tema-02-balanceo-y-economia',
+    'tema-02/tema-02-diseno-de-niveles',
+    'tema-02/tema-02-herramientas-nivel-2d-unity',
   ],
   tema03Sidebar: [
     'tema-03/tema-03-metodologias-agiles-produccion',
@@ -43,6 +45,7 @@ const sidebars: SidebarsConfig = {
   tema05Sidebar: [
     'tema-05/tema-05-escalado-3d-y-vr',
     'tema-05/tema-05-level-design-e-editor-scripting',
+    'tema-05/tema-05-herramientas-3d-unity',
     'tema-05/tema-05-aplicacion-proyecto-3d-y-vr',
   ],
   tema06Sidebar: [

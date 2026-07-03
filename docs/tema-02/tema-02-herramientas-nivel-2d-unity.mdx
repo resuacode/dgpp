@@ -1,0 +1,242 @@
+---
+title: Tema 2.4 - Herramientas de diseño de niveles 2D en Unity
+sidebar_label: 2.4 Herramientas 2D en Unity
+---
+
+# Tema 2.4. Herramientas de diseño de niveles 2D en Unity
+
+El análisis y la teoría del [Tema 2.3](./tema-02-diseno-de-niveles.mdx) se convierten aquí en
+**niveles jugables**. Este documento cubre dos frentes complementarios: **usar** las herramientas
+de nivel 2D que ya trae Unity y **crear** herramientas propias (*editor scripting*) para acelerar
+el trabajo del equipo. Todos los ejemplos son válidos para **Unity 6 (6000.x)** con C#.
+
+:::info[Ubicación en el módulo]
+Tema del **Bloque 1 (Diseño y preproducción)**. Es el primer contacto con herramientas de
+producción en el motor. Los fundamentos de *editor scripting* que se introducen aquí se retoman
+y amplían para 3D en el [Tema 5.3](../tema-05/tema-05-herramientas-3d-unity.mdx).
+:::
+
+## Objetivos
+
+- Construir niveles 2D con el sistema de **Tilemap** de Unity.
+- Aplicar un flujo de **blockout 2D** (greybox con tiles neutros antes del arte).
+- Crear herramientas de editor (*editor scripting*) sencillas para colocar, validar y medir.
+- Exportar métricas básicas de un nivel para apoyar la medición de dificultad del [Tema 2.3](./tema-02-diseno-de-niveles.mdx).
+
+## Contenidos
+
+### 1. El ecosistema 2D de Unity
+
+Unity organiza los niveles 2D basados en rejilla con el paquete **2D Tilemap Editor**. Piezas
+clave:
+
+| Elemento | Para qué sirve |
+| --- | --- |
+| **Grid** | Contenedor que define la rejilla del nivel |
+| **Tilemap** | Capa donde se "pintan" los *tiles* (suelo, muros, decoración) |
+| **Tile Palette** | Paleta de *tiles* con pinceles de pintado (`Paint`, `Box`, `Fill`) |
+| **Rule Tile** | *Tile* inteligente que elige su *sprite* según los vecinos (bordes, esquinas) |
+| **Tilemap Collider 2D** | Genera colisión a partir de los *tiles* pintados |
+| **Composite Collider 2D** | Fusiona la colisión en una sola forma (más eficiente) |
+
+:::tip[Capas separadas por función]
+Usa varios *Tilemaps* dentro del mismo `Grid`: uno para **suelo/plataformas** (con collider),
+otro para **decoración** (sin collider) y otro para **peligros**. Separar por función facilita
+editar y validar el nivel.
+:::
+
+### 2. Flujo de blockout 2D con Tilemap
+
+El principio del [Tema 2.3](./tema-02-diseno-de-niveles.mdx) —validar el recorrido antes que el
+arte— también aplica en 2D:
+
+```text
+Mapa en papel → Tiles neutros (greybox) → Playtest → Arte final
+```
+
+1. Crea una **paleta de *tiles* neutros** (un color por función: suelo, muro, peligro, meta).
+2. Pinta el nivel completo solo con esos *tiles*.
+3. Prueba el recorrido y el ritmo (curva de intensidad del [Tema 2.3](./tema-02-diseno-de-niveles.mdx)).
+4. Sustituye por arte final **solo cuando el blockout funciona**.
+
+### 3. Editor scripting: crear tus propias herramientas
+
+El ***editor scripting*** son scripts que se ejecutan **en el editor** (no en el juego) para
+automatizar tareas repetitivas. Reglas básicas en Unity:
+
+- El código de editor va en una carpeta llamada **`Editor`** (p. ej. `Assets/Scripts/Editor/`) y
+  **no se incluye en la build** del juego.
+- Usa el *namespace* `UnityEditor`.
+
+:::warning[No uses UnityEditor fuera de la carpeta Editor]
+Si llamas a `UnityEditor` desde un script normal del juego, la **build fallará**. Mantén siempre
+separada la lógica de editor (herramientas) de la de juego (*runtime*).
+:::
+
+#### 3.1. Colocar elementos en fila con `MenuItem`
+
+Colocar coleccionables o enemigos a mano es lento. Este comando de menú los distribuye en fila
+sobre el eje X (típico en plataformas 2D), con soporte de **Undo** (Ctrl+Z):
+
+```csharp
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+public static class Coleccionables2D
+{
+    // Añade "Herramientas DGPP > Fila de coleccionables (2D)".
+    [MenuItem("Herramientas DGPP/Fila de coleccionables (2D)")]
+    private static void CrearFila()
+    {
+        var contenedor = new GameObject("FilaColeccionables");
+        Undo.RegisterCreatedObjectUndo(contenedor, "Crear fila 2D");
+
+        const int cantidad = 8;
+        const float separacion = 1f;
+
+        for (int i = 0; i < cantidad; i++)
+        {
+            var punto = new GameObject($"Coleccionable_{i}");
+            punto.transform.SetParent(contenedor.transform);
+            // En 2D solo variamos X e Y; Z se deja en 0.
+            punto.transform.position = new Vector3(i * separacion, 0f, 0f);
+            Undo.RegisterCreatedObjectUndo(punto, "Crear coleccionable");
+        }
+
+        EditorSceneManager.MarkSceneDirty(contenedor.scene);
+        Debug.Log($"Fila creada con {cantidad} coleccionables.");
+    }
+}
+```
+
+#### 3.2. Validar el nivel 2D
+
+Antes del *playtest* conviene comprobar reglas mínimas del nivel. Este validador avisa si falta
+el punto de inicio o la meta:
+
+```csharp
+using UnityEditor;
+using UnityEngine;
+
+public static class Validador2D
+{
+    [MenuItem("Herramientas DGPP/Validar nivel 2D")]
+    private static void Validar()
+    {
+        int avisos = 0;
+        var objetos = Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
+
+        bool hayInicio = false;
+        bool hayMeta = false;
+        foreach (var t in objetos)
+        {
+            if (t.name == "Inicio") hayInicio = true;
+            if (t.name == "Meta") hayMeta = true;
+        }
+
+        if (!hayInicio) { Debug.LogWarning("[Validador] Falta un objeto 'Inicio'."); avisos++; }
+        if (!hayMeta) { Debug.LogWarning("[Validador] Falta un objeto 'Meta'."); avisos++; }
+
+        Debug.Log(avisos == 0
+            ? "[Validador] Nivel 2D correcto."
+            : $"[Validador] Revisión con {avisos} aviso(s).");
+    }
+}
+```
+
+:::note[API de búsqueda en Unity 6]
+En Unity 6 se usa `FindObjectsByType` con `FindObjectsSortMode` en lugar del obsoleto
+`FindObjectsOfType`. Pasar `FindObjectsSortMode.None` es más rápido cuando no necesitas ordenar.
+:::
+
+#### 3.3. Exportar métricas de dificultad
+
+El [Tema 2.3](./tema-02-diseno-de-niveles.mdx) propone medir la dificultad con métricas. Esta
+herramienta cuenta elementos del nivel y los vuelca a un CSV, un apoyo objetivo para estimar la
+**complejidad** antes de probar con jugadores:
+
+```csharp
+using System.IO;
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
+
+public static class MetricasNivel2D
+{
+    [MenuItem("Herramientas DGPP/Exportar métricas de nivel (CSV)")]
+    private static void Exportar()
+    {
+        var objetos = Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
+
+        int enemigos = objetos.Count(t => t.name.StartsWith("Enemigo"));
+        int peligros = objetos.Count(t => t.name.StartsWith("Peligro"));
+        int coleccionables = objetos.Count(t => t.name.StartsWith("Coleccionable"));
+
+        // Longitud aproximada del nivel = rango en el eje X.
+        float minX = objetos.Min(t => t.position.x);
+        float maxX = objetos.Max(t => t.position.x);
+        float longitud = maxX - minX;
+
+        string ruta = Path.Combine(Application.dataPath, "..", "metricas-nivel.csv");
+        string csv = "metrica,valor\n" +
+                     $"enemigos,{enemigos}\n" +
+                     $"peligros,{peligros}\n" +
+                     $"coleccionables,{coleccionables}\n" +
+                     $"longitud,{longitud:F1}\n";
+
+        File.WriteAllText(ruta, csv);
+        Debug.Log($"Métricas exportadas a: {Path.GetFullPath(ruta)}");
+    }
+}
+```
+
+### 4. Buenas prácticas
+
+- **Agrupa** tus comandos bajo un menú propio (`Herramientas DGPP/…`).
+- **Soporta Undo** en toda operación que modifique la escena.
+- **Marca la escena** como *dirty* (`MarkSceneDirty`) tras los cambios.
+- **No metas lógica de editor en runtime**: respeta la carpeta `Editor`.
+- **Da feedback** con `Debug.Log` para que el equipo sepa qué ocurrió.
+
+## Actividades
+
+1. **Blockout 2D con Tilemap**
+   - Construye con *tiles* neutros el nivel introductorio diseñado en el [Tema 2.3](./tema-02-diseno-de-niveles.mdx).
+   - *Evidencia*: escena de Unity con el nivel en greybox + captura.
+2. **Herramienta de editor propia**
+   - Implementa una de las herramientas (colocación, validación o exportación de métricas) o una
+     equivalente útil para tu proyecto.
+   - *Evidencia*: script en el repositorio + captura o vídeo corto de uso.
+3. **(Apoyo) Métricas del nivel**
+   - Exporta las métricas del nivel y compáralas con los umbrales del plan del [Tema 2.3](./tema-02-diseno-de-niveles.mdx).
+   - *Evidencia*: CSV + breve comentario.
+
+## Evaluación
+
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Uso de Tilemap | No usa el sistema | Nivel pintado por capas | Capas por función + colisión optimizada |
+| Blockout 2D | Salta al arte final | Greybox jugable | Greybox validado con playtest |
+| Editor script | No funciona o no aporta | Ahorra una tarea concreta | Herramienta con Undo y feedback, reutilizable |
+| Conexión con la dificultad | No mide nada | Cuenta elementos | Métricas conectadas con los umbrales del 2.3 |
+
+## Recursos
+
+- [Tema 2.3](./tema-02-diseno-de-niveles.mdx) — análisis y medición de dificultad.
+- [Plantilla de análisis de nivel](../guia/recursos.mdx) y [plan de métricas](../guia/recursos.mdx).
+- [GDD transversal](../guia/gdd-transversal.mdx) — sección de herramientas de producción.
+- Documentación de Unity 6 sobre Tilemap y *editor scripting* (ver `## Fuentes y referencias`).
+
+## Fuentes y referencias
+
+- Unity Technologies. *Tilemaps* (Unity 6). Manual de Unity. URL:
+  https://docs.unity3d.com/6000.0/Documentation/Manual/class-Tilemap.html (consultado el 4 de
+  julio de 2026).
+- Unity Technologies. *Rule Tile* (2D Tilemap Extras). URL:
+  https://docs.unity3d.com/Packages/com.unity.2d.tilemap.extras@latest (consultado el 4 de julio
+  de 2026).
+- Unity Technologies. *Extending the Editor* (Unity 6). Manual de Unity. URL:
+  https://docs.unity3d.com/6000.0/Documentation/Manual/ExtendingTheEditor.html (consultado el 4
+  de julio de 2026).
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.

@@ -1,0 +1,184 @@
+---
+title: Tema 2.3 - Diseño de niveles y medición de la dificultad
+sidebar_label: 2.3 Diseño de niveles
+---
+
+# Tema 2.3. Diseño de niveles y medición de la dificultad
+
+Con el core loop definido en el [Tema 2.1](./tema-02-gdd-e-core-loop.mdx), el siguiente paso
+es **darle forma a un nivel**: el espacio y la secuencia donde ese bucle se pone a prueba. Un
+nivel no es un decorado; es una **experiencia diseñada** que enseña, reta y recompensa en un
+orden pensado. Este documento aborda cómo **analizar** un nivel y cómo **medir su dificultad**
+con criterio, para poder aplicarlo desde ya en el proyecto 2D.
+
+:::info[Ubicación en el módulo]
+Tema del **Bloque 1 (Diseño y preproducción)**. La teoría de este documento se aplica primero
+en 2D (fase 1 del proyecto) y se retoma para el escalado 3D en el [Tema 5](../tema-05/tema-05-escalado-3d-y-vr.mdx).
+La medición **empírica** con jugadores se desarrolla en el [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx).
+:::
+
+## Objetivos
+
+- Analizar un nivel descomponiéndolo en sus unidades de diseño (objetivo, recorrido, ritmo, *gating*).
+- Diseñar un nivel introductorio que **enseñe sus mecánicas sin depender de texto**.
+- Distinguir **complejidad** (objetiva) de **dificultad** (relación tarea–jugador).
+- Definir métricas para **medir la dificultad** de un nivel de forma verificable.
+- Trazar una curva de intensidad coherente con el canal de *flow* del [Tema 2.2](./tema-02-balanceo-y-economia.mdx).
+
+## Contenidos
+
+### 1. Qué es un nivel y cómo se analiza
+
+Un nivel se puede analizar como una sucesión de **beats** (momentos de juego) encadenados. Las
+unidades de análisis más útiles:
+
+| Unidad | Qué es | Pregunta que responde |
+| --- | --- | --- |
+| **Objetivo** | Meta del jugador en el nivel | ¿Qué debo lograr aquí? |
+| **Recorrido (*layout*)** | Estructura del espacio y sus caminos | ¿Por dónde puedo ir? |
+| **Beats** | Momentos concretos (salto, combate, puzzle) | ¿Qué hago en cada tramo? |
+| **Ritmo (*pacing*)** | Alternancia de tensión y calma | ¿Cuándo aprieto y cuándo respiro? |
+| ***Gating*** | Bloqueos que controlan el avance | ¿Qué me impide progresar y por qué? |
+| **Landmarks** | Referencias visuales que orientan | ¿Dónde estoy y a dónde voy? |
+
+### 2. La estructura "enseñar, probar, retorcer"
+
+Un patrón clásico y muy aplicable en 2D para introducir una mecánica es **enseñar → probar →
+retorcer** (*teach, test, twist*):
+
+1. **Enseñar**: presentar la mecánica en un entorno seguro, sin castigo por fallar.
+2. **Probar**: pedir al jugador que la use con una consecuencia real (un obstáculo).
+3. **Retorcer**: combinarla con algo ya conocido o darle un giro para exigir maestría.
+
+:::tip[El nivel 1 enseña sin tutorial]
+El primer nivel de *Super Mario Bros.* (1-1) es el ejemplo canónico: enseña a saltar, a temer al
+enemigo y a buscar recompensas **sin una sola línea de texto**, solo con la disposición del
+espacio. Diseñar el nivel introductorio del proyecto con esta intención es un objetivo directo
+de la fase 1.
+:::
+
+### 3. Ritmo y curva de intensidad
+
+La **intensidad** de un nivel (cuánta tensión siente el jugador) no debe ser plana ni siempre
+creciente. Se diseña como una curva con **picos y valles**: momentos de reto seguidos de
+descanso, culminando en un clímax antes del cierre. Esta curva es la aplicación espacial del
+**canal de *flow*** visto en el [Tema 2.2](./tema-02-balanceo-y-economia.mdx): mantener el reto
+ligeramente por encima de la habilidad actual, sin cruzar a la frustración ni al aburrimiento.
+
+```text
+Intensidad
+  ^                          clímax
+  |               pico       /\
+  |      pico     /\        /  \
+  |      /\      /  \      /    \___ cierre
+  | ____/  \____/    \____/
+  +--------------------------------> progreso del nivel
+   intro   reto  respiro  reto   resolución
+```
+
+### 4. Complejidad frente a dificultad
+
+Un error habitual es confundir dos conceptos que conviene separar (Aponte, Levieux & Natkin, 2018):
+
+- **Complejidad**: propiedad **objetiva y estructural** de la tarea (número de enemigos, saltos,
+  variables a controlar). No depende de quién juega.
+- **Dificultad**: surge de la **interacción entre la tarea y el jugador** (su habilidad, su
+  conocimiento previo, su estado). Es subjetiva y relativa.
+
+Consecuencia práctica: se puede **medir la complejidad** contando elementos del nivel, pero para
+conocer la **dificultad real** hay que observar (o modelar) cómo la afronta el jugador.
+
+### 5. Cómo medir la dificultad de un nivel
+
+En la investigación de diseño, cuando hace falta **operacionalizar** la dificultad, se usa como
+medida objetiva la **probabilidad de fallo** o su inversa, la **tasa de finalización**
+(*completion rate*) (Mourato & Próspero dos Santos; Aponte et al., 2018). Métricas habituales:
+
+| Métrica | Qué mide | Señal que da |
+| --- | --- | --- |
+| **Tasa de finalización** | % de jugadores que completan el nivel | Baja → nivel demasiado difícil |
+| **Intentos hasta completar** | Reintentos medios por jugador | Alta → posible muro de dificultad |
+| **Muertes por tramo** | Dónde muere la gente | Concentra los picos problemáticos |
+| **Tiempo por zona** | Cuánto se tarda en cada parte | Detecta atascos o zonas triviales |
+| **Puntos de abandono** | Dónde deja de jugar la gente | Marca frustración o aburrimiento |
+
+Distinciones importantes al medir:
+
+- **Dificultad percibida vs. real**: lo que el jugador *siente* puede no coincidir con las cifras;
+  conviene combinar métricas (cuantitativo) con preguntas (cualitativo).
+- **Carga cognitiva**: parte de la dificultad no es de destreza, sino de *entender* qué hay que
+  hacer. Un nivel confuso "sube" la dificultad sin subir el reto real.
+
+:::note[Del modelo al dato real]
+Estas métricas se pueden **estimar en el diseño** (análisis en papel) y **verificar con datos**
+en las sesiones de *playtesting* del [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx). En el
+[Tema 2.4](./tema-02-herramientas-nivel-2d-unity.mdx) se construye una herramienta en Unity para
+**exportar** algunas de estas cifras de forma automática.
+:::
+
+### 6. Ajuste dinámico de la dificultad (DDA)
+
+Cuando el juego ajusta la dificultad **en tiempo real** según el rendimiento del jugador se habla
+de ***Dynamic Difficulty Adjustment*** (DDA). El sistema **Hamlet** de Hunicke y Chapman (2004)
+es la referencia fundacional: modela los recursos del jugador (vida, munición) como un inventario
+y, cuando predice que el jugador va a quedarse sin recursos, interviene para mantenerlo en el
+canal de *flow*. Para el alcance del curso basta con **conocer el concepto** y, como mucho,
+ofrecer **modos de dificultad** o ayudas opcionales (accesibilidad, ver [Tema 2.2](./tema-02-balanceo-y-economia.mdx)).
+
+### 7. Aplicación al proyecto 2D
+
+- Diseña el **nivel 1** de tu proyecto para que enseñe la mecánica principal sin texto.
+- Dibuja su **curva de intensidad** antes de construirlo (papel o diagrama).
+- Decide **qué métricas** medirás en el primer *playtest* y qué valor considerarías "demasiado
+  difícil".
+
+## Actividades
+
+### Actividad principal: Análisis y diseño del nivel introductorio
+
+1. **Analiza** un nivel introductorio de un juego 2D de referencia: desglósalo en beats, marca
+   dónde *enseña / prueba / retuerce* la mecánica y dibuja su curva de intensidad.
+2. **Diseña** el nivel 1 de tu proyecto aplicando "enseñar sin texto", con su *layout*, *gating*
+   y curva de intensidad.
+
+*Evidencia*: documento con el análisis del nivel de referencia + boceto/mapa del nivel 1 propio
+con su curva de intensidad ([plantilla `analisis-nivel.md`](../guia/recursos.mdx)), integrado en el GDD.
+
+### Actividad de apoyo: Plan de medición de dificultad
+
+Define una tabla con las **métricas de dificultad** que medirás en el primer *playtest* (tasa de
+finalización, muertes por tramo, etc.), indicando para cada una un **umbral** que dispararía un
+rediseño. *Evidencia*: tabla integrada en el GDD ([plantilla `plan-metricas-dificultad.md`](../guia/recursos.mdx)).
+
+## Evaluación
+
+| Criterio | Insuficiente | Adecuado | Excelente |
+| --- | --- | --- | --- |
+| Análisis del nivel | Descripción vaga | Beats y *gating* identificados | Beats, ritmo y curva de intensidad justificados |
+| Enseñar sin texto | Depende de tutoriales | Introduce la mecánica con el espacio | Enseña, prueba y retuerce de forma legible |
+| Complejidad vs. dificultad | Se confunden | Se distinguen | Se usan para decidir ajustes concretos |
+| Plan de medición | Ausente | Métricas listadas | Métricas con umbrales y acción asociada |
+
+## Recursos
+
+- [Plantilla de análisis de nivel](../guia/recursos.mdx) (`analisis-nivel.md`).
+- [Plantilla de plan de métricas de dificultad](../guia/recursos.mdx) (`plan-metricas-dificultad.md`).
+- [GDD transversal](../guia/gdd-transversal.mdx) — sección de *level design*.
+- Nivel de referencia 2D para analizar (a elección del equipo).
+- Bibliografía de *level design* y dificultad (ver `## Fuentes y referencias`).
+
+## Fuentes y referencias
+
+- Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
+  (Análisis del espacio, recorrido y guía del jugador en el diseño de niveles).
+- Csíkszentmihályi, M. (1990). *Flow: The Psychology of Optimal Experience*. Harper & Row.
+  (Origen del canal de *flow*: equilibrio entre reto y habilidad).
+- Aponte, M.-V., Levieux, G. & Natkin, S. (2018). *Approaches to Measuring the Difficulty of
+  Games in Dynamic Difficulty Adjustment Systems*. International Journal of Human–Computer
+  Interaction. URL: https://doi.org/10.1080/10447318.2018.1461764 (consultado el 4 de julio de
+  2026). (Distinción entre complejidad y dificultad, y enfoques de medición).
+- Hunicke, R. & Chapman, V. (2004). *AI for Dynamic Difficulty Adjustment in Games*. AAAI
+  Workshop on Challenges in Game AI. URL: https://users.cs.northwestern.edu/~hunicke/pubs/Hamlet.pdf
+  (consultado el 4 de julio de 2026). (Sistema Hamlet de ajuste dinámico de dificultad).
+- Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press. (Ritmo,
+  interés y curvas de tensión en la experiencia de juego).

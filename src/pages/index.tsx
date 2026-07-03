@@ -19,7 +19,7 @@ const temario: Tema[] = [
   {
     numero: '01',
     titulo: 'Industria e historia',
-    descripcion: 'De donde viene el videojuego, generos y perfiles de jugador.',
+    descripcion: 'De dónde viene el videojuego, géneros y perfiles de jugador.',
     to: '/docs/tema-01/tema-01-introduccion-industria',
   },
   {
@@ -30,31 +30,31 @@ const temario: Tema[] = [
   },
   {
     numero: '03',
-    titulo: 'Produccion agil',
+    titulo: 'Producción ágil',
     descripcion: 'Scrum y Kanban, rol del productor y control de alcance.',
     to: '/docs/tema-03/tema-03-metodologias-agiles-produccion',
   },
   {
     numero: '04',
     titulo: 'QA, UX y playtesting',
-    descripcion: 'Planes de prueba, test cases y analisis de feedback.',
+    descripcion: 'Planes de prueba, test cases y análisis de feedback.',
     to: '/docs/tema-04/tema-04-qa-ux-playtesting',
   },
   {
     numero: '05',
-    titulo: 'Diseno 3D y VR',
+    titulo: 'Diseño 3D y VR',
     descripcion: 'Escalado a 3D, level design y editor scripting.',
     to: '/docs/tema-05/tema-05-escalado-3d-y-vr',
   },
   {
     numero: '06',
-    titulo: 'Negocio y monetizacion',
-    descripcion: 'Modelos de negocio, diseno etico y patrones oscuros.',
+    titulo: 'Negocio y monetización',
+    descripcion: 'Modelos de negocio, diseño ético y patrones oscuros.',
     to: '/docs/tema-06/tema-06-modelos-negocio-monetizacion',
   },
   {
     numero: '07',
-    titulo: 'Distribucion y marketing',
+    titulo: 'Distribución y marketing',
     descripcion: 'Marco legal, propiedad intelectual, PEGI y press kit.',
     to: '/docs/tema-07/tema-07-distribucion-marketing-marco-legal',
   },
@@ -73,20 +73,20 @@ function HomepageHeader() {
       <div className={styles.heroGlow} aria-hidden="true" />
       <div className={styles.heroGrid} aria-hidden="true" />
       <div className={clsx('container', styles.heroInner)}>
-        <span className={styles.eyebrow}>Curso de Especializacion FP</span>
+        <span className={styles.eyebrow}>Curso de Especialización FP</span>
         <Heading as="h1" className={styles.heroTitle}>
           {siteConfig.title}
           <span className={styles.heroTitleAccent}>
-            Disena, produce y lanza videojuegos
+            Diseña, produce y lanza videojuegos
           </span>
         </Heading>
         <p className={styles.heroSubtitle}>{siteConfig.tagline}</p>
         <div className={styles.buttons}>
           <Link className={styles.buttonPrimary} to="/docs/introduccion">
-            Comenzar el modulo
+            Comenzar el módulo
           </Link>
           <Link className={styles.buttonGhost} to="/docs/guia-docente">
-            Ver guia docente
+            Ver guía docente
           </Link>
         </div>
         <dl className={styles.stats}>
@@ -100,7 +100,7 @@ function HomepageHeader() {
           </div>
           <div className={styles.stat}>
             <dt>2D → 3D/VR</dt>
-            <dd>progresion tecnica</dd>
+            <dd>progresión técnica</dd>
           </div>
         </dl>
       </div>
@@ -115,7 +115,7 @@ function TemarioSection() {
         <div className={styles.sectionHead}>
           <span className={styles.sectionKicker}>Ruta de aprendizaje</span>
           <Heading as="h2" className={styles.sectionTitle}>
-            El modulo, tema a tema
+            El módulo, tema a tema
           </Heading>
           <p className={styles.sectionLead}>
             Ocho unidades que avanzan desde los fundamentos de la industria hasta
@@ -148,7 +148,7 @@ export default function Home(): ReactNode {
   return (
     <Layout
       title={`Inicio | ${siteConfig.title}`}
-      description="Portal de material docente del modulo DGPP del curso de especializacion FP.">
+      description="Portal de material docente del módulo DGPP del curso de especialización FP.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

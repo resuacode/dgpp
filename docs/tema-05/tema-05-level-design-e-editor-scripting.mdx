@@ -6,8 +6,11 @@ sidebar_label: 5.1 Level design y scripting
 # Tema 5.1. Level design y editor scripting
 
 Un buen nivel 3D no se improvisa en el motor: se **diseña** antes y se **construye** con
-herramientas que aceleran la producción. Este documento cubre el diseño de niveles y la
-creación de **scripts de editor** para automatizar tareas repetitivas del equipo.
+herramientas que aceleran la producción. La **teoría de diseño de niveles y de medición de la
+dificultad** se estudió en el [Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx); aquí se aplica
+al **espacio 3D** y se introduce la creación de **scripts de editor** para automatizar tareas del
+equipo. El catálogo detallado de herramientas 3D del ecosistema Unity (ProBuilder, Terrain,
+Splines, Polybrush) está en el [Tema 5.3](./tema-05-herramientas-3d-unity.mdx).
 
 ## Objetivos
 
@@ -18,33 +21,32 @@ creación de **scripts de editor** para automatizar tareas repetitivas del equip
 
 ## Contenidos
 
-### 1. Proceso de level design
+### 1. Del diseño de niveles al espacio 3D
 
-Flujo recomendado para un nivel del proyecto:
+El proceso general (concepto → *paper map* → *blockout* → *playtest* → arte) y la teoría de ritmo
+y dificultad se vieron en el [Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx). El flujo se
+mantiene en 3D, pero cambian las restricciones:
 
-```text
-Concepto → Paper map / boceto → Blockout (gris) → Playtest → Arte y pulido
-```
-
-| Fase | Qué se hace | Objetivo |
+| Aspecto | En 2D | En 3D |
 | --- | --- | --- |
-| **Concepto** | Idea del nivel, objetivos de jugador, duración | Alinear con el GDD |
-| **Paper map** | Plano 2D del recorrido, landmarks, gating | Comunicar sin abrir el motor |
-| **Blockout** | Geometría simple (cajas, primitivas) jugable | Validar escala y ritmo |
-| **Playtest** | Probar con jugadores (ver [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx)) | Detectar perdidos y aburrimiento |
-| **Arte y pulido** | Assets finales, iluminación, audio | Solo cuando el blockout funciona |
+| Lectura del espacio | Inmediata en pantalla | Depende de cámara, oclusión y verticalidad |
+| Orientación | Casi automática | Requiere **landmarks** y guía visual explícita |
+| Blockout | *Tiles* neutros | Geometría gris (ver [Tema 5.3](./tema-05-herramientas-3d-unity.mdx)) |
+| Recorrido | Lineal o por pantallas | Rutas, atajos, altura y campo de visión |
 
-:::tip[Blockout antes de arte]
-Invertir en arte antes de validar el blockout es el error más caro en *level design*. Un
-nivel gris que funciona vale más que uno bonito e ilegible.
+:::tip[Blockout antes de arte, también en 3D]
+Invertir en arte antes de validar el *blockout* es el error más caro en *level design*. Un nivel
+gris que funciona vale más que uno bonito e ilegible.
 :::
 
-### 2. Herramientas de lectura del espacio
+### 2. Lectura del espacio en 3D
 
-- **Línea de vista**: qué ve el jugador desde puntos clave.
-- **Silueta y landmarks**: torres, puertas grandes, luces que orientan.
-- **Color y luz**: caminos claros vs. zonas secundarias oscuras.
-- **Audio**: sonidos que atraen o advierten (puerta, enemigo, recompensa).
+Guiar al jugador en 3D sin perderlo se apoya en señales que no dependen de un minimapa:
+
+- **Línea de vista**: qué ve el jugador desde puntos clave; controla qué se revela y cuándo.
+- **Silueta y landmarks**: torres, puertas grandes, luces que orientan en la distancia.
+- **Color y luz**: caminos principales iluminados vs. zonas secundarias en sombra.
+- **Audio posicional**: sonidos que atraen o advierten (puerta, enemigo, recompensa).
 
 ### 3. Editor scripting: automatizar producción
 
@@ -392,6 +394,8 @@ Un script de editor que solo entiende quien lo escribió no escala. El manual m�
 ## Recursos
 
 - Documentación de *scripting* del editor de **Unity 6** (motor principal del itinerario).
+- [Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx) — teoría de diseño y medición de dificultad.
+- [Tema 5.3](./tema-05-herramientas-3d-unity.mdx) — herramientas 3D del ecosistema Unity.
 - [GDD transversal](../guia/gdd-transversal.mdx) — level design por fases.
 - Referencias de *blockout* y *greyboxing* (ver fuentes).
 
