@@ -10,12 +10,14 @@ permissions:
   pages: write
   id-token: write
 
-# Un unico despliegue a la vez. Se cancela el que este en curso para evitar que
-# una publicacion encolada o atascada bloquee al siguiente (error transitorio
-# "Deployment failed, try again later." de GitHub Pages).
+# Un unico despliegue a la vez. NO se cancela el que este en curso: interrumpir
+# un despliegue de GitHub Pages a mitad deja el entorno en un estado inconsistente
+# y hace fallar al run siguiente (patron de fallos intermitentes con build verde).
+# Se descartan los runs encolados intermedios, pero se deja terminar al que ya
+# esta publicando (configuracion recomendada por GitHub para Pages).
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
