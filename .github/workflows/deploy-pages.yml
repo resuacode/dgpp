@@ -10,13 +10,17 @@ permissions:
   pages: write
   id-token: write
 
+# Un unico despliegue a la vez. Se cancela el que este en curso para evitar que
+# una publicacion encolada o atascada bloquee al siguiente (error transitorio
+# "Deployment failed, try again later." de GitHub Pages).
 concurrency:
   group: pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -44,7 +48,13 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # Reintentos ante fallos transitorios de la API de GitHub Pages.
+          timeout: 600000
+          error_count: 10
+          reporting_interval: 5000
