@@ -34,7 +34,7 @@ Concepto → Paper map / boceto → Blockout (gris) → Playtest → Arte y puli
 | **Playtest** | Probar con jugadores (ver [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx)) | Detectar perdidos y aburrimiento |
 | **Arte y pulido** | Assets finales, iluminación, audio | Solo cuando el blockout funciona |
 
-:::tip Blockout antes de arte
+:::tip[Blockout antes de arte]
 Invertir en arte antes de validar el blockout es el error más caro en *level design*. Un
 nivel gris que funciona vale más que uno bonito e ilegible.
 :::
@@ -79,7 +79,7 @@ editor de Unity. Para que Unity lo trate como código de editor:
   cualquier nivel del proyecto, p. ej. `Assets/Scripts/Editor/`).
 - Usa el *namespace* `UnityEditor`.
 
-:::warning No uses UnityEditor fuera de la carpeta Editor
+:::warning[No uses UnityEditor fuera de la carpeta Editor]
 Si llamas a `UnityEditor` desde un script normal del juego, la compilación **fallará al generar
 la build**. Separa siempre la lógica de editor (herramientas) de la lógica de juego (runtime).
 :::
@@ -166,7 +166,7 @@ public static class SpawnGridGenerator
 }
 ```
 
-:::tip Siempre soporta Undo
+:::tip[Siempre soporta Undo]
 Una herramienta que no se puede deshacer es peligrosa: un error puede arruinar horas de trabajo.
 `Undo.RegisterCreatedObjectUndo` y `Undo.RecordObject` deben ser un hábito, no una opción.
 :::
@@ -314,13 +314,13 @@ public static class LevelValidator
 }
 ```
 
-:::note API de búsqueda en Unity 6
+:::note[API de búsqueda en Unity 6]
 En Unity 6 se usa `FindObjectsByType` (con `FindObjectsSortMode`) en lugar del antiguo
 `FindObjectsOfType`, que está obsoleto. Pasar `FindObjectsSortMode.None` es más rápido cuando no
 necesitas ordenar los resultados.
 :::
 
-:::tip Conexión con el Tema 4 (QA)
+:::tip[Conexión con el Tema 4 (QA)]
 Este validador es **QA automatizado dentro del editor**: aplica los mismos principios de
 verificación reproducible que viste en el [Tema 4](../tema-04/tema-04-qa-ux-playtesting.mdx). En
 lugar de comprobar el nivel a mano antes de cada *playtest*, la herramienta ejecuta esas

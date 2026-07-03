@@ -11,7 +11,7 @@ const config: Config = {
   title: 'DGPP',
   tagline:
     'Diseño, gestion, publicación y producción de videojuegos - Curso de Especialización FP',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/gamepad.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -80,7 +80,7 @@ const config: Config = {
       title: 'DGPP',
       logo: {
         alt: 'DGPP',
-        src: 'img/logo.svg',
+        src: 'img/gamepad.svg',
       },
       items: [
         {
@@ -208,6 +208,8 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      // C# no viene en el paquete por defecto de Prism en Docusaurus.
+      additionalLanguages: ['csharp'],
     },
   } satisfies Preset.ThemeConfig,
 };
