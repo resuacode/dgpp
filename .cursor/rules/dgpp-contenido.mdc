@@ -11,7 +11,7 @@ alwaysApply: false
 - Definir actividades con evidencia esperada.
 - Definir evaluacion con criterios verificables.
 - Usar ejemplos relacionados con desarrollo de videojuegos.
-- Mantener consistencia con `docs/guia/guia-docente.mdx` y `docs/guia/guia-estilo-contenido.mdx`.
+- Mantener consistencia con `docs/guia/_guia-docente.mdx` y `docs/guia/_guia-estilo-contenido.mdx`.
 - Al crear o modificar un tema (`docs/tema-*/tema-*.mdx`), actualizar en el mismo cambio la guía
   interna del tema (`_guia-profesorado-tema-XX.mdx`) y el resumen correspondiente en
   `docs/guia/_guia-general-profesorado.mdx` (ver regla `dgpp-guias-profesorado`).

@@ -46,6 +46,7 @@ Ideas clave que se abordan:
 - Arquitectura de niveles 3D y ritmo de exploración.
 - Iluminación, guía visual y lectura del espacio.
 - Narrativa e interacción inmersiva.
+- **Mundo ludoficcional** aplicado al espacio 3D (ficción + jugabilidad).
 - Ergonomía y confort en VR.
 
 ### 1. De 2D a 3D: qué cambia
@@ -89,10 +90,48 @@ En VR, el cuerpo del jugador es parte del diseño. Consideraciones esenciales:
 Las [Directrices de confort de Valve para VR](https://steamcommunity.com/sharedfiles/filedetails/?id=497812639)
 son referencia estándar del sector.
 
-### 4. Narrativa inmersiva
+### 4. Espacio jugable y mundo ludoficcional
+
+En 3D/VR el nivel no es solo geometría navegable: es parte del **mundo ludoficcional** del
+proyecto —la unión de lo que el juego representa (ficción, tono, contexto) y lo que el jugador
+hace en él (mecánicas, retos, ritmo). Un laboratorio abandonado en *Portal* o un castillo en ruinas
+en *Dark Souls* comunican historia **y** condicionan cómo juegas.
+
+Tres preguntas útiles al diseñar cada espacio:
+
+1. **Ficción**: ¿qué cuenta este lugar sobre el universo del juego?
+2. **Sistema**: ¿qué mecánicas habilita o restringe (verticalidad, cobertura, puzzles)?
+3. **Experiencia**: ¿qué debe sentir el jugador al atravesarlo (tensión, asombro, calma)?
+
+:::tip[Coherencia fase 2]
+Revisa el GDD del [Tema 2](../tema-02/tema-02-game-design-fundacional.mdx): el *blockout* 3D
+debe reforzar la premisa y las mecánicas ya definidas, no contradecirlas por buscar solo
+espectáculo visual.
+:::
+
+### 5. Diseñar el espacio desde el sistema
+
+El entorno 3D debe **responder a las mecánicas** del sistema lúdico, no limitarse a verse bien:
+
+| Decisión de espacio | Pregunta de sistema |
+| --- | --- |
+| Altura y verticalidad | ¿La mecánica de salto o escalada tiene sentido aquí? |
+| Anchura de pasillos | ¿El combate o el sigilo necesitan esta lectura? |
+| Distancia entre landmarks | ¿El ritmo de exploración encaja con el core loop? |
+| Gating espacial | ¿Las llaves o habilidades desbloquean rutas coherentes? |
+
+Un nivel es una forma de **organizar** mecánicas, información, ritmo y dificultad —no decoración
+alrededor de ellas. La teoría de medición se estudió en el
+[Tema 2.3](../tema-02/tema-02-diseno-de-niveles.mdx); aquí se aplica al volumen y la cámara 3D.
+
+### 6. Narrativa inmersiva y ambiental
 
 En 3D/VR la narrativa suele ser **ambiental** (*environmental storytelling*): el espacio, los
-objetos y el sonido cuentan la historia sin cinemáticas largas. Herramientas:
+objetos y el sonido cuentan la historia sin cinemáticas largas. El escenario **es** parte del
+mundo ludoficcional: cada objeto colocado con intención refuerza tono y contexto mientras el
+jugador avanza por el sistema de reglas del nivel.
+
+Herramientas:
 
 - Objetos con historia (notas, restos, disposición de escena).
 - Audio posicional y diálogos diegéticos.
@@ -129,3 +168,7 @@ objetos y el sonido cuentan la historia sin cinemáticas largas. Herramientas:
   2026).
 - Totten, C. W. (2019). *An Architectural Approach to Level Design* (2.ª ed.). CRC Press.
 - Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
+- Aranda, D. (ed.), Gómez, S., Navarro, V. & Planells, A. J. (2015). *Game & Play: Diseño y
+  análisis del juego, el jugador y el sistema lúdico*. UOC Press. URL:
+  https://www.editorialuoc.com/ (consultado el 6 de julio de 2026). *Bibliografía recomendada
+  y ampliación; el temario incorpora sus conceptos sin exigir lectura del libro.*

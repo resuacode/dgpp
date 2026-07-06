@@ -54,7 +54,41 @@ Antes de clasificar juegos conviene entender quién hace qué:
 Un estudio independiente puede asumir varios de estos roles a la vez; entender la cadena
 ayuda a decidir qué se hace internamente y qué se externaliza.
 
-### 3. Taxonomía de géneros
+### 3. Juego y jugar
+
+Antes de clasificar géneros conviene distinguir dos ideas que a menudo se mezclan:
+
+- **Juego**: la estructura —reglas, objetivos, componentes y límites del sistema—. Es lo que
+  existe aunque nadie lo ejecute (el manual, el código, el tablero).
+- **Jugar**: la actividad de una persona que interactúa con ese sistema —decide, prueba,
+  aprende, se equivoca, mejora—.
+
+Ejemplo con *Tetris*: el **juego** son las reglas de caída de piezas, líneas y puntuación; **jugar**
+es asumir presión, elegir colocaciones y buscar eficiencia en cada partida.
+
+Los videojuegos no son solo un sector económico: son una **forma cultural** con lógicas propias.
+Jugar puede servir para competir, explorar, simular, cooperar o experimentar sin consecuencias
+reales en la vida cotidiana.
+
+#### Propiedades fundamentales del juego
+
+Para analizar cualquier título (digital o no) conviene preguntar si cumple estas propiedades,
+heredadas de la teoría del juego (Huizinga, Caillois):
+
+| Propiedad | Qué significa | Pregunta de diseño |
+| --- | --- | --- |
+| Actividad libre | Nadie está obligado a participar | ¿Por qué alguien elegiría jugar esto? |
+| Separación | El juego ocurre en un marco distinto a la vida ordinaria | ¿Qué reglas suspenden la realidad? |
+| Incertidumbre | El resultado no está decidido de antemano | ¿Dónde hay riesgo, azar o decisión? |
+| Reglas | Límites que hacen posible la actividad | ¿Qué está permitido y qué no? |
+| Ficción | "Hacer como si" (personajes, mundo, tono) | ¿Qué universo representa el juego? |
+
+:::tip[Aplicación al proyecto]
+Al redactar el documento de enfoque, describe tu juego respondiendo a esas cinco preguntas. Si
+alguna queda vacía, probablemente falte definición de diseño.
+:::
+
+### 4. Taxonomía de géneros
 
 Un **género** es un conjunto de convenciones de *gameplay* que generan expectativas en el
 jugador. No es una etiqueta rígida: los juegos suelen combinar géneros. Ejemplos de familias
@@ -72,7 +106,24 @@ El género no describe solo el juego: **describe expectativas del público y con
 control**. Elegir un género es elegir, en parte, a tu audiencia y tu curva de aprendizaje.
 :::
 
-### 4. Perfiles de jugadores y motivaciones
+#### Más allá del género: tipos de experiencia lúdica (Caillois)
+
+Roger Caillois propuso cuatro **modos de juego** que complementan la taxonomía por género. No
+sustituyen etiquetas como "plataformas" o "RPG", pero ayudan a articular **qué tipo de
+experiencia** ofrece el título:
+
+| Modo (Caillois) | Qué implica | Ejemplo en videojuegos |
+| --- | --- | --- |
+| **Agon** (competición) | Medir habilidad frente a otros o al sistema | *Street Fighter*, *Rocket League* |
+| **Alea** (azar) | Incertidumbre, suerte, riesgo calculado | *Hades* (mapas aleatorios), *Balatro* |
+| **Mimicry** (simulación/rol) | Hacerse pasar por otro, interpretar un papel | *The Sims*, *Disco Elysium* |
+| **Ilinx** (vértigo) | Alteración momentánea de percepción o control | *Super Hexagon*, *Beat Saber* |
+
+Caillois también distingue **paidia** (juego libre, espontáneo) y **ludus** (juego reglado con
+objetivos). Un mismo título puede mezclar modos: *Minecraft* combina mimicry (construir un
+mundo), agon (PvP opcional) y paidia (sandbox sin objetivo fijo).
+
+### 5. Perfiles de jugadores y motivaciones
 
 Para diseñar con intención hay que entender **por qué** juega la gente. Un modelo clásico es
 la **taxonomía de jugadores de Bartle (1996)**, formulada para mundos multijugador (MUD),
@@ -88,6 +139,15 @@ que distingue cuatro perfiles según qué disfrutan:
 El modelo de Bartle es una herramienta de partida, no una ley: existen modelos más recientes
 y matizados (por ejemplo, las taxonomías de motivación de Quantic Foundry). Lo importante es
 **diseñar pensando en motivaciones concretas** y no en un "jugador genérico".
+
+Etiquetas como *casual*, *hardcore* o *novato* son útiles en marketing, pero **insuficientes
+para diseñar**: un jugador "casual" puede dominar un género concreto y un "hardcore" puede
+rechazar tu propuesta por falta de tiempo. Es más preciso describir al público con:
+
+- **Conocimientos previos**: qué géneros o convenciones ya conoce.
+- **Pericia**: nivel de habilidad esperado en controles o sistemas.
+- **Implicación**: tiempo y energía que está dispuesto a invertir por sesión.
+- **Preferencias**: agon, exploración, narrativa, cooperación, etc.
 
 Conviene distinguir género (qué tipo de juego) de **segmento demográfico y de comportamiento**
 (edad, plataforma, tiempo disponible, gasto). Los datos de mercado ayudan aquí: por ejemplo,
@@ -136,3 +196,8 @@ Criterios verificables (rúbrica orientativa):
   de videojuego).
 - Wolf, M. J. P. (2012). *The Video Game Explosion: A History from PONG to PlayStation and
   Beyond*. Greenwood Press.
+- Aranda, D. (ed.), Gómez, S., Navarro, V. & Planells, A. J. (2015). *Game & Play: Diseño y
+  análisis del juego, el jugador y el sistema lúdico*. UOC Press. URL:
+  https://www.editorialuoc.com/ (consultado el 6 de julio de 2026). *Bibliografía recomendada
+  y ampliación; el temario incorpora sus conceptos sin exigir lectura del libro.*
+- Caillois, R. (2001). *Los juegos y los hombres*. Alianza Editorial. (Ed. orig. 1958).

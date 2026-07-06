@@ -46,8 +46,30 @@ posteriores.
   punto de partida.
 - **Visual**: diagramas del loop, *mockups* de UI y tablas ahorran páginas de texto.
 - **Accionable**: cada sección debe permitir que alguien construya algo.
+- **De coordinación**: el GDD no es literatura de diseño; es la herramienta que alinea a
+  programación, arte, audio y QA sobre la misma visión. Cada departamento debe encontrar en él
+  lo que necesita para trabajar.
 
-### 3. El core gameplay loop
+### 3. Pensar las mecánicas por dimensiones
+
+Listar mecánicas ("disparar", "saltar") sin organizarlas dificulta el balanceo y el *playtesting*.
+Una forma útil de clasificarlas —complementaria al MDA— es por **dimensión del sistema lúdico**:
+
+| Dimensión | Qué cubre | Ejemplos |
+| --- | --- | --- |
+| Control / interfaz | Entrada del jugador, respuesta del personaje | Apuntado, salto, agarre (VR) |
+| Información | Qué se muestra, oculta o descubre | Niebla de guerra, pistas, HUD |
+| Espacio | Geometría, rutas, zonas | Plataformas, cobertura, atajos |
+| Recursos | Economía interna, inventario | Vida, munición, moneda |
+| Tiempo | Ritmo, presión, turnos | Temporizador, *cooldowns*, día/noche |
+| Social | Cooperación, competición, comunicación | Chat, emotes, PvP, trading |
+
+:::tip[Revisión del GDD]
+Recorre las mecánicas de tu proyecto y márcalas en esta tabla. Si una dimensión queda vacía,
+pregunta si es intencional o si falta profundidad de diseño.
+:::
+
+### 4. El core gameplay loop
 
 El **core loop** es la secuencia de acciones que el jugador repite constantemente y que
 constituye la esencia del juego. Ejemplo genérico:
@@ -70,7 +92,7 @@ Cada acción del loop necesita **retroalimentación perceptible** (visual, sonor
 *feedback* claro, el jugador no aprende el sistema y el loop no engancha.
 :::
 
-### 4. Loops secundarios
+### 5. Loops secundarios
 
 Alrededor del core loop se construyen loops secundarios (colección, mejora, exploración,
 social) que dan profundidad y motivan la rejugabilidad. Deben **reforzar** el core loop, no
@@ -85,7 +107,12 @@ competir con él por la atención del jugador.
 2. **Checklist de secciones del GDD**
    - Verifica que el GDD v0.1 cubre las secciones mínimas y márcalas como "hecho / pendiente".
    - *Evidencia*: checklist completado en el GDD.
-3. **Prueba del loop en papel** (refuerzo)
+3. **Tabla de mecánicas por dimensiones** (refuerzo)
+   - Clasifica las mecánicas primarias del proyecto según control, información, espacio, recursos,
+     tiempo y social.
+   - *Evidencia*: tabla en el GDD con al menos una mecánica por dimensión relevante o justificación
+     de omisiones.
+4. **Prueba del loop en papel** (refuerzo)
    - Simula el core loop con papel o piezas para validar que funciona antes de programarlo.
    - *Evidencia*: fotos o notas de la prueba y conclusiones.
 
@@ -111,3 +138,7 @@ competir con él por la atención del jugador.
   de 2026).
 - Adams, E. (2014). *Fundamentals of Game Design* (3.ª ed.). New Riders.
 - Sylvester, T. (2013). *Designing Games: A Guide to Engineering Experiences*. O'Reilly Media.
+- Aranda, D. (ed.), Gómez, S., Navarro, V. & Planells, A. J. (2015). *Game & Play: Diseño y
+  análisis del juego, el jugador y el sistema lúdico*. UOC Press. URL:
+  https://www.editorialuoc.com/ (consultado el 6 de julio de 2026). *Bibliografía recomendada
+  y ampliación; el temario incorpora sus conceptos sin exigir lectura del libro.*

@@ -15,10 +15,8 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   guiaSidebar: [
     'guia/introduccion',
-    'guia/guia-docente',
     'guia/gdd-transversal',
     'guia/recursos',
-    'guia/guia-estilo-contenido',
   ],
   tema01Sidebar: [
     'tema-01/tema-01-introduccion-industria',

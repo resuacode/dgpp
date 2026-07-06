@@ -23,7 +23,8 @@ nace el GDD que se completará durante todo el curso siguiendo el
 - Construir un GDD **vivo e iterativo**, no un documento cerrado que nadie vuelve a abrir.
 - Definir el *high concept* y las *x-features* (características diferenciadoras) del proyecto.
 - Diseñar el *core gameplay loop* y sus loops secundarios.
-- Aplicar un marco de análisis de diseño (MDA) para razonar decisiones.
+- Aplicar el marco MDA y el concepto de **sistema lúdico** para razonar decisiones.
+- Introducir el **mundo ludoficcional** y clasificar mecánicas por dimensiones.
 - Diseñar y analizar niveles, y llevarlos al motor con herramientas 2D.
 
 ## Contenidos
@@ -43,9 +44,44 @@ Ideas clave que se abordan:
 
 - Anatomía del GDD y por qué debe ser un documento vivo.
 - Concepto *core*, propuesta de valor y *x-features*.
-- El marco **MDA** (Mecánicas → Dinámicas → Estética) como lente de diseño.
-- Mecánicas primarias y su relación con la experiencia buscada.
+- El **jugador** como centro del diseño (conocimientos, pericia, preferencias).
+- El **sistema lúdico** y el marco **MDA** (Mecánicas → Dinámicas → Estética).
+- Introducción al **mundo ludoficcional** (ficción + jugabilidad).
+- Mecánicas por dimensiones (control, información, espacio, recursos, tiempo, social).
 - Diseño y análisis de niveles, y medición de la dificultad.
+
+### Diseñar para alguien: el jugador en el centro
+
+El jugador no es un receptor pasivo de contenido: **interpreta, decide, prueba y aprende**. Diseñar
+un juego no es solo "tener una idea", sino anticipar:
+
+- qué sabe ya quien juega (convenciones del género, tutoriales previos);
+- qué espera (promesa del *high concept* y del marketing);
+- qué le cuesta (curva de aprendizaje, controles, legibilidad);
+- qué le motiva (logro, exploración, socialización, competición).
+
+Esto conecta con el análisis de público del [Tema 1](../tema-01/tema-01-fundamentos-industria.mdx):
+el GDD debe nombrar a un jugador concreto, no a "todo el mundo".
+
+### El sistema lúdico
+
+Un **sistema lúdico** es el conjunto de reglas, mecánicas, recursos, condiciones, acciones posibles
+y respuestas del juego que hacen que la experiencia funcione como juego. En lenguaje cotidiano: es
+la **"máquina" del juego** —lo que el jugador puede hacer, cómo responde el sistema y qué
+consecuencias tienen sus decisiones.
+
+En *Super Mario Bros.*, por ejemplo, el sistema incluye saltar, correr, enemigos, bloques, gravedad,
+vidas, tiempo y recompensas. Ninguna pieza aislada define el juego; es la **interacción** entre
+ellas la que produce la experiencia.
+
+| Dimensión del sistema | Ejemplos de preguntas de diseño |
+| --- | --- |
+| Reglas y restricciones | ¿Qué está permitido? ¿Qué penaliza el juego? |
+| Acciones posibles | ¿Qué puede hacer el jugador en cada momento? |
+| Recursos | ¿Qué se gasta, se acumula o se intercambia? |
+| Información | ¿Qué sabe el jugador y qué está oculto? |
+| Espacio y tiempo | ¿Cómo limitan el mapa y el reloj las decisiones? |
+| Consecuencias | ¿Cómo responde el juego a aciertos y errores? |
 
 ### El marco MDA como herramienta de razonamiento
 
@@ -63,10 +99,31 @@ La clave: **el jugador experimenta en orden inverso** (siente la estética, gene
 dinámicas, producidas por las mecánicas). Diseñar bien es partir de la estética deseada y
 elegir mecánicas que la produzcan.
 
+El MDA describe el **sistema lúdico** desde dos perspectivas: la del diseñador (mecánicas →
+dinámicas → estética) y la del jugador (estética ← dinámicas ← mecánicas). Usar ambas evita
+diseñar piezas sueltas sin experiencia coherente.
+
 :::tip[Aplicación directa]
 Antes de listar mecánicas, el equipo debe escribir **qué debe sentir** quien juega. Cada
 mecánica del GDD debería poder justificarse contra esa estética objetivo.
 :::
+
+### El mundo ludoficcional (introducción)
+
+El **mundo ludoficcional** es el universo del juego entendido como unión de:
+
+1. lo que el juego **cuenta o representa** (ficción, personajes, escenarios, tono, contexto);
+2. lo que el jugador **hace dentro de él** (reglas, acciones, retos, interacción).
+
+No es solo "la historia" ni solo "las reglas": es el mundo que emerge cuando ficción y jugabilidad
+trabajan juntas. En *Portal*, el laboratorio de ciencia ficción **más** resolver pruebas con
+portales forman un solo mundo ludoficcional. En *Dark Souls*, la fantasía oscura **más** el
+combate exigente y el riesgo de perder progreso hacen lo mismo.
+
+En el GDD conviene documentar tono, premisa y cómo las mecánicas refuerzan esa ficción. El
+desarrollo práctico del espacio ludoficcional en 3D se retoma en el
+[Tema 5](../tema-05/tema-05-escalado-3d-y-vr.mdx); la defensa del proyecto, en el
+[Tema 8](../tema-08/tema-08-pitching-playtesting-2-y-defensa.mdx).
 
 ### El *high concept* y las *x-features*
 
@@ -106,3 +163,7 @@ Las actividades detalladas y sus rúbricas están en cada documento del tema.
   https://users.cs.northwestern.edu/~hunicke/MDA.pdf (consultado el 3 de julio de 2026).
 - Schell, J. (2019). *The Art of Game Design: A Book of Lenses* (3.ª ed.). CRC Press.
 - Salen, K. & Zimmerman, E. (2003). *Rules of Play: Game Design Fundamentals*. MIT Press.
+- Aranda, D. (ed.), Gómez, S., Navarro, V. & Planells, A. J. (2015). *Game & Play: Diseño y
+  análisis del juego, el jugador y el sistema lúdico*. UOC Press. URL:
+  https://www.editorialuoc.com/ (consultado el 6 de julio de 2026). *Bibliografía recomendada
+  y ampliación; el temario incorpora sus conceptos sin exigir lectura del libro.*

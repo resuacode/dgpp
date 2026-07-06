@@ -192,8 +192,8 @@ const config: Config = {
           title: 'Recursos',
           items: [
             {
-              label: 'Guía docente',
-              to: '/docs/guia-docente',
+              label: 'GDD transversal',
+              to: '/docs/guia/gdd-transversal',
             },
             {
               label: 'GitHub',

@@ -85,8 +85,8 @@ function HomepageHeader() {
           <Link className={styles.buttonPrimary} to="/docs/introduccion">
             Comenzar el módulo
           </Link>
-          <Link className={styles.buttonGhost} to="/docs/guia-docente">
-            Ver guía docente
+          <Link className={styles.buttonGhost} to="/docs/guia/gdd-transversal">
+            Ver GDD transversal
           </Link>
         </div>
         <dl className={styles.stats}>

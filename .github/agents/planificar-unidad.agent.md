@@ -9,7 +9,7 @@ Tu tarea es planificar una unidad didactica nueva en `docs/`.
 
 ## Flujo
 
-1. Revisa `docs/guia-docente.mdx` y `docs/guia-estilo-contenido.mdx`.
+1. Revisa `docs/guia/_guia-docente.mdx` y `docs/guia/_guia-estilo-contenido.mdx`.
 2. Propone titulo, objetivos y alcance de la unidad.
 3. Genera un archivo MDX con las secciones estandar del repositorio.
 4. Asegura coherencia con el resto de temas existentes.
