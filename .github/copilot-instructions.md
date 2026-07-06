@@ -23,6 +23,20 @@ Este repositorio contiene material docente del modulo Diseno, Gestion, Publicaci
 - En contenidos teoricos amplios, incluir un minimo de 3 referencias.
 - Priorizar en este orden: documentacion oficial > estandares/papers > libros tecnicos > informes sectoriales.
 
+## Sincronizacion de guias de profesorado
+
+Al **anadir, modificar o eliminar** contenido de un tema en `docs/tema-XX/tema-*.mdx`, actualizar
+en el **mismo cambio** (no dejarlo para despues):
+
+| Archivo | Que alinear |
+| --- | --- |
+| `docs/tema-XX/_guia-profesorado-tema-XX.mdx` | Proposito, sesiones, secuencia didactica, actividades/entregas, errores, materiales, conexiones, fuentes |
+| `docs/guia/_guia-general-profesorado.mdx` | Mapa de entregables (§2), resumen del tema (§3); hilo narrativo o recursos si el cambio lo exige |
+
+- Subtema nuevo: anadir fila en la tabla de sesiones de la guia del tema y revisar `sidebars.ts`.
+- Plantilla nueva: enlazarla en materiales de la guia del tema y en Recursos / §7 de la guia general.
+- Las guias usan prefijo `_` y `draft: true`; no se publican en GitHub Pages.
+
 ## Reglas tecnicas
 
 - No eliminar ni sobrescribir material de `prev/` salvo indicacion explicita.

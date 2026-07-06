@@ -1,0 +1,58 @@
+---
+description: Sincronizar guías de profesorado al crear o modificar contenido de temas
+globs: docs/tema-*/tema-*.mdx
+alwaysApply: false
+---
+
+# Sincronización de guías de profesorado
+
+Al **añadir, modificar o eliminar** contenido publicado de un tema (`docs/tema-XX/tema-*.mdx`),
+actualiza en el **mismo cambio** las guías internas para que reflejen el material real. No dejes
+solo el MDX del alumnado sin alinear el profesorado.
+
+## Archivos obligatorios
+
+| Ámbito | Archivo |
+| --- | --- |
+| Tema afectado | `docs/tema-XX/_guia-profesorado-tema-XX.mdx` |
+| Visión transversal | `docs/guia/_guia-general-profesorado.mdx` |
+
+Identifica `XX` por la carpeta (`docs/tema-02/...` → Tema 2). Si el cambio afecta a varios temas
+(enlaces, prerequisitos, entregables cruzados), actualiza todas las guías implicadas.
+
+## Qué revisar en la guía del tema
+
+1. **Propósito del tema** — objetivos y riesgos principales coherentes con el contenido nuevo.
+2. **Encaje temporal** — tabla de sesiones: documentos (`tema-XX-...`), orden y duración estimada.
+3. **Secuencia didáctica** — gancho, talleres y dinámicas alineados con actividades del MDX.
+4. **Actividades y entregas** — formativas y evaluables; pesos orientativos si cambian hitos.
+5. **Errores frecuentes** — derivados del contenido técnico o conceptual añadido.
+6. **Materiales a preparar** — plantillas, ejemplos, software (p. ej. Unity 6), hardware.
+7. **Conexión con otros temas** — prerequisitos y temas que consumen este contenido.
+8. **Fuentes de apoyo** — bibliografía citada en los MDX del tema.
+
+Si creas un **subtema nuevo** (p. ej. `tema-02-diseno-de-niveles.mdx`), añádelo a la tabla de
+sesiones y comprueba `sidebars.ts` del tema correspondiente.
+
+## Qué revisar en la guía general
+
+En `docs/guia/_guia-general-profesorado.mdx`, como mínimo:
+
+- **§2 Mapa de entregables** — entregables clave y peso del tema afectado.
+- **§3 Resumen del tema** — foco, riesgo principal y entregable estrella.
+- **§1 Hilo narrativo** — solo si el cambio altera la pregunta central o la fase del proyecto.
+- **§7 Recursos reutilizables** — si añades plantillas en `static/plantillas/` o en Recursos.
+
+## Criterio de alineación
+
+La guía debe poder usarse en aula **sin sorpresas**: mismos documentos, mismas evidencias, mismas
+herramientas y mismos hitos que el alumnado ve en el sidebar. Si el MDX público y la guía
+contradicen entregables, sesiones o riesgos, corrige la guía (o el contenido, si la guía es la
+correcta).
+
+## Excepciones
+
+- No modificar `prev/` salvo petición explícita.
+- Las guías llevan `draft: true` y prefijo `_`; no se publican en el sitio.
+- Cambios solo en `_guia-profesorado-*.mdx` sin tocar MDX público: verifica coherencia con el
+  temario actual, pero no es obligatorio tocar el MDX del alumnado.

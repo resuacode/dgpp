@@ -25,3 +25,20 @@ Estas instrucciones aplican para agentes usados desde Copilot, Cursor u otras he
 - Coherencia entre objetivos, actividades y evaluacion.
 - Lenguaje claro para alumnado de curso de especializacion.
 - Ejemplos aplicados a desarrollo y produccion de videojuegos.
+
+## Sincronizacion de guias de profesorado
+
+Cada vez que se **anada, modifique o elimine** contenido publicado de un tema
+(`docs/tema-XX/tema-*.mdx`), actualizar en el **mismo cambio**:
+
+1. **Guia del tema:** `docs/tema-XX/_guia-profesorado-tema-XX.mdx`
+2. **Guia general:** `docs/guia/_guia-general-profesorado.mdx` (mapa de entregables, resumen del
+   tema afectado y, si aplica, hilo narrativo o recursos reutilizables)
+
+En la guia del tema, revisar como minimo: proposito, encaje temporal (tabla de sesiones y
+documentos), secuencia didactica, actividades/entregas, errores frecuentes, materiales,
+conexiones con otros temas y fuentes. Si hay un subtema nuevo, incluirlo en la tabla de sesiones
+y en `sidebars.ts` si corresponde.
+
+La guia debe reflejar el mismo temario, evidencias y herramientas que ve el alumnado en el sitio.
+No dejar el MDX del alumnado actualizado sin alinear el profesorado.

@@ -12,6 +12,9 @@ alwaysApply: false
 - Definir evaluacion con criterios verificables.
 - Usar ejemplos relacionados con desarrollo de videojuegos.
 - Mantener consistencia con `docs/guia/guia-docente.mdx` y `docs/guia/guia-estilo-contenido.mdx`.
+- Al crear o modificar un tema (`docs/tema-*/tema-*.mdx`), actualizar en el mismo cambio la guía
+  interna del tema (`_guia-profesorado-tema-XX.mdx`) y el resumen correspondiente en
+  `docs/guia/_guia-general-profesorado.mdx` (ver regla `dgpp-guias-profesorado`).
 - Terminar cada documento con la seccion `## Fuentes y referencias`.
 - Priorizar fuentes primarias y verificables: documentacion oficial, libros tecnicos reconocidos, estandares y articulos academicos.
 - Evitar referencias sin autoria clara o de baja calidad.
