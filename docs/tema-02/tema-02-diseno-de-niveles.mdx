@@ -41,6 +41,13 @@ unidades de análisis más útiles:
 | ***Gating*** | Bloqueos que controlan el avance | ¿Qué me impide progresar y por qué? |
 | **Landmarks** | Referencias visuales que orientan | ¿Dónde estoy y a dónde voy? |
 
+:::info[Ejemplo: *Celeste*]
+El capítulo 1 introduce la mecánica de dash con beats muy legibles: un objetivo claro (llegar
+arriba), un *layout* que guía sin texto, picos de tensión en cada pantalla y *gating* por
+habilidad. Analizar un nivel así con la tabla anterior es más útil que describirlo solo como
+"un mapa de plataformas".
+:::
+
 ### 2. La estructura "enseñar, probar, retorcer"
 
 Un patrón clásico y muy aplicable en 2D para introducir una mecánica es **enseñar → probar →
@@ -76,6 +83,12 @@ Intensidad
    intro   reto  respiro  reto   resolución
 ```
 
+:::info[Ejemplo: *DOOM (2016)*]
+Alterna combates intensos (picos) con exploración y recogida de recursos (valles) antes del
+clímax de cada arena. Si la intensidad fuera plana, el jugador se fatigaría; si solo subiera sin
+pausas, perdería el contraste que hace memorable cada enfrentamiento.
+:::
+
 ### 4. Complejidad frente a dificultad
 
 Un error habitual es confundir dos conceptos que conviene separar (Aponte, Levieux & Natkin, 2018):
@@ -87,6 +100,12 @@ Un error habitual es confundir dos conceptos que conviene separar (Aponte, Levie
 
 Consecuencia práctica: se puede **medir la complejidad** contando elementos del nivel, pero para
 conocer la **dificultad real** hay que observar (o modelar) cómo la afronta el jugador.
+
+:::info[Ejemplo: *Cuphead*]
+Sus patrones de jefe son pocos pero muy legibles (**baja complejidad** de reglas), pero exigen
+ejecución precisa (**alta dificultad** para quien no domina el género). Un nivel con muchos
+enemigos distintos puede ser complejo en papel y resultar fácil para un experto del género.
+:::
 
 ### 5. Cómo medir la dificultad de un nivel
 
@@ -124,6 +143,12 @@ es la referencia fundacional: modela los recursos del jugador (vida, munición) 
 y, cuando predice que el jugador va a quedarse sin recursos, interviene para mantenerlo en el
 canal de *flow*. Para el alcance del curso basta con **conocer el concepto** y, como mucho,
 ofrecer **modos de dificultad** o ayudas opcionales (accesibilidad, ver [Tema 2.2](./tema-02-balanceo-y-economia.mdx)).
+
+:::info[Ejemplo: *Left 4 Dead*]
+El **Director de IA** ajusta la presión (más infectados, menos suministros) según el rendimiento
+del equipo: si van sobrados, sube la tensión; si van mal, da un respiro. Es DDA invisible que
+busca mantener el *flow* sin menús de "fácil/medio/difícil".
+:::
 
 ### 7. Aplicación al proyecto 2D
 

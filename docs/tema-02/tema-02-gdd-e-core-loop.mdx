@@ -39,6 +39,12 @@ Este apartado desarrolla las secciones de mecánicas y core loop; el resto se co
 posteriores.
 :::
 
+:::info[Ejemplo: documentación de *Spelunky*]
+Derek Yu mantuvo notas de diseño y versiones del prototipo mientras el juego evolucionaba: el GDD
+no era un PDF cerrado del día uno, sino un registro de decisiones. Ese enfoque encaja con la
+estructura del [GDD transversal](../guia/gdd-transversal.mdx).
+:::
+
 ### 2. Principios de un buen GDD
 
 - **Vivo**: se versiona (v0.1, v0.2…) y refleja las decisiones tomadas.
@@ -49,6 +55,13 @@ posteriores.
 - **De coordinación**: el GDD no es literatura de diseño; es la herramienta que alinea a
   programación, arte, audio y QA sobre la misma visión. Cada departamento debe encontrar en él
   lo que necesita para trabajar.
+
+:::info[Ejemplo: *Spelunky*]
+Derek Yu documentó iteraciones constantes de *Spelunky*: el GDD y los prototipos evolucionaron
+juntos. Un documento vivo registra por qué se cambió la generación procedural o la economía de
+tienda; un muro de texto inicial que nadie actualiza no guía al equipo cuando el juego real ya
+es otro.
+:::
 
 ### 3. Pensar las mecánicas por dimensiones
 
@@ -63,6 +76,13 @@ Una forma útil de clasificarlas —complementaria al MDA— es por **dimensión
 | Recursos | Economía interna, inventario | Vida, munición, moneda |
 | Tiempo | Ritmo, presión, turnos | Temporizador, *cooldowns*, día/noche |
 | Social | Cooperación, competición, comunicación | Chat, emotes, PvP, trading |
+
+:::info[Ejemplo: *Dead Cells*]
+En *Dead Cells*, el **control** (combate rápido), el **espacio** (corredores y plataformas), los
+**recursos** (celdas y armas entre runs) y el **tiempo** (presión de enemigos) se entrelazan: si
+fallas en una dimensión, el loop se resiente. Clasificar tus mecánicas así revela huecos antes
+de prototipar.
+:::
 
 :::tip[Revisión del GDD]
 Recorre las mecánicas de tu proyecto y márcalas en esta tabla. Si una dimensión queda vacía,
@@ -87,6 +107,12 @@ distinguir tres escalas de bucle que conviven:
 | Loop de sesión | Minutos | Completar un nivel, una oleada |
 | Loop de progresión | Horas/días | Desbloquear mejoras, avanzar la historia |
 
+:::info[Ejemplo: *Slay the Spire*]
+El **loop de acción** dura segundos (jugar una carta); el de **sesión**, minutos (completar un
+piso o morir); el de **progresión**, horas (desbloquear cartas entre runs). Las tres escalas
+refuerzan el mismo núcleo —construir un mazo cada run— sin competir entre sí.
+:::
+
 :::tip[El *feedback* no es opcional]
 Cada acción del loop necesita **retroalimentación perceptible** (visual, sonora, háptica). Sin
 *feedback* claro, el jugador no aprende el sistema y el loop no engancha.
@@ -97,6 +123,12 @@ Cada acción del loop necesita **retroalimentación perceptible** (visual, sonor
 Alrededor del core loop se construyen loops secundarios (colección, mejora, exploración,
 social) que dan profundidad y motivan la rejugabilidad. Deben **reforzar** el core loop, no
 competir con él por la atención del jugador.
+
+:::info[Ejemplo: *Hades*]
+El core loop es el combate por salas; los loops secundarios (conversaciones con personajes,
+mejoras permanentes, relaciones) recompensan cada intento fallido sin sustituir el combate.
+Si el diálogo obligara a pausar demasiado el loop de acción, la experiencia se fragmentaría.
+:::
 
 ## Actividades
 
